@@ -51,43 +51,43 @@
       }
     },
     "accent": {
-      "pointBlue-900": {
+      "pointblue-900": {
         "value": "#000033",
         "type": "color"
       },
-      "pointBlue-800": {
+      "pointblue-800": {
         "value": "#000472",
         "type": "color"
       },
-      "pointBlue-700": {
+      "pointblue-700": {
         "value": "#000fba",
         "type": "color"
       },
-      "pointBlue-600": {
+      "pointblue-600": {
         "value": "#021fdf",
         "type": "color"
       },
-      "pointBlue-500": {
+      "pointblue-500": {
         "value": "#0c37ee",
         "type": "color"
       },
-      "pointBlue-400": {
+      "pointblue-400": {
         "value": "#1e55f5",
         "type": "color"
       },
-      "pointBlue-300": {
+      "pointblue-300": {
         "value": "#3879fa",
         "type": "color"
       },
-      "pointBlue-200": {
+      "pointblue-200": {
         "value": "#5ca0fc",
         "type": "color"
       },
-      "pointBlue-100": {
+      "pointblue-100": {
         "value": "#87c5fe",
         "type": "color"
       },
-      "pointBlue-50": {
+      "pointblue-50": {
         "value": "#c3dcff",
         "type": "color"
       }
