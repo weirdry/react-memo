@@ -1,5 +1,5 @@
 {
-  "global": {
+  "base": {
     "neutral": {
       "grayscale-1000": {
         "value": "#0d0d0d",
@@ -93,10 +93,37 @@
       }
     }
   },
+  "component": {
+    "accent": {
+      "primary": {
+        "main": {
+          "value": "{accent.pointblue-300}",
+          "type": "color"
+        },
+        "on_main": {
+          "value": "{accent.pointblue-100}",
+          "type": "color"
+        }
+      }
+    },
+    "neutral": {
+      "primary": {
+        "on_main": {
+          "value": "{neutral.grayscale-1000}",
+          "type": "color"
+        },
+        "main": {
+          "value": "{neutral.grayscale-0}",
+          "type": "color"
+        }
+      }
+    }
+  },
   "$themes": [],
   "$metadata": {
     "tokenSetOrder": [
-      "global"
+      "base",
+      "component"
     ]
   }
 }
