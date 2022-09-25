@@ -1,0 +1,29 @@
+{
+  "source": [
+    "src/assets/tokens/output-tokens.json"
+  ],
+  "platforms": {
+    "scss": {
+      "transformGroup": "css",
+      "files": [
+        {
+          "destination": "src/assets/tokens/variables.css",
+          "format": "css/variables"
+        }
+      ]
+    },
+    "ts": {
+      "transformGroup": "js",
+      "files": [
+        {
+          "format": "javascript/es6",
+          "destination": "src/assets/tokens/tokens.js"
+        },
+        {
+          "format": "typescript/es6-declarations",
+          "destination": "src/assets/tokens/tokens.d.ts"
+        }
+      ]
+    }
+  }
+}
