@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 25 Sep 2022 11:39:53 GMT
+ * Generated on Sun, 25 Sep 2022 11:56:41 GMT
  */
 
 :root {
@@ -9,4 +9,12 @@
   --grayscale-900: #252525;
   --grayscale-800: #3d3d3d;
   --grayscale-700: #555555;
+  --grayscale-600: #6e6e6e;
+  --grayscale-500: #868686;
+  --grayscale-400: #9e9e9e;
+  --grayscale-300: #b6b6b6;
+  --grayscale-200: #cfcfcf;
+  --grayscale-100: #e7e7e7;
+  --grayscale-50: #f3f3f3;
+  --grayscale-0: #ffffff;
 }
