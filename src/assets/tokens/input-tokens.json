@@ -133,6 +133,44 @@
         "value": "#470000",
         "type": "color"
       }
+    },
+    "spacing": {
+      "xxxsm": {
+        "value": "0.25rem",
+        "type": "spacing"
+      },
+      "xxsm": {
+        "value": "0.5rem",
+        "type": "spacing"
+      },
+      "xsm": {
+        "value": "1rem",
+        "type": "spacing"
+      },
+      "sm": {
+        "value": "1.5rem",
+        "type": "spacing"
+      },
+      "md": {
+        "value": "2rem",
+        "type": "spacing"
+      },
+      "lg": {
+        "value": "2.5rem",
+        "type": "spacing"
+      },
+      "xlg": {
+        "value": "3rem",
+        "type": "spacing"
+      },
+      "xxlg": {
+        "value": "4rem",
+        "type": "spacing"
+      },
+      "xxxlg": {
+        "value": "10rem",
+        "type": "spacing"
+      }
     }
   },
   "common": {
@@ -264,9 +302,33 @@
           "value": "{neutral.primary.default.active}",
           "type": "color"
         },
-        "on-background": {
+        "on-background--active": {
           "value": "{neutral.primary.inverted.active}",
           "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "{neutral.primary.inverted.inactive}",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "{neutral.primary.inverted.pressed}",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "{neutral.primary.inverted.hover}",
+          "type": "color"
+        }
+      }
+    },
+    "grid": {
+      "app": {
+        "margin": {
+          "value": "{spacing.xsm}",
+          "type": "spacing"
+        },
+        "gutter": {
+          "value": "{spacing.xsm}",
+          "type": "spacing"
         }
       }
     }
