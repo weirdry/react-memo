@@ -420,8 +420,20 @@
       },
       "container": {
         "default": {
-          "background": {
+          "background-active": {
             "value": "{neutral.primary.default.active}",
+            "type": "color"
+          },
+          "background-inactive": {
+            "value": "{neutral.primary.default.inactive}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{neutral.primary.default.pressed}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{neutral.primary.default.hover}",
             "type": "color"
           },
           "on-background--active": {
