@@ -91,61 +91,181 @@
         "value": "#000033",
         "type": "color"
       }
+    },
+    "systemred": {
+      "50": {
+        "value": "#FFEDED",
+        "type": "color"
+      },
+      "100": {
+        "value": "#FFDADA",
+        "type": "color"
+      },
+      "200": {
+        "value": "#FFB7B7",
+        "type": "color"
+      },
+      "300": {
+        "value": "#FF9090",
+        "type": "color"
+      },
+      "400": {
+        "value": "#FF6565",
+        "type": "color"
+      },
+      "500": {
+        "value": "#FF3636",
+        "type": "color"
+      },
+      "600": {
+        "value": "#FF0000",
+        "type": "color"
+      },
+      "700": {
+        "value": "#C20202",
+        "type": "color"
+      },
+      "800": {
+        "value": "#850101",
+        "type": "color"
+      },
+      "900": {
+        "value": "#470000",
+        "type": "color"
+      }
     }
   },
   "common": {
     "accent": {
       "primary": {
         "default": {
-          "value": "{pointblue.300}",
-          "type": "color"
+          "active": {
+            "value": "{pointblue.300}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($accent.primary.default.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{pointblue.500}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{pointblue.200}",
+            "type": "color"
+          }
         },
         "inverted": {
-          "value": "{pointblue.100}",
-          "type": "color"
-        },
-        "pressed": {
-          "value": "{pointblue.500}",
-          "type": "color"
-        },
-        "hover": {
-          "value": "{pointblue.200}",
-          "type": "color"
+          "active": {
+            "value": "{grayscale.0}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($accent.primary.inverted.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{pointblue.200}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{pointblue.50}",
+            "type": "color"
+          }
         }
       }
     },
     "neutral": {
       "primary": {
         "default": {
-          "value": "{grayscale.1000}",
-          "type": "color"
+          "active": {
+            "value": "{grayscale.1000}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($neutral.primary.default.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{grayscale.900}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{grayscale.800}",
+            "type": "color"
+          }
         },
         "inverted": {
-          "value": "{grayscale.0}",
-          "type": "color"
+          "active": {
+            "value": "{grayscale.0}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($neutral.primary.inverted.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{grayscale.200}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{grayscale.0}",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "system": {
+      "primary": {
+        "default": {
+          "active": {
+            "value": "{systemred.600}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($system.primary.default.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{systemred.700}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{systemred.400}",
+            "type": "color"
+          }
         },
-        "pressed": {
-          "value": "{grayscale.900}",
-          "type": "color"
-        },
-        "hover": {
-          "value": "{grayscale.800}",
-          "type": "color"
+        "inverted": {
+          "active": {
+            "value": "{grayscale.0}",
+            "type": "color"
+          },
+          "inactive": {
+            "value": "rgba($system.primary.inverted.active, 0.5)",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{systemred.200}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{systemred.100}",
+            "type": "color"
+          }
         }
       }
     }
   },
   "component": {
     "colour": {
-      "background": {
-        "active": {
-          "value": "{neutral.primary.default}",
+      "app": {
+        "background": {
+          "value": "{neutral.primary.default.active}",
           "type": "color"
-        }
-      },
-      "text": {
-        "active": {
-          "value": "{neutral.primary.inverted}",
+        },
+        "on-background": {
+          "value": "{neutral.primary.inverted.active}",
           "type": "color"
         }
       }
