@@ -450,6 +450,18 @@
           "type": "typography"
         }
       }
+    },
+    "grid": {
+      "app": {
+        "margin": {
+          "value": "{spacing.xsm}",
+          "type": "spacing"
+        },
+        "gutter": {
+          "value": "{spacing.xsm}",
+          "type": "spacing"
+        }
+      }
     }
   },
   "$themes": [],
