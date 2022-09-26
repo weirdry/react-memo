@@ -1,13 +1,29 @@
 import React from 'react'
-import './App.css'
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom'
 
-import { Grayscale1000, Grayscale200 } from './assets/tokens/tokens'
+import Home from './routes/home/home.component'
+import CreateMemo from './routes/create-memo/create-memo.component'
+import ViewMemo from './routes/view-memo/view-memo.component'
+
+import './App.css'
+import './assets/tokens/variables.css'
 
 function App() {
 	return (
-		<div className="App" style={{ backgroundColor: Grayscale1000 }}>
-			<h1 style={{ color: Grayscale200 }}>REACT MEMO</h1>
-		</div>
+		<Router>
+			<Routes>
+				<Route index element={<Home />} />
+				<Route path="/create-memo" element={<CreateMemo />} />
+				<Route path="/view-memo" element={<ViewMemo />} />
+
+				<Route path="/*" element={<Navigate to="/"></Navigate>} />
+			</Routes>
+		</Router>
 	)
 }
 
