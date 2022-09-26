@@ -1,15 +1,19 @@
-import { ReactNode } from 'react'
-
-import { ReactComponent as DefaultIcon } from '../../assets/icons/Icon-default.svg'
+import getIcon, { IconType } from '../../assets/icons/iconSelector'
 
 import { IconButtonContainer } from './icon-button.styles'
 
-type IconButtonProps = { icon: ReactNode | undefined }
+type IconButtonProps = { icon: IconType }
 
 export default function IconButton({ icon }: IconButtonProps) {
-	return <IconButtonContainer>{icon}</IconButtonContainer>
+	const ButtonIcon = getIcon(icon)
+
+	return (
+		<IconButtonContainer>
+			<ButtonIcon />
+		</IconButtonContainer>
+	)
 }
 
 IconButton.defaultProps = {
-	icon: <DefaultIcon />,
+	icon: IconType.default,
 }
