@@ -13,7 +13,7 @@ export const IconButtonContainer = styled.button`
 	align-items: center;
 	justify-content: center;
 
-	border-radius: 0.5rem;
+	border-radius: var(--radii-iconbutton-container);
 	background-color: var(--colour-container-default-background-active);
 
 	* {

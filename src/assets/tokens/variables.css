@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 26 Sep 2022 08:49:11 GMT
+ * Generated on Mon, 26 Sep 2022 16:22:11 GMT
  */
 
 :root {
@@ -20,21 +20,45 @@
   --colour-container-default-on-background-inactive: #ffffff80;
   --colour-container-default-on-background-pressed: #cfcfcf;
   --colour-container-default-on-background-hover: #ffffff;
+  --colour-card-default-background-active: #252525;
+  --colour-card-default-background-inactive: #25252580;
+  --colour-card-default-background-pressed: #0d0d0d;
+  --colour-card-default-background-hover: #3d3d3d;
+  --colour-card-default-on-background-active: #ffffff;
+  --colour-card-default-on-background-inactive: #ffffff80;
+  --colour-card-default-on-background-pressed: #cfcfcf;
+  --colour-card-default-on-background-hover: #ffffff;
   --typo-route-title-font-family: Pretendard Variable;
   --typo-route-title-font-weight: 900;
-  --typo-route-title-line-height: 100%;
-  --typo-route-title-font-size: 1.5rem;
+  --typo-route-title-line-height: 150%;
+  --typo-route-title-font-size: 1.25rem;
+  --typo-route-sectiontitle-font-family: Pretendard Variable;
+  --typo-route-sectiontitle-font-weight: 700;
+  --typo-route-sectiontitle-line-height: 150%;
+  --typo-route-sectiontitle-font-size: 1.25rem;
+  --typo-card-title-font-family: Pretendard Variable;
+  --typo-card-title-font-weight: 700;
+  --typo-card-title-line-height: 150%;
+  --typo-card-title-font-size: 1rem;
+  --typo-card-body-font-family: Pretendard Variable;
+  --typo-card-body-font-weight: 400;
+  --typo-card-body-line-height: 150%;
+  --typo-card-body-font-size: 1rem;
+  --typo-card-caption-font-family: Pretendard Variable;
+  --typo-card-caption-font-weight: 200;
+  --typo-card-caption-line-height: 150%;
+  --typo-card-caption-font-size: 0.75rem;
   --typo-h1-font-family: Pretendard Variable;
   --typo-h1-font-weight: 900;
-  --typo-h1-line-height: 100%;
-  --typo-h1-font-size: 1.5rem;
+  --typo-h1-line-height: 150%;
+  --typo-h1-font-size: 1.25rem;
   --typo-h2-font-family: Pretendard Variable;
   --typo-h2-font-weight: 700;
-  --typo-h2-line-height: 100%;
-  --typo-h2-font-size: 1.5rem;
+  --typo-h2-line-height: 150%;
+  --typo-h2-font-size: 1.25rem;
   --typo-h3-font-family: Pretendard Variable;
   --typo-h3-font-weight: 700;
-  --typo-h3-line-height: 100%;
+  --typo-h3-line-height: 150%;
   --typo-h3-font-size: 1rem;
   --typo-body-font-family: Pretendard Variable;
   --typo-body-font-weight: 400;
@@ -46,6 +70,25 @@
   --typo-caption-font-size: 0.75rem;
   --grid-app-margin: 1rem;
   --grid-app-gutter: 1rem;
+  --radii-iconbutton-container: 0.5rem;
+  --radii-card-container: 1rem;
+  --radii-xxsm: 0.25rem;
+  --radii-xsm: 0.5rem;
+  --radii-sm: 1rem;
+  --radii-md: 1.5rem;
+  --radii-lg: 2rem;
+  --radii-xlg: 2.5rem;
+  --padding-card-container: 1.5rem;
+  --spacing-card-container: 1rem;
+  --spacing-xxxsm: 0.25rem;
+  --spacing-xxsm: 0.5rem;
+  --spacing-xsm: 1rem;
+  --spacing-sm: 1.5rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xlg: 3rem;
+  --spacing-xxlg: 4rem;
+  --spacing-xxxlg: 10rem;
   --accent-primary-default-active: #3879fa;
   --accent-primary-default-inactive: #3879fa80;
   --accent-primary-default-pressed: #0c37ee;
@@ -62,6 +105,14 @@
   --neutral-primary-inverted-inactive: #ffffff80;
   --neutral-primary-inverted-pressed: #cfcfcf;
   --neutral-primary-inverted-hover: #ffffff;
+  --neutral-secondary-default-active: #252525;
+  --neutral-secondary-default-inactive: #25252580;
+  --neutral-secondary-default-pressed: #0d0d0d;
+  --neutral-secondary-default-hover: #3d3d3d;
+  --neutral-secondary-inverted-active: #ffffff;
+  --neutral-secondary-inverted-inactive: #ffffff80;
+  --neutral-secondary-inverted-pressed: #cfcfcf;
+  --neutral-secondary-inverted-hover: #ffffff;
   --system-primary-default-active: #FF0000;
   --system-primary-default-inactive: #ff000080;
   --system-primary-default-pressed: #C20202;
@@ -102,15 +153,6 @@
   --systemred-700: #C20202;
   --systemred-800: #850101;
   --systemred-900: #470000;
-  --spacing-xxxsm: 0.25rem;
-  --spacing-xxsm: 0.5rem;
-  --spacing-xsm: 1rem;
-  --spacing-sm: 1.5rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 2.5rem;
-  --spacing-xlg: 3rem;
-  --spacing-xxlg: 4rem;
-  --spacing-xxxlg: 10rem;
   --font-weight-lt: 200;
   --font-weight-md: 400;
   --font-weight-hv: 700;
@@ -119,7 +161,7 @@
   --font-leading-default: 150%;
   --font-size-sm: 0.75rem;
   --font-size-md: 1rem;
-  --font-size-lg: 1.5rem;
+  --font-size-lg: 1.25rem;
   --font-size-xlg: 2rem;
   --font-typeface: Pretendard Variable;
 }
