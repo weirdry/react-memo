@@ -1,6 +1,6 @@
 import Card from '../card/card.component'
 
-import { ContentContainer } from './memo-styles'
+import { ContentContainer } from './memo-item.styles'
 
 type MemoItemProps = {
 	title: string

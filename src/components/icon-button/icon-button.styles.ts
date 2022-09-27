@@ -40,8 +40,8 @@ export const IconButtonContainerMD = styled(IconButtonContainer)`
 	height: 2.5rem;
 
 	* {
-		width: 24;
-		height: 24;
+		width: 1.5rem;
+		height: 1.5rem;
 	}
 `
 
@@ -50,7 +50,7 @@ export const IconButtonContainerSM = styled(IconButtonContainer)`
 	height: 2rem;
 
 	* {
-		width: 20;
-		height: 20;
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 `

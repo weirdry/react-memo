@@ -3,6 +3,8 @@ import styled from '@emotion/styled'
 import '../../assets/tokens/variables.css'
 
 export const MemoListContainer = styled.div`
+	width: 100%;
+
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;

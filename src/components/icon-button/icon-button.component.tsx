@@ -1,4 +1,4 @@
-import { MouseEvent, FC } from 'react'
+import { MouseEvent } from 'react'
 
 import selecIcon, { IconType } from '../../assets/icons/iconSelector'
 
