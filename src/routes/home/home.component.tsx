@@ -21,8 +21,10 @@ export default function Home() {
 				<IconButton icon="select" handleClick={handleSelect} />
 			</ToolBar>
 
-			<MemoList title="즐겨찾기한 메모" isFoldable />
-			<MemoList title="메모 리스트" />
+			<div className="lists-container">
+				<MemoList title="즐겨찾기한 메모" isFoldable />
+				<MemoList title="메모 리스트" />
+			</div>
 		</HomeContainer>
 	)
 }

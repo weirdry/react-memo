@@ -12,7 +12,7 @@ type AccordionProps = {
 
 export default function Accordion(props: AccordionProps) {
 	const { text, children } = props
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(true)
 
 	const handleOpen = (e: MouseEvent<HTMLDivElement>): void => setIsOpen(!isOpen)
 

@@ -15,8 +15,10 @@ export const ToolBarContainer = styled.div`
 
 	padding: 0 var(--grid-app-margin);
 
-	background-color: var(--colour-container-default-background);
+	background-color: var(--colour-container-default-background-active);
 	color: var(--colour-container-default-on-background-active);
+
+	z-index: 5;
 
 	h1 {
 		font-family: var(--typo-route-title-font-family);

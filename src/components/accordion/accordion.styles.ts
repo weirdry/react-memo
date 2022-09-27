@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import IconButton from '../icon-button/icon-button.component'
 
 type AccordionContainerProps = { isOpen: boolean }
 
@@ -35,7 +34,7 @@ export const AccordionContainer = styled.div`
 							transform: rotate(180deg);
 					  `
 					: css`
-							transform: rotate(90deg);
+							transform: rotate(0deg);
 					  `}
 		}
 	}
