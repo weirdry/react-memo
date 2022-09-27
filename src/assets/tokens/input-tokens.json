@@ -215,7 +215,7 @@
           "type": "fontSizes"
         },
         "xlg": {
-          "value": "2rem",
+          "value": "1.75rem",
           "type": "fontSizes"
         }
       },
@@ -416,7 +416,7 @@
           "fontFamily": "{font.typeface}",
           "fontWeight": "{font.weight.xhv}",
           "lineHeight": "{font.leading.default}",
-          "fontSize": "{font.size.lg}"
+          "fontSize": "{font.size.xlg}"
         },
         "type": "typography"
       },
