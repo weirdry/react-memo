@@ -1,4 +1,5 @@
-import styled from '@emotion/styled'
+import styled from 'styled-components'
+import { FloatingButtonContainer } from '../../components/floating-button/floating-button.styles'
 
 import '../../assets/tokens/variables.css'
 
@@ -21,5 +22,12 @@ export const HomeContainer = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
+	}
+
+	${FloatingButtonContainer} {
+		position: fixed;
+		bottom: 1.5rem;
+		/* left: 50%;
+		transform: translateX(-50%); */
 	}
 `

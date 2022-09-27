@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 09:35:25 GMT
+ * Generated on Tue, 27 Sep 2022 10:22:30 GMT
  */
 
 :root {
@@ -20,6 +20,14 @@
   --colour-container-default-on-background-inactive: #ffffff80;
   --colour-container-default-on-background-pressed: #cfcfcf;
   --colour-container-default-on-background-hover: #ffffff;
+  --colour-container-inverted-background-active: #ffffff;
+  --colour-container-inverted-background-inactive: #ffffff80;
+  --colour-container-inverted-background-pressed: #cfcfcf;
+  --colour-container-inverted-background-hover: #ffffff;
+  --colour-container-inverted-on-background-active: #0d0d0d;
+  --colour-container-inverted-on-background-inactive: #0d0d0d80;
+  --colour-container-inverted-on-background-pressed: #252525;
+  --colour-container-inverted-on-background-hover: #3d3d3d;
   --colour-card-default-background-active: #252525;
   --colour-card-default-background-inactive: #25252580;
   --colour-card-default-background-pressed: #0d0d0d;
@@ -48,6 +56,10 @@
   --typo-card-caption-font-weight: 200;
   --typo-card-caption-line-height: 150%;
   --typo-card-caption-font-size: 0.75rem;
+  --typo-button-title-font-family: Pretendard Variable;
+  --typo-button-title-font-weight: 700;
+  --typo-button-title-line-height: 150%;
+  --typo-button-title-font-size: 1.25rem;
   --typo-h1-font-family: Pretendard Variable;
   --typo-h1-font-weight: 900;
   --typo-h1-line-height: 150%;

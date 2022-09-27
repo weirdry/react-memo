@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 09:35:25 GMT
+ * Generated on Tue, 27 Sep 2022 10:22:30 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -19,6 +19,14 @@ export const ColourContainerDefaultOnBackgroundActive : string;
 export const ColourContainerDefaultOnBackgroundInactive : string;
 export const ColourContainerDefaultOnBackgroundPressed : string;
 export const ColourContainerDefaultOnBackgroundHover : string;
+export const ColourContainerInvertedBackgroundActive : string;
+export const ColourContainerInvertedBackgroundInactive : string;
+export const ColourContainerInvertedBackgroundPressed : string;
+export const ColourContainerInvertedBackgroundHover : string;
+export const ColourContainerInvertedOnBackgroundActive : string;
+export const ColourContainerInvertedOnBackgroundInactive : string;
+export const ColourContainerInvertedOnBackgroundPressed : string;
+export const ColourContainerInvertedOnBackgroundHover : string;
 export const ColourCardDefaultBackgroundActive : string;
 export const ColourCardDefaultBackgroundInactive : string;
 export const ColourCardDefaultBackgroundPressed : string;
@@ -47,6 +55,10 @@ export const TypoCardCaptionFontFamily : string;
 export const TypoCardCaptionFontWeight : number;
 export const TypoCardCaptionLineHeight : string;
 export const TypoCardCaptionFontSize : string;
+export const TypoButtonTitleFontFamily : string;
+export const TypoButtonTitleFontWeight : number;
+export const TypoButtonTitleLineHeight : string;
+export const TypoButtonTitleFontSize : string;
 export const TypoH1FontFamily : string;
 export const TypoH1FontWeight : number;
 export const TypoH1LineHeight : string;

@@ -70,6 +70,40 @@
           "value": "#ffffff",
           "type": "color"
         }
+      },
+      "inverted": {
+        "background-active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#cfcfcf",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#0d0d0d",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#0d0d0d80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#252525",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#3d3d3d",
+          "type": "color"
+        }
       }
     },
     "card": {
@@ -200,6 +234,26 @@
         },
         "fontSize": {
           "value": "0.75rem",
+          "type": "fontSize"
+        }
+      }
+    },
+    "button": {
+      "title": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 700,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "1.25rem",
           "type": "fontSize"
         }
       }

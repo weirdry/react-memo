@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react'
 
-import selecIcon, { IconType } from '../../assets/icons/iconSelector'
+import selectIcon, { IconType } from '../../assets/icons/iconSelector'
 
 import {
 	IconButtonContainer,
@@ -30,7 +30,7 @@ const selectIconButtonSize = (
 export default function IconButton(props: IconButtonProps) {
 	const { size, icon, handleClick } = props
 
-	const ButtonIcon = selecIcon(icon)
+	const ButtonIcon = selectIcon(icon)
 	const SelectedIconButton = selectIconButtonSize(size)
 
 	return (
@@ -43,5 +43,5 @@ export default function IconButton(props: IconButtonProps) {
 IconButton.defaultProps = {
 	size: 'md',
 	icon: 'default',
-	handleClick: () => console.log('Button Clicked'),
+	handleClick: () => console.log('Icon Button Clicked'),
 }

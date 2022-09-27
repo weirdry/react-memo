@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 09:35:25 GMT
+ * Generated on Tue, 27 Sep 2022 10:22:30 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -19,6 +19,14 @@ export const ColourContainerDefaultOnBackgroundActive = "#ffffff";
 export const ColourContainerDefaultOnBackgroundInactive = "#ffffff80";
 export const ColourContainerDefaultOnBackgroundPressed = "#cfcfcf";
 export const ColourContainerDefaultOnBackgroundHover = "#ffffff";
+export const ColourContainerInvertedBackgroundActive = "#ffffff";
+export const ColourContainerInvertedBackgroundInactive = "#ffffff80";
+export const ColourContainerInvertedBackgroundPressed = "#cfcfcf";
+export const ColourContainerInvertedBackgroundHover = "#ffffff";
+export const ColourContainerInvertedOnBackgroundActive = "#0d0d0d";
+export const ColourContainerInvertedOnBackgroundInactive = "#0d0d0d80";
+export const ColourContainerInvertedOnBackgroundPressed = "#252525";
+export const ColourContainerInvertedOnBackgroundHover = "#3d3d3d";
 export const ColourCardDefaultBackgroundActive = "#252525";
 export const ColourCardDefaultBackgroundInactive = "#25252580";
 export const ColourCardDefaultBackgroundPressed = "#0d0d0d";
@@ -47,6 +55,10 @@ export const TypoCardCaptionFontFamily = "Pretendard Variable";
 export const TypoCardCaptionFontWeight = 200;
 export const TypoCardCaptionLineHeight = "150%";
 export const TypoCardCaptionFontSize = "0.75rem";
+export const TypoButtonTitleFontFamily = "Pretendard Variable";
+export const TypoButtonTitleFontWeight = 700;
+export const TypoButtonTitleLineHeight = "150%";
+export const TypoButtonTitleFontSize = "1.25rem";
 export const TypoH1FontFamily = "Pretendard Variable";
 export const TypoH1FontWeight = 900;
 export const TypoH1LineHeight = "150%";

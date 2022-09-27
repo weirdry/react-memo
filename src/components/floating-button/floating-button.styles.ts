@@ -1,0 +1,33 @@
+import styled from 'styled-components'
+
+import '../../assets/tokens/variables.css'
+
+export const FloatingButtonContainer = styled.button`
+	all: unset;
+	cursor: pointer;
+
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	padding: 0.5rem 1rem;
+
+	border-radius: 10rem;
+
+	background-color: var(--colour-container-inverted-background-active);
+
+	box-shadow: 0 0.25rem 3rem rgba(0, 0, 0, 1);
+
+	*:first-of-type {
+		fill: var(--colour-container-inverted-on-background-active);
+	}
+
+	span {
+		color: var(--colour-container-inverted-on-background-active);
+
+		font-family: var(--typo-button-title-font-family);
+		font-weight: var(--typo-button-title-font-weight);
+		font-size: var(--typo-button-title-font-size);
+		line-height: var(--typo-button-title-line-height);
+	}
+`

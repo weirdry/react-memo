@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
 import MemoList from '../../components/memo-list/memo-list.component'
+import FloatingButton from '../../components/floating-button/floating-button.component'
 
 import { HomeContainer } from './home.styles'
 
@@ -25,6 +26,8 @@ export default function Home() {
 				<MemoList title="즐겨찾기한 메모" isFoldable />
 				<MemoList title="메모 리스트" />
 			</div>
+
+			<FloatingButton text="새 메모" icon="write" handleClick={handleCreate} />
 		</HomeContainer>
 	)
 }
