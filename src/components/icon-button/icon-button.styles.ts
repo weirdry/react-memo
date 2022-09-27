@@ -34,3 +34,23 @@ export const IconButtonContainer = styled.button`
 		}
 	}
 `
+
+export const IconButtonContainerMD = styled(IconButtonContainer)`
+	width: 2.5rem;
+	height: 2.5rem;
+
+	* {
+		width: 24;
+		height: 24;
+	}
+`
+
+export const IconButtonContainerSM = styled(IconButtonContainer)`
+	width: 2rem;
+	height: 2rem;
+
+	* {
+		width: 20;
+		height: 20;
+	}
+`

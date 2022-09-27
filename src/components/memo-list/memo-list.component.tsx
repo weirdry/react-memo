@@ -2,12 +2,22 @@ import MemoItem from '../memo-item/memo-item.component'
 
 import { MemoListContainer } from './memo-list.styles'
 
-export default function MemoList() {
+type MemoListProps = {
+	title: string
+}
+
+export default function MemoList(props: MemoListProps) {
+	const { title } = props
+
 	return (
 		<MemoListContainer>
-			<h1>메모 리스트</h1>
+			<h1>{title}</h1>
 			<MemoItem />
 			<MemoItem />
 		</MemoListContainer>
 	)
+}
+
+MemoList.defaultProps = {
+	title: '메모 리스트',
 }

@@ -1,27 +1,47 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, FC } from 'react'
 
 import selecIcon, { IconType } from '../../assets/icons/iconSelector'
 
-import { IconButtonContainer } from './icon-button.styles'
+import {
+	IconButtonContainer,
+	IconButtonContainerMD,
+	IconButtonContainerSM,
+} from './icon-button.styles'
 
 type IconButtonProps = {
+	size: 'md' | 'sm'
 	icon: IconType
 	handleClick: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
+const selectIconButtonSize = (
+	size: 'md' | 'sm',
+): typeof IconButtonContainer => {
+	switch (size) {
+		case 'md':
+			return IconButtonContainerMD
+		case 'sm':
+			return IconButtonContainerSM
+		default:
+			return IconButtonContainerMD
+	}
+}
+
 export default function IconButton(props: IconButtonProps) {
-	const { icon, handleClick } = props
+	const { size, icon, handleClick } = props
 
 	const ButtonIcon = selecIcon(icon)
+	const SelectedIconButton = selectIconButtonSize(size)
 
 	return (
-		<IconButtonContainer onClick={handleClick}>
+		<SelectedIconButton onClick={handleClick}>
 			<ButtonIcon />
-		</IconButtonContainer>
+		</SelectedIconButton>
 	)
 }
 
 IconButton.defaultProps = {
+	size: 'md',
 	icon: 'default',
 	handleClick: () => console.log('Button Clicked'),
 }
