@@ -21,6 +21,8 @@ export const ToolBarContainer = styled.div`
 	z-index: 5;
 
 	h1 {
+		width: 100%;
+
 		font-family: var(--typo-route-title-font-family);
 		font-weight: var(--typo-route-title-font-weight);
 		font-size: var(--typo-route-title-font-size);

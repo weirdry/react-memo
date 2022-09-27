@@ -2,7 +2,7 @@ import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
-import IconButton from '../../components/icon-button/icon-button.component'
+// import IconButton from '../../components/icon-button/icon-button.component'
 import MemoList from '../../components/memo-list/memo-list.component'
 import FloatingButton from '../../components/floating-button/floating-button.component'
 
@@ -13,13 +13,13 @@ export default function Home() {
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/create-memo')
-	const handleSelect = (e: MouseEvent<HTMLButtonElement>) => {}
+	// const handleSelect = (e: MouseEvent<HTMLButtonElement>) => {}
 
 	return (
 		<HomeContainer>
 			<ToolBar title="MEMOWISE">
-				<IconButton icon="create" handleClick={handleCreate} />
-				<IconButton icon="select" handleClick={handleSelect} />
+				{/* <IconButton icon="create" handleClick={handleCreate} />
+				<IconButton icon="select" handleClick={handleSelect} /> */}
 			</ToolBar>
 
 			<div className="lists-container">

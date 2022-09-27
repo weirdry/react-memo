@@ -8,7 +8,7 @@ export const FloatingButtonContainer = styled.button`
 
 	display: flex;
 	align-items: center;
-	gap: 1rem;
+	gap: 0.5rem;
 
 	padding: 0.5rem 1rem;
 

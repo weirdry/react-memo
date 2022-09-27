@@ -30,10 +30,12 @@ export const AccordionContainer = styled.div`
 			${(props: AccordionContainerProps) =>
 				props.isOpen
 					? css`
-							transform: rotate(180deg);
+							transform: rotate(60deg);
+							transition-duration: 0.5s;
 					  `
 					: css`
 							transform: rotate(0deg);
+							transition-duration: 0.5s;
 					  `}
 		}
 	}
