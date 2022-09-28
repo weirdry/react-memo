@@ -8,6 +8,7 @@ import { ReactComponent as IconWrite } from './Icon-write.svg'
 import { ReactComponent as IconSetting } from './Icon-setting.svg'
 import { ReactComponent as IconBackwards } from './Icon-backward.svg'
 import { ReactComponent as IconConfirm } from './Icon-confirm.svg'
+import { ReactComponent as IconClose } from './Icon-close.svg'
 
 export type IconType =
 	| 'default'
@@ -18,6 +19,7 @@ export type IconType =
 	| 'setting'
 	| 'backwards'
 	| 'confirm'
+	| 'close'
 
 const selectIcon = (iconType: IconType): FC => {
 	switch (iconType) {
@@ -37,6 +39,8 @@ const selectIcon = (iconType: IconType): FC => {
 			return IconBackwards
 		case 'confirm':
 			return IconConfirm
+		case 'close':
+			return IconClose
 		default:
 			return IconDefault
 	}

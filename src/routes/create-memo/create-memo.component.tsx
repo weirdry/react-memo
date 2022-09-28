@@ -57,7 +57,7 @@ export default function CreateMemo() {
 				<ToolBar
 					isLeftSideOn
 					leftSideChildren={
-						<IconButton icon="backwards" handleClick={handleBackwards} />
+						<IconButton icon="close" handleClick={handleBackwards} />
 					}
 					rightSideChildren={<IconButton icon="confirm" type="submit" />}
 				/>
