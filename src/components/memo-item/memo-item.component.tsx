@@ -5,7 +5,7 @@ import { ContentContainer } from './memo-item.styles'
 type MemoItemProps = {
 	title: string
 	body: string
-	date: Date
+	date: string
 }
 
 export default function MemoItem(props: MemoItemProps) {
@@ -16,13 +16,7 @@ export default function MemoItem(props: MemoItemProps) {
 			<ContentContainer>
 				<h3>{title}</h3>
 				<p>{body}</p>
-				<span>
-					{date.toLocaleDateString('ko-KR', {
-						year: 'numeric',
-						month: '2-digit',
-						day: '2-digit',
-					})}
-				</span>
+				<span>{date}</span>
 			</ContentContainer>
 		</Card>
 	)
@@ -31,5 +25,9 @@ export default function MemoItem(props: MemoItemProps) {
 MemoItem.defaultProps = {
 	title: '메모 제목',
 	body: '대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다.',
-	date: new Date(2022, 8, 27),
+	date: new Date(2022, 8, 27).toLocaleDateString('ko-KR', {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+	}),
 }

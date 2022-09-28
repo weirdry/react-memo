@@ -33,7 +33,9 @@ export default function Home() {
 			<div className="lists-container">
 				{/* Disabled for now
         <MemoList title="즐겨찾기한 메모" isFoldable /> */}
-				{memoList.length !== 0 && <MemoList title="메모 리스트" />}
+				{memoList.length !== 0 && (
+					<MemoList title="메모 리스트" memoList={memoList} />
+				)}
 			</div>
 
 			<FloatingButton text="새 메모" icon="write" handleClick={handleCreate} />

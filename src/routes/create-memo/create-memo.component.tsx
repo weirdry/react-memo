@@ -48,6 +48,7 @@ export default function CreateMemo() {
 		}))
 
 		dispatch(addMemo(memo))
+		navigate('/')
 	}
 
 	return (
