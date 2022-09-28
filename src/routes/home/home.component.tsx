@@ -1,6 +1,10 @@
 import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import { useSelector } from 'react-redux'
+
+import { selectMemo } from '../../store/reducers/memo/memoSlice'
+
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
 import MemoList from '../../components/memo-list/memo-list.component'
@@ -10,6 +14,8 @@ import { HomeContainer } from './home.styles'
 
 export default function Home() {
 	const navigate = useNavigate()
+
+	const { memoList } = useSelector(selectMemo)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/create-memo')
@@ -25,8 +31,9 @@ export default function Home() {
 			></ToolBar>
 
 			<div className="lists-container">
-				<MemoList title="즐겨찾기한 메모" isFoldable />
-				<MemoList title="메모 리스트" />
+				{/* Disabled for now
+        <MemoList title="즐겨찾기한 메모" isFoldable /> */}
+				{memoList.length !== 0 && <MemoList title="메모 리스트" />}
 			</div>
 
 			<FloatingButton text="새 메모" icon="write" handleClick={handleCreate} />

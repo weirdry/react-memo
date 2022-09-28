@@ -11,6 +11,10 @@ export const CreateMemoContainer = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
+	form {
+		width: 100%;
+	}
+
 	.body-container {
 		width: 100%;
 
