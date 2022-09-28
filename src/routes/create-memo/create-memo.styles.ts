@@ -9,10 +9,17 @@ export const CreateMemoContainer = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
-	.input-container {
+	.body-container {
 		width: 100%;
-		/* height: 100%; */
 
-		padding: 1rem 1rem 2rem 1rem;
+		padding: 1rem 1rem 3rem 1rem;
+
+		.inputs-container {
+			width: 100%;
+			/* height: 100%; */
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
 	}
 `
