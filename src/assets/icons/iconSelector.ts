@@ -5,8 +5,19 @@ import { ReactComponent as IconCreate } from './Icon-create.svg'
 import { ReactComponent as IconSelect } from './Icon-select.svg'
 import { ReactComponent as IconExpand } from './Icon-expand.svg'
 import { ReactComponent as IconWrite } from './Icon-write.svg'
+import { ReactComponent as IconSetting } from './Icon-setting.svg'
+import { ReactComponent as IconBackwards } from './Icon-backward.svg'
+import { ReactComponent as IconConfirm } from './Icon-confirm.svg'
 
-export type IconType = 'default' | 'create' | 'select' | 'expand' | 'write'
+export type IconType =
+	| 'default'
+	| 'create'
+	| 'select'
+	| 'expand'
+	| 'write'
+	| 'setting'
+	| 'backwards'
+	| 'confirm'
 
 const selectIcon = (iconType: IconType): FC => {
 	switch (iconType) {
@@ -20,6 +31,12 @@ const selectIcon = (iconType: IconType): FC => {
 			return IconExpand
 		case 'write':
 			return IconWrite
+		case 'setting':
+			return IconSetting
+		case 'backwards':
+			return IconBackwards
+		case 'confirm':
+			return IconConfirm
 		default:
 			return IconDefault
 	}

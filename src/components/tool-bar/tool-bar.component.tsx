@@ -3,21 +3,36 @@ import { ReactNode } from 'react'
 import { ToolBarContainer } from './tool-bar.styles'
 
 type ToolBarProps = {
+	isLeftSideOn: boolean
+	isRightSideOn: boolean
 	title?: string
-	children?: ReactNode | undefined
+	leftSideChildren?: ReactNode | null
+	rightSideChildren?: ReactNode | null
 }
 
 export default function ToolBar(props: ToolBarProps) {
-	const { title, children } = props
+	const {
+		isLeftSideOn,
+		isRightSideOn,
+		title,
+		leftSideChildren,
+		rightSideChildren,
+	} = props
 
 	return (
 		<ToolBarContainer>
-			<h1>{title}</h1>
-			<div className="buttons-container">{children}</div>
+			<div className="buttons-container">
+				{isLeftSideOn ? leftSideChildren : <h1>{title}</h1>}
+			</div>
+			<div className="buttons-container">
+				{isRightSideOn && rightSideChildren}
+			</div>
 		</ToolBarContainer>
 	)
 }
 
 ToolBar.defaultProps = {
+	isLeftSideOn: false,
+	isRightSideOn: true,
 	title: 'Title',
 }

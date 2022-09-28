@@ -27,15 +27,14 @@ export const AccordionContainer = styled.div`
 
 		*:last-child {
 			transform-origin: center center;
+			transition-duration: 0.25s;
 			${(props: AccordionContainerProps) =>
 				props.isOpen
 					? css`
 							transform: rotate(60deg);
-							transition-duration: 0.5s;
 					  `
 					: css`
 							transform: rotate(0deg);
-							transition-duration: 0.5s;
 					  `}
 		}
 	}
