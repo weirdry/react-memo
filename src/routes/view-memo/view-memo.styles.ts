@@ -13,17 +13,6 @@ export const ViewMemoContainer = styled.div`
 
 	.body-container {
 		width: 100%;
-
 		padding: 1rem 1rem 3rem 1rem;
-
-		${CardContainer} {
-			.inputs-container {
-				width: 100%;
-				/* height: 100%; */
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
-			}
-		}
 	}
 `

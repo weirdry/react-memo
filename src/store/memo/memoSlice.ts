@@ -11,10 +11,17 @@ export type Memo = {
 }
 
 export type MemoState = {
+	memo: Memo
 	memoList: Memo[]
 }
 
 const initialState: MemoState = {
+	memo: {
+		id: '',
+		title: '',
+		body: '',
+		createdAt: '',
+	},
 	memoList: [],
 }
 
@@ -36,9 +43,10 @@ export const memoSlice = createSlice({
 export const selectMemoList = (state: RootState) => state.memo.memoList
 
 // State memoisation
-export const selectMemo = createSelector(selectMemoList, (memoList) => ({
-	memoList,
-}))
+export const selectMemoisedMemoList = createSelector(
+	selectMemoList,
+	(memoList) => memoList,
+)
 
 // Export actions
 export const { setMemoList, resetMemoList } = memoSlice.actions

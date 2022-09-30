@@ -1,9 +1,9 @@
 import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../store/store'
 
-import { selectMemo } from '../../store/memo/memoSlice'
+import { selectMemoisedMemoList } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
@@ -16,7 +16,7 @@ import { HomeContainer } from './home.styles'
 export default function Home() {
 	const navigate = useNavigate()
 
-	const { memoList } = useSelector(selectMemo)
+	const memoList = useAppSelector(selectMemoisedMemoList)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/create-memo')

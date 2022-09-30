@@ -9,7 +9,17 @@ export const ContentContainer = styled.div`
 	flex-direction: column;
 	gap: var(--spacing-card-container);
 
-	h1 {
+	word-wrap: break-word;
+	word-break: break-all;
+
+	h3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+
 		color: var(--colour-card-default-on-background-active);
 		font-family: var(--typo-card-title-font-family);
 		font-weight: var(--typo-card-title-font-weight);

@@ -15,7 +15,6 @@ export const CreateMemoContainer = styled.div`
 
 	.body-container {
 		width: 100%;
-
 		padding: 1rem 1rem 3rem 1rem;
 
 		.inputs-container {

@@ -19,7 +19,7 @@ function App() {
 			<Routes>
 				<Route index element={<Home />} />
 				<Route path="/create-memo" element={<CreateMemo />} />
-				<Route path="/view-memo" element={<ViewMemo />} />
+				<Route path="/view-memo/:memo_id" element={<ViewMemo />} />
 
 				<Route path="/*" element={<Navigate to="/"></Navigate>} />
 			</Routes>

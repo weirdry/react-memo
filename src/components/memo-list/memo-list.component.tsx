@@ -18,27 +18,13 @@ export default function MemoList(props: MemoListProps) {
 			{isFoldable ? (
 				<Accordion text={title}>
 					{memoList &&
-						memoList.map((memo, index) => (
-							<MemoItem
-								key={index}
-								title={memo.title}
-								body={memo.body}
-								date={memo.createdAt}
-							/>
-						))}
+						memoList.map((memo) => <MemoItem key={memo.id} memo={memo} />)}
 				</Accordion>
 			) : (
 				<>
 					<h1>{title}</h1>
 					{memoList &&
-						memoList.map((memo, index) => (
-							<MemoItem
-								key={index}
-								title={memo.title}
-								body={memo.body}
-								date={memo.createdAt}
-							/>
-						))}
+						memoList.map((memo) => <MemoItem key={memo.id} memo={memo} />)}
 				</>
 			)}
 		</MemoListContainer>
