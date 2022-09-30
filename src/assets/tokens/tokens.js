@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 10:22:30 GMT
+ * Generated on Fri, 30 Sep 2022 03:16:47 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -43,6 +43,10 @@ export const TypoRouteSectiontitleFontFamily = "Pretendard Variable";
 export const TypoRouteSectiontitleFontWeight = 700;
 export const TypoRouteSectiontitleLineHeight = "150%";
 export const TypoRouteSectiontitleFontSize = "1.25rem";
+export const TypoRouteBodyFontFamily = "Pretendard Variable";
+export const TypoRouteBodyFontWeight = 400;
+export const TypoRouteBodyLineHeight = "150%";
+export const TypoRouteBodyFontSize = "1rem";
 export const TypoCardTitleFontFamily = "Pretendard Variable";
 export const TypoCardTitleFontWeight = 700;
 export const TypoCardTitleLineHeight = "150%";

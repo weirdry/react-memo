@@ -14,7 +14,7 @@ export const HomeContainer = styled.div`
 
 	/* padding: 0 var(--grid-app-margin); */
 
-	.lists-container {
+	.contents-container {
 		width: 100%;
 		gap: 1.5rem;
 
@@ -22,6 +22,34 @@ export const HomeContainer = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
+	}
+
+	.placeholder {
+		min-height: 80vh;
+		justify-content: center;
+
+		.placeholder-texts-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+
+			color: var(--colour-app-on-background-inactive);
+
+			h2 {
+				font-family: var(--typo-route-title-font-family);
+				font-weight: var(--typo-route-title-font-weight);
+				font-size: var(--typo-route-title-font-size);
+				line-height: var(--typo-route-title-line-height);
+			}
+
+			span {
+				font-family: var(--typo-route-body-font-family);
+				font-weight: var(--typo-route-body-font-weight);
+				font-size: var(--typo-route-body-font-size);
+				line-height: var(--typo-route-body-line-height);
+			}
+		}
 	}
 
 	${FloatingButtonContainer} {

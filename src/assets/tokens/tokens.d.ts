@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 10:22:30 GMT
+ * Generated on Fri, 30 Sep 2022 03:16:47 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -43,6 +43,10 @@ export const TypoRouteSectiontitleFontFamily : string;
 export const TypoRouteSectiontitleFontWeight : number;
 export const TypoRouteSectiontitleLineHeight : string;
 export const TypoRouteSectiontitleFontSize : string;
+export const TypoRouteBodyFontFamily : string;
+export const TypoRouteBodyFontWeight : number;
+export const TypoRouteBodyLineHeight : string;
+export const TypoRouteBodyFontSize : string;
 export const TypoCardTitleFontFamily : string;
 export const TypoCardTitleFontWeight : number;
 export const TypoCardTitleLineHeight : string;

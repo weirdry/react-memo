@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Sep 2022 10:22:30 GMT
+ * Generated on Fri, 30 Sep 2022 03:16:47 GMT
  */
 
 :root {
@@ -44,6 +44,10 @@
   --typo-route-sectiontitle-font-weight: 700;
   --typo-route-sectiontitle-line-height: 150%;
   --typo-route-sectiontitle-font-size: 1.25rem;
+  --typo-route-body-font-family: Pretendard Variable;
+  --typo-route-body-font-weight: 400;
+  --typo-route-body-line-height: 150%;
+  --typo-route-body-font-size: 1rem;
   --typo-card-title-font-family: Pretendard Variable;
   --typo-card-title-font-weight: 700;
   --typo-card-title-line-height: 150%;

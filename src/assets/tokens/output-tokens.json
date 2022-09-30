@@ -180,6 +180,24 @@
           "value": "1.25rem",
           "type": "fontSize"
         }
+      },
+      "body": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "1rem",
+          "type": "fontSize"
+        }
       }
     },
     "card": {
