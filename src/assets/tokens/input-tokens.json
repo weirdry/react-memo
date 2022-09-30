@@ -598,6 +598,15 @@
         "sectiontitle": {
           "value": "{typo.h2}",
           "type": "typography"
+        },
+        "body": {
+          "value": {
+            "fontFamily": "{font.typeface}",
+            "fontWeight": "{font.weight.md}",
+            "lineHeight": "{font.leading.default}",
+            "fontSize": "{font.size.md}"
+          },
+          "type": "typography"
         }
       },
       "card": {
