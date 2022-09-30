@@ -1,21 +1,29 @@
+import { MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import Card from '../card/card.component'
 
 import { ContentContainer } from './memo-item.styles'
 
 type MemoItemProps = {
-	title: string
-	body: string
+	title?: string
+	body?: string
 	date: string
 }
 
 export default function MemoItem(props: MemoItemProps) {
 	const { title, body, date } = props
 
+	const navigate = useNavigate()
+
+	const handleClick = (e: MouseEvent<HTMLDivElement>): void =>
+		navigate('/view-memo')
+
 	return (
-		<Card>
+		<Card isClickable handleClick={handleClick}>
 			<ContentContainer>
-				<h3>{title}</h3>
-				<p>{body}</p>
+				{title && <h3>{title}</h3>}
+				{body && <p>{body}</p>}
 				<span>{date}</span>
 			</ContentContainer>
 		</Card>

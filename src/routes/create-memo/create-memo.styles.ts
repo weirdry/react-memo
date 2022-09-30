@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { CardContainer } from '../../components/card/card.styles'
-
 export const CreateMemoContainer = styled.div`
 	width: 100%;
 	min-height: 100vh;
@@ -20,16 +18,12 @@ export const CreateMemoContainer = styled.div`
 
 		padding: 1rem 1rem 3rem 1rem;
 
-		${CardContainer} {
-			min-height: 12.825rem;
-
-			.inputs-container {
-				width: 100%;
-				/* height: 100%; */
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
-			}
+		.inputs-container {
+			width: 100%;
+			/* height: 100%; */
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
 		}
 	}
 `

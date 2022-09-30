@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-import memoReducer from './reducers/memo/memoSlice'
+import memoReducer from './memo/memoSlice'
 
 export type RootState = ReturnType<typeof rootReducer>
 

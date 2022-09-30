@@ -1,4 +1,4 @@
-import { Memo } from '../../store/reducers/memo/memoSlice'
+import { Memo } from '../../store/memo/memoSlice'
 import Accordion from '../accordion/accordion.component'
 import MemoItem from '../memo-item/memo-item.component'
 

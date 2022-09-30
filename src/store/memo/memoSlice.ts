@@ -1,8 +1,10 @@
 import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit'
+import { v4 as uuidv4 } from 'uuid'
 
-import { RootState, AppDispatch, GetAppState } from '../../store'
+import { RootState, AppDispatch, GetAppState } from '../store'
 
 export type Memo = {
+	id: string
 	title: string
 	body: string
 	createdAt: string
@@ -45,7 +47,9 @@ export const addMemo =
 	(memoToAdd: Memo) =>
 	(dispatch: AppDispatch, getState: GetAppState): void => {
 		const memoList = selectMemoList(getState())
-		const newMemoList = [...memoList, memoToAdd]
+		const memoId = uuidv4()
+
+		const newMemoList = [...memoList, { ...memoToAdd, id: memoId }]
 		dispatch(setMemoList(newMemoList))
 	}
 

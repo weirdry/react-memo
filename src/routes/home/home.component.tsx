@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 
-import { selectMemo } from '../../store/reducers/memo/memoSlice'
+import { selectMemo } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
