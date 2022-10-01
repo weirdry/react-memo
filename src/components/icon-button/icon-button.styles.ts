@@ -1,8 +1,12 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import '../../assets/tokens/variables.css'
 
-export const IconButtonContainer = styled.button`
+type IconButtonContainerProps = {
+	disabled: boolean
+}
+
+export const IconButtonContainer = styled.button<IconButtonContainerProps>`
 	all: unset;
 	cursor: pointer;
 
@@ -20,19 +24,34 @@ export const IconButtonContainer = styled.button`
 		fill: var(--colour-container-default-on-background-active);
 	}
 
-	&:hover {
-		background-color: var(--colour-container-default-background-hover);
-		* {
-			fill: var(--colour-container-default-on-background-hover);
-		}
-	}
+	${(props) =>
+		props.disabled
+			? css`
+					&:disabled {
+						cursor: default;
 
-	&:active {
-		background-color: var(--colour-container-default-background-pressed);
-		* {
-			fill: var(--colour-container-default-on-background-pressed);
-		}
-	}
+						* {
+							fill: var(--colour-container-default-on-background-inactive);
+						}
+					}
+			  `
+			: css`
+					&:hover {
+						background-color: var(--colour-container-default-background-hover);
+						* {
+							fill: var(--colour-container-default-on-background-hover);
+						}
+					}
+
+					&:active {
+						background-color: var(
+							--colour-container-default-background-pressed
+						);
+						* {
+							fill: var(--colour-container-default-on-background-pressed);
+						}
+					}
+			  `}
 `
 
 export const IconButtonContainerMD = styled(IconButtonContainer)`

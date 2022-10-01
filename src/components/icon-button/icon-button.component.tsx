@@ -13,6 +13,7 @@ type IconButtonProps = {
 	size: 'md' | 'sm'
 	icon: IconType
 	handleClick: (e: MouseEvent<HTMLButtonElement>) => void
+	disabled: boolean
 }
 
 const selectIconButtonSize = (
@@ -29,13 +30,13 @@ const selectIconButtonSize = (
 }
 
 export default function IconButton(props: IconButtonProps) {
-	const { type, size, icon, handleClick } = props
+	const { type, size, icon, handleClick, disabled } = props
 
 	const ButtonIcon = selectIcon(icon)
 	const SelectedIconButton = selectIconButtonSize(size)
 
 	return (
-		<SelectedIconButton onClick={handleClick} type={type}>
+		<SelectedIconButton onClick={handleClick} type={type} disabled={disabled}>
 			<ButtonIcon />
 		</SelectedIconButton>
 	)
@@ -46,4 +47,5 @@ IconButton.defaultProps = {
 	size: 'md',
 	icon: 'default',
 	handleClick: () => console.log('Icon Button Clicked'),
+	disabled: false,
 }

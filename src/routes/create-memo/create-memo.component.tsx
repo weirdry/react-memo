@@ -1,4 +1,4 @@
-import { useState, MouseEvent, ChangeEvent, FormEvent } from 'react'
+import { useState, useEffect, MouseEvent, ChangeEvent, FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { Memo } from '../../store/memo/memoSlice'
@@ -24,6 +24,7 @@ export default function CreateMemo() {
 			day: '2-digit',
 		}),
 	})
+	const [isDisabled, setIsDisabled] = useState<boolean>(true)
 
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
@@ -33,6 +34,7 @@ export default function CreateMemo() {
 
 	const handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
 		setMemo((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
+		console.log(memo.body)
 	}
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
@@ -52,6 +54,16 @@ export default function CreateMemo() {
 		navigate('/')
 	}
 
+	useEffect(() => {
+		const { title, body } = memo
+
+		if (title === '' && body === '') {
+			setIsDisabled(() => true)
+		} else {
+			setIsDisabled(() => false)
+		}
+	}, [memo])
+
 	return (
 		<CreateMemoContainer>
 			<form onSubmit={handleSubmit}>
@@ -60,7 +72,9 @@ export default function CreateMemo() {
 					leftSideChildren={
 						<IconButton icon="close" handleClick={handleBackwards} />
 					}
-					rightSideChildren={<IconButton icon="confirm" type="submit" />}
+					rightSideChildren={
+						<IconButton icon="confirm" type="submit" disabled={isDisabled} />
+					}
 				/>
 
 				<div className="body-container">
