@@ -34,7 +34,6 @@ export default function CreateMemo() {
 
 	const handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
 		setMemo((prevState) => ({ ...prevState, [e.target.name]: e.target.value }))
-		console.log(memo.body)
 	}
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
