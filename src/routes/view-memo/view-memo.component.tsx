@@ -19,7 +19,7 @@ export default function ViewMemo() {
 				leftSideChildren={
 					<IconButton icon="close" handleClick={handleBackwards} />
 				}
-				// rightSideChildren={<IconButton icon="confirm" type="submit" />}
+				rightSideChildren={<IconButton icon="more" />}
 			/>
 
 			<div className="body-container">

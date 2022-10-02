@@ -1,9 +1,12 @@
 import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppSelector } from '../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 
-import { selectMemoisedMemoList } from '../../store/memo/memoSlice'
+import {
+	selectMemoisedMemoList,
+	resetIsCreated,
+} from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
@@ -15,12 +18,15 @@ import Toast from '../../components/toast/toast.component'
 import { HomeContainer } from './home.styles'
 
 export default function Home() {
+	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
 	const { isCreated, memoList } = useAppSelector(selectMemoisedMemoList)
 
-	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void =>
+	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
+		dispatch(resetIsCreated())
 		navigate('/create-memo')
+	}
 	const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {}
 
 	return (

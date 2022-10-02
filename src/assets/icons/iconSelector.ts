@@ -11,6 +11,7 @@ import { ReactComponent as IconConfirm } from './Icon-confirm.svg'
 import { ReactComponent as IconClose } from './Icon-close.svg'
 import { ReactComponent as IconSuccess } from './Icon-success.svg'
 import { ReactComponent as IconFailed } from './Icon-failed.svg'
+import { ReactComponent as IconMore } from './Icon-more.svg'
 
 export type IconType =
 	| 'default'
@@ -24,6 +25,7 @@ export type IconType =
 	| 'close'
 	| 'success'
 	| 'failed'
+	| 'more'
 
 const selectIcon = (iconType: IconType): FC => {
 	switch (iconType) {
@@ -49,6 +51,8 @@ const selectIcon = (iconType: IconType): FC => {
 			return IconSuccess
 		case 'failed':
 			return IconFailed
+		case 'more':
+			return IconMore
 		default:
 			return IconDefault
 	}
