@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
 	selectMemoisedMemoList,
 	resetIsCreated,
+	resetIsEdited,
 	resetMemo,
 } from '../../store/memo/memoSlice'
 
@@ -22,11 +23,14 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { isCreated, memoList } = useAppSelector(selectMemoisedMemoList)
+	const { isCreated, isEdited, memoList } = useAppSelector(
+		selectMemoisedMemoList,
+	)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(resetMemo())
 		dispatch(resetIsCreated())
+		dispatch(resetIsEdited())
 		navigate('/create-memo')
 	}
 	const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {}
@@ -57,6 +61,9 @@ export default function Home() {
 			<div className="floating-container">
 				{isCreated && (
 					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
+				)}
+				{isEdited && (
+					<Toast toastType="success" text="메모를 성공적으로 수정했습니다." />
 				)}
 				<FloatingButton
 					text="새 메모"

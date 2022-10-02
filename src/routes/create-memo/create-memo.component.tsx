@@ -41,7 +41,7 @@ export default function CreateMemo() {
 		})
 
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
-		dispatch(addMemo(memo))
+		dispatch(addMemo)
 
 		dispatch(setIsCreated(true))
 		setTimeout(() => dispatch(resetIsCreated()), 2000)

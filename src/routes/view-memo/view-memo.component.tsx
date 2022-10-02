@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
 	setMemo,
 	selectMemoisedMemoList,
-	setIsCreated,
-	resetIsCreated,
+	setIsEdited,
+	resetIsEdited,
 	editMemo,
 } from '../../store/memo/memoSlice'
 
@@ -46,10 +46,10 @@ export default function ViewMemo() {
 		})
 
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
-		dispatch(editMemo())
+		dispatch(editMemo)
 
-		dispatch(setIsCreated(true))
-		setTimeout(() => dispatch(resetIsCreated()), 2000)
+		dispatch(setIsEdited(true))
+		setTimeout(() => dispatch(resetIsEdited()), 2000)
 
 		navigate('/')
 	}
