@@ -628,6 +628,17 @@
           "value": "{typo.h2}",
           "type": "typography"
         }
+      },
+      "toast": {
+        "body": {
+          "value": {
+            "fontFamily": "{font.typeface}",
+            "fontWeight": "{font.weight.hv}",
+            "lineHeight": "{font.leading.default}",
+            "fontSize": "{font.size.md}"
+          },
+          "type": "typography"
+        }
       }
     },
     "grid": {
