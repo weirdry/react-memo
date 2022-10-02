@@ -11,17 +11,12 @@ export type Memo = {
 }
 
 export type MemoState = {
-	memo: Memo
+	isCreated: boolean
 	memoList: Memo[]
 }
 
 const initialState: MemoState = {
-	memo: {
-		id: '',
-		title: '',
-		body: '',
-		createdAt: '',
-	},
+	isCreated: false,
 	memoList: [],
 }
 
@@ -29,6 +24,12 @@ export const memoSlice = createSlice({
 	name: 'memo',
 	initialState,
 	reducers: {
+		setIsCreated: (state, action: PayloadAction<boolean>) => {
+			state.isCreated = action.payload
+		},
+		resetIsCreated: (state) => {
+			state.isCreated = initialState.isCreated
+		},
 		setMemoList: (state, action: PayloadAction<Memo[]>) => {
 			state.memoList = action.payload
 		},
@@ -40,21 +41,27 @@ export const memoSlice = createSlice({
 })
 
 // Select MemoList directly from state
+export const selecIsCreated = (state: RootState) => state.memo.isCreated
 export const selectMemoList = (state: RootState) => state.memo.memoList
 
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
+	selecIsCreated,
 	selectMemoList,
-	(memoList) => memoList,
+	(isCreated, memoList) => ({
+		isCreated,
+		memoList,
+	}),
 )
 
 // Export actions
-export const { setMemoList, resetMemoList } = memoSlice.actions
+export const { setIsCreated, resetIsCreated, setMemoList, resetMemoList } =
+	memoSlice.actions
 
 export const addMemo =
 	(memoToAdd: Memo) =>
 	(dispatch: AppDispatch, getState: GetAppState): void => {
-		const memoList = selectMemoList(getState())
+		const { memoList } = selectMemoisedMemoList(getState())
 		const memoId = uuidv4()
 
 		const newMemoList = [...memoList, { ...memoToAdd, id: memoId }]

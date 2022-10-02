@@ -276,6 +276,26 @@
         }
       }
     },
+    "toast": {
+      "body": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 700,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "1rem",
+          "type": "fontSize"
+        }
+      }
+    },
     "h1": {
       "fontFamily": {
         "value": "Pretendard Variable",

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 30 Sep 2022 03:16:47 GMT
+ * Generated on Sun, 02 Oct 2022 05:00:34 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -63,6 +63,10 @@ export const TypoButtonTitleFontFamily : string;
 export const TypoButtonTitleFontWeight : number;
 export const TypoButtonTitleLineHeight : string;
 export const TypoButtonTitleFontSize : string;
+export const TypoToastBodyFontFamily : string;
+export const TypoToastBodyFontWeight : number;
+export const TypoToastBodyLineHeight : string;
+export const TypoToastBodyFontSize : string;
 export const TypoH1FontFamily : string;
 export const TypoH1FontWeight : number;
 export const TypoH1LineHeight : string;

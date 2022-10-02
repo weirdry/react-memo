@@ -10,24 +10,25 @@ import IconButton from '../../components/icon-button/icon-button.component'
 import MemoList from '../../components/memo-list/memo-list.component'
 import FloatingButton from '../../components/floating-button/floating-button.component'
 import Placeholder from '../../components/placeholder/placeholder.components'
+import Toast from '../../components/toast/toast.component'
 
 import { HomeContainer } from './home.styles'
 
 export default function Home() {
 	const navigate = useNavigate()
 
-	const memoList = useAppSelector(selectMemoisedMemoList)
+	const { isCreated, memoList } = useAppSelector(selectMemoisedMemoList)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/create-memo')
-	const handleSelect = (e: MouseEvent<HTMLButtonElement>) => {}
+	const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {}
 
 	return (
 		<HomeContainer>
 			<ToolBar
 				title="MEMOWISE"
 				rightSideChildren={
-					<IconButton icon="setting" handleClick={handleSelect} />
+					<IconButton icon="setting" handleClick={handleEdit} />
 				}
 			></ToolBar>
 
@@ -45,7 +46,16 @@ export default function Home() {
 				</div>
 			)}
 
-			<FloatingButton text="새 메모" icon="write" handleClick={handleCreate} />
+			<div className="floating-container">
+				{isCreated && (
+					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
+				)}
+				<FloatingButton
+					text="새 메모"
+					icon="write"
+					handleClick={handleCreate}
+				/>
+			</div>
 		</HomeContainer>
 	)
 }

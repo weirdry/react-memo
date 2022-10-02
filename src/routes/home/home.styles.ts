@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { FloatingButtonContainer } from '../../components/floating-button/floating-button.styles'
 
 import '../../assets/tokens/variables.css'
 
@@ -26,10 +25,16 @@ export const HomeContainer = styled.div`
 		padding-bottom: 6rem;
 	}
 
-	${FloatingButtonContainer} {
+	.floating-container {
+		width: 100%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		gap: 2rem;
+
 		position: fixed;
 		bottom: 1.5rem;
-		/* left: 50%;
-		transform: translateX(-50%); */
 	}
 `

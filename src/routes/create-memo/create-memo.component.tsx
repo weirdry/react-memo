@@ -4,7 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import { Memo } from '../../store/memo/memoSlice'
 
 import { useAppDispatch } from '../../store/store'
-import { addMemo } from '../../store/memo/memoSlice'
+import {
+	addMemo,
+	setIsCreated,
+	resetIsCreated,
+} from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
@@ -50,6 +54,10 @@ export default function CreateMemo() {
 		}))
 
 		dispatch(addMemo(memo))
+
+		dispatch(setIsCreated(true))
+		setTimeout(() => dispatch(resetIsCreated()), 2000)
+
 		navigate('/')
 	}
 

@@ -15,7 +15,7 @@ const initialValue: Memo = {
 }
 
 export default function MemoDetails() {
-	const memoList = useAppSelector(selectMemoisedMemoList)
+	const { memoList } = useAppSelector(selectMemoisedMemoList)
 
 	const { memo_id } = useParams()
 
