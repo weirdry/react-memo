@@ -12,11 +12,13 @@ export type Memo = {
 
 export type MemoState = {
 	isCreated: boolean
+	memo: Memo
 	memoList: Memo[]
 }
 
 const initialState: MemoState = {
 	isCreated: false,
+	memo: { id: '', title: '', body: '', createdAt: '' },
 	memoList: [],
 }
 
@@ -30,6 +32,12 @@ export const memoSlice = createSlice({
 		resetIsCreated: (state) => {
 			state.isCreated = initialState.isCreated
 		},
+		setMemo: (state, action: PayloadAction<Memo>) => {
+			state.memo = action.payload
+		},
+		resetMemo: (state) => {
+			state.memo = initialState.memo
+		},
 		setMemoList: (state, action: PayloadAction<Memo[]>) => {
 			state.memoList = action.payload
 		},
@@ -42,21 +50,30 @@ export const memoSlice = createSlice({
 
 // Select MemoList directly from state
 export const selecIsCreated = (state: RootState) => state.memo.isCreated
+export const selectMemo = (state: RootState) => state.memo.memo
 export const selectMemoList = (state: RootState) => state.memo.memoList
 
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
 	selecIsCreated,
+	selectMemo,
 	selectMemoList,
-	(isCreated, memoList) => ({
+	(isCreated, memo, memoList) => ({
 		isCreated,
+		memo,
 		memoList,
 	}),
 )
 
 // Export actions
-export const { setIsCreated, resetIsCreated, setMemoList, resetMemoList } =
-	memoSlice.actions
+export const {
+	setMemo,
+	resetMemo,
+	setIsCreated,
+	resetIsCreated,
+	setMemoList,
+	resetMemoList,
+} = memoSlice.actions
 
 export const addMemo =
 	(memoToAdd: Memo) =>
@@ -66,6 +83,29 @@ export const addMemo =
 
 		const newMemoList = [...memoList, { ...memoToAdd, id: memoId }]
 		dispatch(setMemoList(newMemoList))
+	}
+
+export const editMemo =
+	() =>
+	(dispatch: AppDispatch, getState: GetAppState): void => {
+		const { memo, memoList } = selectMemoisedMemoList(getState())
+
+		if (memo) {
+			const findIndex = memoList.findIndex(
+				(storedMemo) => storedMemo.id === memo.id,
+			)
+			let copyList = [...memoList]
+
+			if (findIndex !== -1) {
+				copyList[findIndex] = {
+					...copyList[findIndex],
+					title: memo.title,
+					body: memo.body,
+					createdAt: memo.createdAt,
+				}
+			}
+			dispatch(setMemoList(copyList))
+		}
 	}
 
 export default memoSlice.reducer

@@ -1,4 +1,4 @@
-import { useRef, ChangeEvent } from 'react'
+import { useRef, useState, useEffect, ChangeEvent } from 'react'
 
 import { BaseTextarea, TitleInput, BodyTextarea } from './input.styles'
 
@@ -7,6 +7,7 @@ type InputSelect = 'title' | 'body'
 type InputProps = {
 	inputType: InputSelect
 	placeholder: string
+	value?: string
 	handleChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
@@ -22,13 +23,14 @@ const selectInput = (inputType: InputSelect): typeof BaseTextarea => {
 }
 
 export default function Input(props: InputProps) {
-	const { inputType, placeholder, handleChange } = props
+	const { inputType, placeholder, value, handleChange } = props
 
+	const [inputValue, setInputValue] = useState<string>('')
 	const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const SelectedInput = selectInput(inputType)
 
-	const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+	const handleResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
 		if (inputRef && inputRef.current) {
 			inputRef.current.style.height = '0px'
 			const scrollHeight = inputRef.current.scrollHeight
@@ -36,13 +38,25 @@ export default function Input(props: InputProps) {
 		}
 	}
 
+	const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+		handleChange && handleChange(e)
+		setInputValue(() => e.target.value)
+	}
+
+	useEffect(() => {
+		if (value) {
+			setInputValue(value)
+		}
+	}, [value])
+
 	return (
 		<SelectedInput
 			name={inputType}
 			placeholder={placeholder}
+			value={inputValue}
 			ref={inputRef}
-			onChange={handleChange}
-			onInput={handleInput}
+			onChange={handleInputChange}
+			onInput={handleResize}
 		/>
 	)
 }

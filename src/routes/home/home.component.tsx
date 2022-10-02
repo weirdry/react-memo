@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
 	selectMemoisedMemoList,
 	resetIsCreated,
+	resetMemo,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -24,6 +25,7 @@ export default function Home() {
 	const { isCreated, memoList } = useAppSelector(selectMemoisedMemoList)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
+		dispatch(resetMemo())
 		dispatch(resetIsCreated())
 		navigate('/create-memo')
 	}
