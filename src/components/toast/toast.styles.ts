@@ -23,7 +23,18 @@ export const ToastContainer = styled.div`
 	font-size: var(--typo-toast-body-font-size);
 	line-height: var(--typo-toast-body-line-height);
 
+	animation: disappear 0.25s ease-out 1.25s 1 normal both;
+
 	* {
 		fill: var(--colour-container-default-on-background-active);
+	}
+
+	@keyframes disappear {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
 	}
 `
