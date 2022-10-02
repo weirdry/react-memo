@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Memo } from '../../store/memo/memoSlice'
 
-import { useAppDispatch } from '../../store/store'
+import { useAppDispatch } from '../../store/hooks'
 import {
 	addMemo,
 	setIsCreated,

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 
-import { useAppSelector } from '../../store/store'
+import { useAppSelector } from '../../store/hooks'
 import { Memo, selectMemoisedMemoList } from '../../store/memo/memoSlice'
 
 import Card from '../../components/card/card.component'

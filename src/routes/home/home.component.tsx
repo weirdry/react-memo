@@ -1,7 +1,7 @@
 import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useAppSelector } from '../../store/store'
+import { useAppSelector } from '../../store/hooks'
 
 import { selectMemoisedMemoList } from '../../store/memo/memoSlice'
 
