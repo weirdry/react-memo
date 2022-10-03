@@ -30,7 +30,7 @@ export default function Input(props: InputProps) {
 
 	const SelectedInput = selectInput(inputType)
 
-	const handleResize = (e: ChangeEvent<HTMLTextAreaElement>) => {
+	const handleResize = () => {
 		if (inputRef && inputRef.current) {
 			inputRef.current.style.height = '0px'
 			const scrollHeight = inputRef.current.scrollHeight
@@ -42,6 +42,8 @@ export default function Input(props: InputProps) {
 		handleChange && handleChange(e)
 		setInputValue(() => e.target.value)
 	}
+
+	useEffect(handleResize, [inputValue])
 
 	useEffect(() => {
 		if (value) {
