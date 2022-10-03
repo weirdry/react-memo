@@ -9,6 +9,10 @@ export const ViewMemoContainer = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
+	form {
+		width: 100%;
+	}
+
 	.body-container {
 		width: 100%;
 		padding: 1rem 1rem 3rem 1rem;
