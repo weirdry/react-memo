@@ -623,6 +623,76 @@
             "type": "color"
           }
         }
+      },
+      "system": {
+        "default": {
+          "background-active": {
+            "value": "{system.primary.default.active}",
+            "type": "color"
+          },
+          "background-inactive": {
+            "value": "{system.primary.default.inactive}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{system.primary.default.pressed}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{system.primary.default.hover}",
+            "type": "color"
+          },
+          "on-background--active": {
+            "value": "{system.primary.inverted.active}",
+            "type": "color"
+          },
+          "on-background--inactive": {
+            "value": "{system.primary.inverted.inactive}",
+            "type": "color"
+          },
+          "on-background--pressed": {
+            "value": "{system.primary.inverted.pressed}",
+            "type": "color"
+          },
+          "on-background--hover": {
+            "value": "{system.primary.inverted.hover}",
+            "type": "color"
+          }
+        },
+        "inverted": {
+          "background-active": {
+            "value": "{system.primary.inverted.active}",
+            "type": "color"
+          },
+          "background-inactive": {
+            "value": "{system.primary.inverted.inactive}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{system.primary.inverted.pressed}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{system.primary.inverted.hover}",
+            "type": "color"
+          },
+          "on-background--active": {
+            "value": "{system.primary.default.active}",
+            "type": "color"
+          },
+          "on-background--inactive": {
+            "value": "{system.primary.default.inactive}",
+            "type": "color"
+          },
+          "on-background--pressed": {
+            "value": "{system.primary.default.pressed}",
+            "type": "color"
+          },
+          "on-background--hover": {
+            "value": "{system.primary.default.hover}",
+            "type": "color"
+          }
+        }
       }
     },
     "typo": {
