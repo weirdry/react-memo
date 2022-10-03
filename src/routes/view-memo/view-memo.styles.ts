@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { CardContainer } from '../../components/card/card.styles'
-
 export const ViewMemoContainer = styled.div`
 	width: 100%;
 	min-height: 100vh;

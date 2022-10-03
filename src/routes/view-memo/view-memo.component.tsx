@@ -13,11 +13,16 @@ import {
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
 import MemoDetails from '../../components/memo-details/memo-details.component'
+import BottomSheet from '../../components/bottom-sheet/bottom-sheet.component'
+import OverlayItem from '../../components/overlay-item/overlay-item.component'
 
 import { ViewMemoContainer } from './view-memo.styles'
 
 export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
+
+	// Need to change from useState to slice below
+	const [isPinned, setIsPinned] = useState<boolean>(false)
 
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
@@ -29,11 +34,6 @@ export default function ViewMemo() {
 
 	const handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
 		dispatch(setMemo({ ...memo, [e.target.name]: e.target.value }))
-
-		// setMemo((prevState) => ({
-		// 	...prevState,
-		// 	[e.target.name]: e.target.value,
-		// }))
 	}
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
@@ -53,6 +53,11 @@ export default function ViewMemo() {
 
 		navigate('/')
 	}
+
+	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
+		setIsPinned(!isPinned)
+
+	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {}
 
 	useEffect(() => {
 		const { title, body } = memo
@@ -87,6 +92,21 @@ export default function ViewMemo() {
 					/>
 				</div>
 			</form>
+			<BottomSheet title="메모 수정">
+				<OverlayItem
+					icon="pin"
+					text="즐겨찾기 메모로 지정"
+					isToggle
+					isActivated={isPinned}
+					handleClick={handlePin}
+				/>
+				<OverlayItem
+					isSystem
+					icon="delete"
+					text="메모 삭제"
+					handleClick={handleDelete}
+				/>
+			</BottomSheet>
 		</ViewMemoContainer>
 	)
 }
