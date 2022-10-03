@@ -141,6 +141,112 @@
           "type": "color"
         }
       }
+    },
+    "overlay": {
+      "default": {
+        "background-active": {
+          "value": "#252525",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#25252580",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#0d0d0d",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#3d3d3d",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#cfcfcf",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#ffffff",
+          "type": "color"
+        }
+      }
+    },
+    "system": {
+      "default": {
+        "background-active": {
+          "value": "#FF0000",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#ff000080",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#C20202",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#FF6565",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#FFB7B7",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#FFDADA",
+          "type": "color"
+        }
+      },
+      "inverted": {
+        "background-active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#FFB7B7",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#FFDADA",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#FF0000",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#ff000080",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#C20202",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#FF6565",
+          "type": "color"
+        }
+      }
     }
   },
   "typo": {
@@ -292,6 +398,62 @@
         },
         "fontSize": {
           "value": "1rem",
+          "type": "fontSize"
+        }
+      }
+    },
+    "overlay": {
+      "title": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 700,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "1.25rem",
+          "type": "fontSize"
+        }
+      },
+      "body": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 400,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "1rem",
+          "type": "fontSize"
+        }
+      },
+      "caption": {
+        "fontFamily": {
+          "value": "Pretendard Variable",
+          "type": "fontFamily"
+        },
+        "fontWeight": {
+          "value": 200,
+          "type": "fontWeight"
+        },
+        "lineHeight": {
+          "value": "150%",
+          "type": "lineHeight"
+        },
+        "fontSize": {
+          "value": "0.75rem",
           "type": "fontSize"
         }
       }

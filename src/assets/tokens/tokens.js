@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 02 Oct 2022 05:00:34 GMT
+ * Generated on Mon, 03 Oct 2022 06:26:50 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -35,6 +35,30 @@ export const ColourCardDefaultOnBackgroundActive = "#ffffff";
 export const ColourCardDefaultOnBackgroundInactive = "#ffffff80";
 export const ColourCardDefaultOnBackgroundPressed = "#cfcfcf";
 export const ColourCardDefaultOnBackgroundHover = "#ffffff";
+export const ColourOverlayDefaultBackgroundActive = "#252525";
+export const ColourOverlayDefaultBackgroundInactive = "#25252580";
+export const ColourOverlayDefaultBackgroundPressed = "#0d0d0d";
+export const ColourOverlayDefaultBackgroundHover = "#3d3d3d";
+export const ColourOverlayDefaultOnBackgroundActive = "#ffffff";
+export const ColourOverlayDefaultOnBackgroundInactive = "#ffffff80";
+export const ColourOverlayDefaultOnBackgroundPressed = "#cfcfcf";
+export const ColourOverlayDefaultOnBackgroundHover = "#ffffff";
+export const ColourSystemDefaultBackgroundActive = "#FF0000";
+export const ColourSystemDefaultBackgroundInactive = "#ff000080";
+export const ColourSystemDefaultBackgroundPressed = "#C20202";
+export const ColourSystemDefaultBackgroundHover = "#FF6565";
+export const ColourSystemDefaultOnBackgroundActive = "#ffffff";
+export const ColourSystemDefaultOnBackgroundInactive = "#ffffff80";
+export const ColourSystemDefaultOnBackgroundPressed = "#FFB7B7";
+export const ColourSystemDefaultOnBackgroundHover = "#FFDADA";
+export const ColourSystemInvertedBackgroundActive = "#ffffff";
+export const ColourSystemInvertedBackgroundInactive = "#ffffff80";
+export const ColourSystemInvertedBackgroundPressed = "#FFB7B7";
+export const ColourSystemInvertedBackgroundHover = "#FFDADA";
+export const ColourSystemInvertedOnBackgroundActive = "#FF0000";
+export const ColourSystemInvertedOnBackgroundInactive = "#ff000080";
+export const ColourSystemInvertedOnBackgroundPressed = "#C20202";
+export const ColourSystemInvertedOnBackgroundHover = "#FF6565";
 export const TypoRouteTitleFontFamily = "Pretendard Variable";
 export const TypoRouteTitleFontWeight = 900;
 export const TypoRouteTitleLineHeight = "150%";
@@ -67,6 +91,18 @@ export const TypoToastBodyFontFamily = "Pretendard Variable";
 export const TypoToastBodyFontWeight = 700;
 export const TypoToastBodyLineHeight = "150%";
 export const TypoToastBodyFontSize = "1rem";
+export const TypoOverlayTitleFontFamily = "Pretendard Variable";
+export const TypoOverlayTitleFontWeight = 700;
+export const TypoOverlayTitleLineHeight = "150%";
+export const TypoOverlayTitleFontSize = "1.25rem";
+export const TypoOverlayBodyFontFamily = "Pretendard Variable";
+export const TypoOverlayBodyFontWeight = 400;
+export const TypoOverlayBodyLineHeight = "150%";
+export const TypoOverlayBodyFontSize = "1rem";
+export const TypoOverlayCaptionFontFamily = "Pretendard Variable";
+export const TypoOverlayCaptionFontWeight = 200;
+export const TypoOverlayCaptionLineHeight = "150%";
+export const TypoOverlayCaptionFontSize = "0.75rem";
 export const TypoH1FontFamily = "Pretendard Variable";
 export const TypoH1FontWeight = 900;
 export const TypoH1LineHeight = "150%";

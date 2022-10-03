@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 02 Oct 2022 05:00:34 GMT
+ * Generated on Mon, 03 Oct 2022 06:26:50 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -35,6 +35,30 @@ export const ColourCardDefaultOnBackgroundActive : string;
 export const ColourCardDefaultOnBackgroundInactive : string;
 export const ColourCardDefaultOnBackgroundPressed : string;
 export const ColourCardDefaultOnBackgroundHover : string;
+export const ColourOverlayDefaultBackgroundActive : string;
+export const ColourOverlayDefaultBackgroundInactive : string;
+export const ColourOverlayDefaultBackgroundPressed : string;
+export const ColourOverlayDefaultBackgroundHover : string;
+export const ColourOverlayDefaultOnBackgroundActive : string;
+export const ColourOverlayDefaultOnBackgroundInactive : string;
+export const ColourOverlayDefaultOnBackgroundPressed : string;
+export const ColourOverlayDefaultOnBackgroundHover : string;
+export const ColourSystemDefaultBackgroundActive : string;
+export const ColourSystemDefaultBackgroundInactive : string;
+export const ColourSystemDefaultBackgroundPressed : string;
+export const ColourSystemDefaultBackgroundHover : string;
+export const ColourSystemDefaultOnBackgroundActive : string;
+export const ColourSystemDefaultOnBackgroundInactive : string;
+export const ColourSystemDefaultOnBackgroundPressed : string;
+export const ColourSystemDefaultOnBackgroundHover : string;
+export const ColourSystemInvertedBackgroundActive : string;
+export const ColourSystemInvertedBackgroundInactive : string;
+export const ColourSystemInvertedBackgroundPressed : string;
+export const ColourSystemInvertedBackgroundHover : string;
+export const ColourSystemInvertedOnBackgroundActive : string;
+export const ColourSystemInvertedOnBackgroundInactive : string;
+export const ColourSystemInvertedOnBackgroundPressed : string;
+export const ColourSystemInvertedOnBackgroundHover : string;
 export const TypoRouteTitleFontFamily : string;
 export const TypoRouteTitleFontWeight : number;
 export const TypoRouteTitleLineHeight : string;
@@ -67,6 +91,18 @@ export const TypoToastBodyFontFamily : string;
 export const TypoToastBodyFontWeight : number;
 export const TypoToastBodyLineHeight : string;
 export const TypoToastBodyFontSize : string;
+export const TypoOverlayTitleFontFamily : string;
+export const TypoOverlayTitleFontWeight : number;
+export const TypoOverlayTitleLineHeight : string;
+export const TypoOverlayTitleFontSize : string;
+export const TypoOverlayBodyFontFamily : string;
+export const TypoOverlayBodyFontWeight : number;
+export const TypoOverlayBodyLineHeight : string;
+export const TypoOverlayBodyFontSize : string;
+export const TypoOverlayCaptionFontFamily : string;
+export const TypoOverlayCaptionFontWeight : number;
+export const TypoOverlayCaptionLineHeight : string;
+export const TypoOverlayCaptionFontSize : string;
 export const TypoH1FontFamily : string;
 export const TypoH1FontWeight : number;
 export const TypoH1LineHeight : string;

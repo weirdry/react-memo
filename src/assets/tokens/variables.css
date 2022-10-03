@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 02 Oct 2022 05:00:34 GMT
+ * Generated on Mon, 03 Oct 2022 06:26:50 GMT
  */
 
 :root {
@@ -36,6 +36,30 @@
   --colour-card-default-on-background-inactive: #ffffff80;
   --colour-card-default-on-background-pressed: #cfcfcf;
   --colour-card-default-on-background-hover: #ffffff;
+  --colour-overlay-default-background-active: #252525;
+  --colour-overlay-default-background-inactive: #25252580;
+  --colour-overlay-default-background-pressed: #0d0d0d;
+  --colour-overlay-default-background-hover: #3d3d3d;
+  --colour-overlay-default-on-background-active: #ffffff;
+  --colour-overlay-default-on-background-inactive: #ffffff80;
+  --colour-overlay-default-on-background-pressed: #cfcfcf;
+  --colour-overlay-default-on-background-hover: #ffffff;
+  --colour-system-default-background-active: #FF0000;
+  --colour-system-default-background-inactive: #ff000080;
+  --colour-system-default-background-pressed: #C20202;
+  --colour-system-default-background-hover: #FF6565;
+  --colour-system-default-on-background-active: #ffffff;
+  --colour-system-default-on-background-inactive: #ffffff80;
+  --colour-system-default-on-background-pressed: #FFB7B7;
+  --colour-system-default-on-background-hover: #FFDADA;
+  --colour-system-inverted-background-active: #ffffff;
+  --colour-system-inverted-background-inactive: #ffffff80;
+  --colour-system-inverted-background-pressed: #FFB7B7;
+  --colour-system-inverted-background-hover: #FFDADA;
+  --colour-system-inverted-on-background-active: #FF0000;
+  --colour-system-inverted-on-background-inactive: #ff000080;
+  --colour-system-inverted-on-background-pressed: #C20202;
+  --colour-system-inverted-on-background-hover: #FF6565;
   --typo-route-title-font-family: Pretendard Variable;
   --typo-route-title-font-weight: 900;
   --typo-route-title-line-height: 150%;
@@ -68,6 +92,18 @@
   --typo-toast-body-font-weight: 700;
   --typo-toast-body-line-height: 150%;
   --typo-toast-body-font-size: 1rem;
+  --typo-overlay-title-font-family: Pretendard Variable;
+  --typo-overlay-title-font-weight: 700;
+  --typo-overlay-title-line-height: 150%;
+  --typo-overlay-title-font-size: 1.25rem;
+  --typo-overlay-body-font-family: Pretendard Variable;
+  --typo-overlay-body-font-weight: 400;
+  --typo-overlay-body-line-height: 150%;
+  --typo-overlay-body-font-size: 1rem;
+  --typo-overlay-caption-font-family: Pretendard Variable;
+  --typo-overlay-caption-font-weight: 200;
+  --typo-overlay-caption-line-height: 150%;
+  --typo-overlay-caption-font-size: 0.75rem;
   --typo-h1-font-family: Pretendard Variable;
   --typo-h1-font-weight: 900;
   --typo-h1-line-height: 150%;
