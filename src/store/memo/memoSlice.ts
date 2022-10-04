@@ -8,6 +8,7 @@ export type Memo = {
 	title: string
 	body: string
 	createdAt: string
+	isPinned: boolean
 }
 
 export type MemoState = {
@@ -20,7 +21,7 @@ export type MemoState = {
 const initialState: MemoState = {
 	isCreated: false,
 	isEdited: false,
-	memo: { id: '', title: '', body: '', createdAt: '' },
+	memo: { id: '', title: '', body: '', createdAt: '', isPinned: false },
 	memoList: [],
 }
 
@@ -114,10 +115,19 @@ export const editMemo = (
 				title: memo.title,
 				body: memo.body,
 				createdAt: memo.createdAt,
+				isPinned: memo.isPinned,
 			}
 		}
 		dispatch(setMemoList(copyList))
 	}
+}
+
+export const editMemoPin = (
+	dispatch: AppDispatch,
+	getState: GetAppState,
+): void => {
+	const { memo } = selectMemoisedMemoList(getState())
+	dispatch(setMemo({ ...memo, isPinned: !memo.isPinned }))
 }
 
 export default memoSlice.reducer

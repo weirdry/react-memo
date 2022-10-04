@@ -8,6 +8,7 @@ import {
 	setIsEdited,
 	resetIsEdited,
 	editMemo,
+	editMemoPin,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -23,7 +24,7 @@ export default function ViewMemo() {
 	const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false)
 
 	// Need to change from useState to slice below
-	const [isPinned, setIsPinned] = useState<boolean>(false)
+	// const [isPinned, setIsPinned] = useState<boolean>(false)
 
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
@@ -59,7 +60,8 @@ export default function ViewMemo() {
 		setIsMenuOpened(!isMenuOpened)
 
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
-		setIsPinned(!isPinned)
+		dispatch(editMemoPin)
+	// setIsPinned(!isPinned)
 
 	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {}
 
@@ -103,7 +105,7 @@ export default function ViewMemo() {
 						icon="pin"
 						text="즐겨찾기 메모로 지정"
 						isToggle
-						isActivated={isPinned}
+						isActivated={memo.isPinned}
 						handleClick={handlePin}
 					/>
 					<OverlayItem

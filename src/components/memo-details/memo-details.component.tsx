@@ -22,6 +22,7 @@ const initialValue: Memo = {
 		month: '2-digit',
 		day: '2-digit',
 	}),
+	isPinned: false,
 }
 
 type MemoDetailsProps = {
