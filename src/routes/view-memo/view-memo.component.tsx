@@ -20,6 +20,7 @@ import { ViewMemoContainer } from './view-memo.styles'
 
 export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
+	const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false)
 
 	// Need to change from useState to slice below
 	const [isPinned, setIsPinned] = useState<boolean>(false)
@@ -54,6 +55,9 @@ export default function ViewMemo() {
 		navigate('/')
 	}
 
+	const handleMenu = (e: MouseEvent<HTMLButtonElement>): void =>
+		setIsMenuOpened(!isMenuOpened)
+
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
 		setIsPinned(!isPinned)
 
@@ -79,7 +83,7 @@ export default function ViewMemo() {
 					}
 					rightSideChildren={
 						<>
-							<IconButton icon="more" />
+							<IconButton icon="more" handleClick={handleMenu} />
 							<IconButton icon="confirm" type="submit" disabled={isDisabled} />
 						</>
 					}
@@ -92,21 +96,24 @@ export default function ViewMemo() {
 					/>
 				</div>
 			</form>
-			<BottomSheet title="메모 수정">
-				<OverlayItem
-					icon="pin"
-					text="즐겨찾기 메모로 지정"
-					isToggle
-					isActivated={isPinned}
-					handleClick={handlePin}
-				/>
-				<OverlayItem
-					isSystem
-					icon="delete"
-					text="메모 삭제"
-					handleClick={handleDelete}
-				/>
-			</BottomSheet>
+
+			{isMenuOpened && (
+				<BottomSheet title="메모 수정" handleClose={handleMenu}>
+					<OverlayItem
+						icon="pin"
+						text="즐겨찾기 메모로 지정"
+						isToggle
+						isActivated={isPinned}
+						handleClick={handlePin}
+					/>
+					<OverlayItem
+						isSystem
+						icon="delete"
+						text="메모 삭제"
+						handleClick={handleDelete}
+					/>
+				</BottomSheet>
+			)}
 		</ViewMemoContainer>
 	)
 }
