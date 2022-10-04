@@ -23,9 +23,8 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { isCreated, isEdited, memoList } = useAppSelector(
-		selectMemoisedMemoList,
-	)
+	const { isCreated, isEdited, memoList, pinnedMemoList, unpinnedMemoList } =
+		useAppSelector(selectMemoisedMemoList)
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(resetMemo())
@@ -52,9 +51,14 @@ export default function Home() {
 				/>
 			) : (
 				<div className="contents-container">
-					{/* Disabled for now
-        <MemoList title="즐겨찾기한 메모" isFoldable /> */}
-					<MemoList title="메모 리스트" memoList={memoList} />
+					{pinnedMemoList.length !== 0 && (
+						<MemoList
+							title="즐겨찾기한 메모"
+							isFoldable
+							memoList={pinnedMemoList}
+						/>
+					)}
+					<MemoList title="메모 리스트" memoList={unpinnedMemoList} />
 				</div>
 			)}
 

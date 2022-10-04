@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components'
 
+import { IconButtonContainer } from '../icon-button/icon-button.styles'
+
 type AccordionContainerProps = { isOpen: boolean }
 
-export const AccordionContainer = styled.div`
+export const AccordionContainer = styled.div<AccordionContainerProps>`
 	width: 100%;
 
 	display: flex;
@@ -25,13 +27,13 @@ export const AccordionContainer = styled.div`
 			line-height: var(--typo-route-sectiontitle-line-height);
 		}
 
-		*:last-child {
+		${IconButtonContainer} {
 			transform-origin: center center;
 			transition-duration: 0.25s;
-			${(props: AccordionContainerProps) =>
+			${(props) =>
 				props.isOpen
 					? css`
-							transform: rotate(60deg);
+							transform: rotate(180deg);
 					  `
 					: css`
 							transform: rotate(0deg);

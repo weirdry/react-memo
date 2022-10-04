@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const ToastContainer = styled.div`
 	/* position: absolute;
 	bottom: 3rem; */

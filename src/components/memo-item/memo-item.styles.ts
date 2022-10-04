@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const ContentContainer = styled.div`
 	width: 100%;
 

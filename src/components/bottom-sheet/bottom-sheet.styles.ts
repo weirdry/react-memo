@@ -2,8 +2,6 @@ import styled from 'styled-components'
 
 import { IconButtonContainer } from '../icon-button/icon-button.styles'
 
-import '../../assets/tokens/variables.css'
-
 export const BottomSheetContainer = styled.div`
 	width: 100%;
 

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const MemoDetailsContainer = styled.div`
 	width: 100%;
 	/* height: 100%; */

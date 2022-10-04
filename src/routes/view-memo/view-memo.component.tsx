@@ -23,9 +23,6 @@ export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
 	const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false)
 
-	// Need to change from useState to slice below
-	// const [isPinned, setIsPinned] = useState<boolean>(false)
-
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
 
@@ -61,7 +58,6 @@ export default function ViewMemo() {
 
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
 		dispatch(editMemoPin)
-	// setIsPinned(!isPinned)
 
 	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {}
 

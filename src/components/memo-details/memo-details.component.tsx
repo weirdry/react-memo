@@ -39,7 +39,7 @@ export default function MemoDetails(props: MemoDetailsProps) {
 	const dispatch = useAppDispatch()
 
 	const getMemo = (): Memo => {
-		const selectedMemo = memoList?.find(
+		const selectedMemo = memoList.find(
 			(storedMemo) => storedMemo.id === memo_id,
 		)
 

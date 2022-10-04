@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 type OverlayItemContainerProps = {
 	isSystem: boolean
 }

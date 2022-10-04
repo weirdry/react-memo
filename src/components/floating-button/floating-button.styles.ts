@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const FloatingButtonContainer = styled.button`
 	all: unset;
 	cursor: pointer;

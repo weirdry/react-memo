@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const ToolBarContainer = styled.div`
 	position: sticky;
 	top: 0;

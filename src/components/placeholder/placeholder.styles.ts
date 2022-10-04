@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const PlaceholderContainer = styled.div`
 	width: 100%;
 	min-height: 80vh;

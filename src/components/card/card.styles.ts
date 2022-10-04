@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components'
 
 import { CardType } from './card.component'
 
-import '../../assets/tokens/variables.css'
-
 type CardContainerProps = {
 	cardType: CardType
 	isClickable: boolean

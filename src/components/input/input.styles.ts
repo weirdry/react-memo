@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import '../../assets/tokens/variables.css'
-
 export const BaseTextarea = styled.textarea`
 	all: unset;
 	width: 100%;

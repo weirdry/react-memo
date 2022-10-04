@@ -62,6 +62,10 @@ export const selectIsCreated = (state: RootState) => state.memo.isCreated
 export const selectIsEdited = (state: RootState) => state.memo.isEdited
 export const selectMemo = (state: RootState) => state.memo.memo
 export const selectMemoList = (state: RootState) => state.memo.memoList
+export const selectUnpinnedMemoList = (state: RootState) =>
+	state.memo.memoList.filter((memo) => !memo.isPinned)
+export const selectPinnedMemoList = (state: RootState) =>
+	state.memo.memoList.filter((memo) => memo.isPinned)
 
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
@@ -69,11 +73,15 @@ export const selectMemoisedMemoList = createSelector(
 	selectIsEdited,
 	selectMemo,
 	selectMemoList,
-	(isCreated, isEdited, memo, memoList) => ({
+	selectUnpinnedMemoList,
+	selectPinnedMemoList,
+	(isCreated, isEdited, memo, memoList, unpinnedMemoList, pinnedMemoList) => ({
 		isCreated,
 		isEdited,
 		memo,
 		memoList,
+		unpinnedMemoList,
+		pinnedMemoList,
 	}),
 )
 
@@ -103,23 +111,21 @@ export const editMemo = (
 ): void => {
 	const { memo, memoList } = selectMemoisedMemoList(getState())
 
-	if (memo) {
-		const findIndex = memoList.findIndex(
-			(storedMemo) => storedMemo.id === memo.id,
-		)
-		let copyList = [...memoList]
+	const findIndex = memoList.findIndex(
+		(storedMemo) => storedMemo.id === memo.id,
+	)
+	let copyList = [...memoList]
 
-		if (findIndex !== -1) {
-			copyList[findIndex] = {
-				...copyList[findIndex],
-				title: memo.title,
-				body: memo.body,
-				createdAt: memo.createdAt,
-				isPinned: memo.isPinned,
-			}
+	if (findIndex !== -1) {
+		copyList[findIndex] = {
+			...copyList[findIndex],
+			title: memo.title,
+			body: memo.body,
+			createdAt: memo.createdAt,
+			isPinned: memo.isPinned,
 		}
-		dispatch(setMemoList(copyList))
 	}
+	dispatch(setMemoList(copyList))
 }
 
 export const editMemoPin = (
