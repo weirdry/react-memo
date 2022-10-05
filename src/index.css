@@ -12,6 +12,11 @@ body {
 
 	color: var(--colour-app-on-background-active);
 	background-color: var(--colour-app-background);
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 body * {
