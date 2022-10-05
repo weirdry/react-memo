@@ -19,7 +19,7 @@ import MemoSetting from '../../components/memo-setting/memo-setting.component'
 
 export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
-	const [isMenuOpened, setIsMenuOpened] = useState<boolean>(false)
+	const [isSettingOpened, setIsSettingOpened] = useState<boolean>(false)
 
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
@@ -52,7 +52,7 @@ export default function ViewMemo() {
 	}
 
 	const handleMenu = (e: MouseEvent<HTMLButtonElement>): void =>
-		setIsMenuOpened(!isMenuOpened)
+		setIsSettingOpened(!isSettingOpened)
 
 	useEffect(() => {
 		const { title, body } = memo
@@ -88,7 +88,7 @@ export default function ViewMemo() {
 				</div>
 			</form>
 
-			{isMenuOpened && <MemoSetting handleClose={handleMenu} />}
+			{isSettingOpened && <MemoSetting handleClose={handleMenu} />}
 		</ViewMemoContainer>
 	)
 }

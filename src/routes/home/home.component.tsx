@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react'
+import { useState, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
@@ -17,8 +17,11 @@ import Placeholder from '../../components/placeholder/placeholder.components'
 import Toast from '../../components/toast/toast.component'
 
 import { HomeContainer } from './home.styles'
+import MemoSetting from '../../components/memo-setting/memo-setting.component'
 
 export default function Home() {
+	const [isSettingOpened, setIsSettingOpened] = useState<boolean>(false)
+
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
@@ -92,6 +95,8 @@ export default function Home() {
 					handleClick={handleCreate}
 				/>
 			</div>
+
+			{isSettingOpened && <MemoSetting />}
 		</HomeContainer>
 	)
 }

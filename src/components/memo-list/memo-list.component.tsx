@@ -1,4 +1,5 @@
 import { Memo } from '../../store/memo/memoSlice'
+
 import Accordion from '../accordion/accordion.component'
 import MemoItem from '../memo-item/memo-item.component'
 
@@ -8,6 +9,7 @@ type MemoListProps = {
 	title: string
 	isFoldable: boolean
 	memoList?: Memo[]
+	handleMemoEdit: () => void
 }
 
 export default function MemoList(props: MemoListProps) {
@@ -34,4 +36,5 @@ export default function MemoList(props: MemoListProps) {
 MemoList.defaultProps = {
 	title: '메모 리스트',
 	isFoldable: false,
+	handleMemoEdit: (): void => {},
 }

@@ -1,5 +1,6 @@
-import { MouseEvent } from 'react'
+import { useState, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useLongPress } from 'use-long-press'
 
 import { Memo } from '../../store/memo/memoSlice'
 
@@ -14,19 +15,33 @@ type MemoItemProps = {
 export default function MemoItem({ memo }: MemoItemProps) {
 	const { id, title, body, createdAt } = memo
 
+	const [isLongPressed, setIsLongPressed] = useState<boolean>(false)
+
 	const navigate = useNavigate()
 
-	const handleClick = (e: MouseEvent<HTMLDivElement>): void =>
-		navigate(`/view-memo/${id}`)
+	const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
+		!isLongPressed && navigate(`/view-memo/${id}`)
+	}
+
+	const handleLongTap = () => {
+		console.log('long pressed')
+	}
+
+	const bind = useLongPress(handleLongTap, {
+		onStart: () => setIsLongPressed(true),
+		onCancel: () => setIsLongPressed(false),
+	})
 
 	return (
-		<Card isClickable handleClick={handleClick}>
-			<ContentContainer>
-				{title && <h3>{title}</h3>}
-				{body && <p>{body}</p>}
-				<span>{createdAt}</span>
-			</ContentContainer>
-		</Card>
+		<div {...bind()}>
+			<Card isClickable handleClick={handleClick}>
+				<ContentContainer>
+					{title && <h3>{title}</h3>}
+					{body && <p>{body}</p>}
+					<span>{createdAt}</span>
+				</ContentContainer>
+			</Card>
+		</div>
 	)
 }
 
