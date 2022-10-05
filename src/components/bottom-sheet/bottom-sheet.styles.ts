@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import { IconButtonContainer } from '../icon-button/icon-button.styles'
 
@@ -10,12 +10,21 @@ export const BackgroundPannel = styled.div`
 	top: 0;
 	left: 0;
 
-	background-color: rgba(0, 0, 0, 0.15);
-	backdrop-filter: blur(1rem);
-
 	z-index: 10;
-
 	cursor: pointer;
+
+	animation: pannel-animation 0.15s ease-in 1 forwards normal;
+
+	@keyframes pannel-animation {
+		0% {
+			backdrop-filter: blur(0rem);
+			background-color: rgba(0, 0, 0, 0);
+		}
+		100% {
+			backdrop-filter: blur(1rem);
+			background-color: rgba(0, 0, 0, 0.15);
+		}
+	}
 `
 
 export const BottomSheetContainer = styled.div`
@@ -65,5 +74,16 @@ export const BottomSheetContainer = styled.div`
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
+	}
+
+	animation: bottom-sheet-animation 0.15s ease-out 1 forwards normal;
+
+	@keyframes bottom-sheet-animation {
+		0% {
+			transform: translateY(20rem);
+		}
+		100% {
+			transform: translateY(0rem);
+		}
 	}
 `

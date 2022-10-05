@@ -26,8 +26,12 @@ export default function MemoSetting(props: MemoSettingProps) {
 
 	const { memo } = useAppSelector(selectMemoisedMemoList)
 
-	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
+	const handlePin = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(editMemoPin(isDirectlySave))
+
+		dispatch(setIsModified('edited'))
+		setTimeout(() => dispatch(resetIsModified()), 2000)
+	}
 
 	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {
 		if (window.confirm('메모를 삭제하시겠습니까?')) {
