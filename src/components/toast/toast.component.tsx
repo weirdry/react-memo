@@ -4,11 +4,11 @@ import { ToastContainer } from './toast.styles'
 
 type ToastProps = {
 	text: string
-	toastType: 'success' | 'failed'
+	toastType: 'success' | 'failed' | 'delete'
 }
 
 export default function Toast(props: ToastProps) {
-	const { text, toastType } = props
+	const { toastType, text } = props
 
 	const SelectedIcon = selectIcon(toastType)
 

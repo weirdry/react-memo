@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 
 import {
+	resetIsModified,
 	selectMemoisedMemoList,
-	resetIsCreated,
-	resetIsEdited,
 	resetMemo,
 } from '../../store/memo/memoSlice'
 
@@ -23,13 +22,33 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { isCreated, isEdited, memoList, pinnedMemoList, unpinnedMemoList } =
+	const { isModified, memoList, pinnedMemoList, unpinnedMemoList } =
 		useAppSelector(selectMemoisedMemoList)
+
+	const selectedToast = (toastType: typeof isModified): JSX.Element | null => {
+		switch (toastType) {
+			case 'none':
+				return null
+			case 'created':
+				return (
+					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
+				)
+			case 'edited':
+				return (
+					<Toast toastType="success" text="메모를 성공적으로 수정했습니다." />
+				)
+			case 'deleted':
+				return (
+					<Toast toastType="delete" text="메모를 성공적으로 삭제했습니다." />
+				)
+			default:
+				return null
+		}
+	}
 
 	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(resetMemo())
-		dispatch(resetIsCreated())
-		dispatch(resetIsEdited())
+		dispatch(resetIsModified())
 		navigate('/create-memo')
 	}
 	const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {}
@@ -63,12 +82,13 @@ export default function Home() {
 			)}
 
 			<div className="floating-container">
-				{isCreated && (
+				{selectedToast(isModified)}
+				{/* {isCreated && (
 					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
 				)}
 				{isEdited && (
 					<Toast toastType="success" text="메모를 성공적으로 저장했습니다." />
-				)}
+				)} */}
 				<FloatingButton
 					text="새 메모"
 					icon="write"

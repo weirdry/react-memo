@@ -5,9 +5,9 @@ import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import {
 	setMemo,
 	addMemo,
-	setIsCreated,
-	resetIsCreated,
+	setIsModified,
 	selectMemoisedMemoList,
+	resetIsModified,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -43,8 +43,8 @@ export default function CreateMemo() {
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
 		dispatch(addMemo)
 
-		dispatch(setIsCreated(true))
-		setTimeout(() => dispatch(resetIsCreated()), 2000)
+		dispatch(setIsModified('created'))
+		setTimeout(() => dispatch(resetIsModified()), 2000)
 
 		navigate('/')
 	}

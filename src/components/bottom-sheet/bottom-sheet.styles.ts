@@ -21,6 +21,8 @@ export const BottomSheetContainer = styled.div`
 
 	color: var(--colour-overlay-default-on-background-active);
 
+	z-index: 5;
+
 	.heading-container {
 		width: 100%;
 

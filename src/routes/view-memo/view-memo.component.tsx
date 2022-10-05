@@ -5,10 +5,11 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
 	setMemo,
 	selectMemoisedMemoList,
-	setIsEdited,
-	resetIsEdited,
 	editMemo,
 	editMemoPin,
+	deleteMemo,
+	setIsModified,
+	resetIsModified,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -47,8 +48,8 @@ export default function ViewMemo() {
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
 		dispatch(editMemo)
 
-		dispatch(setIsEdited(true))
-		setTimeout(() => dispatch(resetIsEdited()), 2000)
+		dispatch(setIsModified('edited'))
+		setTimeout(() => dispatch(resetIsModified()), 2000)
 
 		navigate('/')
 	}
@@ -59,7 +60,18 @@ export default function ViewMemo() {
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
 		dispatch(editMemoPin)
 
-	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {}
+	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {
+		if (window.confirm('메모를 삭제하시겠습니까?')) {
+			dispatch(deleteMemo)
+
+			dispatch(setIsModified('deleted'))
+			setTimeout(() => dispatch(resetIsModified()), 2000)
+
+			navigate('/')
+		} else {
+			return
+		}
+	}
 
 	useEffect(() => {
 		const { title, body } = memo

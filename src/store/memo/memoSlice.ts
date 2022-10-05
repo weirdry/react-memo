@@ -11,16 +11,16 @@ export type Memo = {
 	isPinned: boolean
 }
 
+export type ModificationType = 'none' | 'created' | 'edited' | 'deleted'
+
 export type MemoState = {
-	isCreated: boolean
-	isEdited: boolean
+	isModified: ModificationType
 	memo: Memo
 	memoList: Memo[]
 }
 
 const initialState: MemoState = {
-	isCreated: false,
-	isEdited: false,
+	isModified: 'none',
 	memo: { id: '', title: '', body: '', createdAt: '', isPinned: false },
 	memoList: [],
 }
@@ -29,17 +29,11 @@ export const memoSlice = createSlice({
 	name: 'memo',
 	initialState,
 	reducers: {
-		setIsCreated: (state, action: PayloadAction<boolean>) => {
-			state.isCreated = action.payload
+		setIsModified: (state, action: PayloadAction<ModificationType>) => {
+			state.isModified = action.payload
 		},
-		resetIsCreated: (state) => {
-			state.isCreated = initialState.isCreated
-		},
-		setIsEdited: (state, action: PayloadAction<boolean>) => {
-			state.isEdited = action.payload
-		},
-		resetIsEdited: (state) => {
-			state.isEdited = initialState.isEdited
+		resetIsModified: (state) => {
+			state.isModified = initialState.isModified
 		},
 		setMemo: (state, action: PayloadAction<Memo>) => {
 			state.memo = action.payload
@@ -58,8 +52,7 @@ export const memoSlice = createSlice({
 })
 
 // Select MemoList directly from state
-export const selectIsCreated = (state: RootState) => state.memo.isCreated
-export const selectIsEdited = (state: RootState) => state.memo.isEdited
+export const selectIsModified = (state: RootState) => state.memo.isModified
 export const selectMemo = (state: RootState) => state.memo.memo
 export const selectMemoList = (state: RootState) => state.memo.memoList
 export const selectUnpinnedMemoList = (state: RootState) =>
@@ -69,15 +62,13 @@ export const selectPinnedMemoList = (state: RootState) =>
 
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
-	selectIsCreated,
-	selectIsEdited,
+	selectIsModified,
 	selectMemo,
 	selectMemoList,
 	selectUnpinnedMemoList,
 	selectPinnedMemoList,
-	(isCreated, isEdited, memo, memoList, unpinnedMemoList, pinnedMemoList) => ({
-		isCreated,
-		isEdited,
+	(isModified, memo, memoList, unpinnedMemoList, pinnedMemoList) => ({
+		isModified,
 		memo,
 		memoList,
 		unpinnedMemoList,
@@ -89,10 +80,8 @@ export const selectMemoisedMemoList = createSelector(
 export const {
 	setMemo,
 	resetMemo,
-	setIsEdited,
-	resetIsEdited,
-	setIsCreated,
-	resetIsCreated,
+	setIsModified,
+	resetIsModified,
 	setMemoList,
 	resetMemoList,
 } = memoSlice.actions
@@ -134,6 +123,16 @@ export const editMemoPin = (
 ): void => {
 	const { memo } = selectMemoisedMemoList(getState())
 	dispatch(setMemo({ ...memo, isPinned: !memo.isPinned }))
+}
+
+export const deleteMemo = (
+	dispatch: AppDispatch,
+	getState: GetAppState,
+): void => {
+	const { memo, memoList } = selectMemoisedMemoList(getState())
+	const newMemoList = memoList.filter((storedMemo) => storedMemo.id !== memo.id)
+
+	dispatch(setMemoList(newMemoList))
 }
 
 export default memoSlice.reducer
