@@ -6,8 +6,6 @@ import {
 	setMemo,
 	selectMemoisedMemoList,
 	editMemo,
-	editMemoPin,
-	deleteMemo,
 	setIsModified,
 	resetIsModified,
 } from '../../store/memo/memoSlice'
@@ -15,10 +13,9 @@ import {
 import ToolBar from '../../components/tool-bar/tool-bar.component'
 import IconButton from '../../components/icon-button/icon-button.component'
 import MemoDetails from '../../components/memo-details/memo-details.component'
-import BottomSheet from '../../components/bottom-sheet/bottom-sheet.component'
-import OverlayItem from '../../components/overlay-item/overlay-item.component'
 
 import { ViewMemoContainer } from './view-memo.styles'
+import MemoSetting from '../../components/memo-setting/memo-setting.component'
 
 export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
@@ -57,22 +54,6 @@ export default function ViewMemo() {
 	const handleMenu = (e: MouseEvent<HTMLButtonElement>): void =>
 		setIsMenuOpened(!isMenuOpened)
 
-	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
-		dispatch(editMemoPin)
-
-	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {
-		if (window.confirm('메모를 삭제하시겠습니까?')) {
-			dispatch(deleteMemo)
-
-			dispatch(setIsModified('deleted'))
-			setTimeout(() => dispatch(resetIsModified()), 2000)
-
-			navigate('/')
-		} else {
-			return
-		}
-	}
-
 	useEffect(() => {
 		const { title, body } = memo
 
@@ -107,23 +88,7 @@ export default function ViewMemo() {
 				</div>
 			</form>
 
-			{isMenuOpened && (
-				<BottomSheet title="메모 수정" handleClose={handleMenu}>
-					<OverlayItem
-						icon="pin"
-						text="즐겨찾기 메모로 지정"
-						isToggle
-						isActivated={memo.isPinned}
-						handleClick={handlePin}
-					/>
-					<OverlayItem
-						isSystem
-						icon="delete"
-						text="메모 삭제"
-						handleClick={handleDelete}
-					/>
-				</BottomSheet>
-			)}
+			{isMenuOpened && <MemoSetting handleClose={handleMenu} />}
 		</ViewMemoContainer>
 	)
 }

@@ -77,18 +77,15 @@ export default function Home() {
 							memoList={pinnedMemoList}
 						/>
 					)}
-					<MemoList title="메모 리스트" memoList={unpinnedMemoList} />
+					{unpinnedMemoList.length !== 0 && (
+						<MemoList title="메모 리스트" memoList={unpinnedMemoList} />
+					)}
 				</div>
 			)}
 
 			<div className="floating-container">
 				{selectedToast(isModified)}
-				{/* {isCreated && (
-					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
-				)}
-				{isEdited && (
-					<Toast toastType="success" text="메모를 성공적으로 저장했습니다." />
-				)} */}
+
 				<FloatingButton
 					text="새 메모"
 					icon="write"
