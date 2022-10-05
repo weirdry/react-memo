@@ -2,10 +2,27 @@ import styled from 'styled-components'
 
 import { IconButtonContainer } from '../icon-button/icon-button.styles'
 
+export const BackgroundPannel = styled.div`
+	width: 100vw;
+	height: 100vh;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	background-color: rgba(0, 0, 0, 0.15);
+	backdrop-filter: blur(1rem);
+
+	z-index: 10;
+
+	cursor: pointer;
+`
+
 export const BottomSheetContainer = styled.div`
 	width: 100%;
 
 	position: fixed;
+	left: 0;
 	bottom: 0;
 
 	display: flex;
@@ -21,7 +38,7 @@ export const BottomSheetContainer = styled.div`
 
 	color: var(--colour-overlay-default-on-background-active);
 
-	z-index: 5;
+	z-index: 11;
 
 	.heading-container {
 		width: 100%;

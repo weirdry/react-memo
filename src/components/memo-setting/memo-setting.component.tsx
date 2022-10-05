@@ -10,15 +10,16 @@ import {
 	selectMemoisedMemoList,
 } from '../../store/memo/memoSlice'
 
-import BottomSheet from '../bottom-sheet/bottom-sheet.component'
 import OverlayItem from '../overlay-item/overlay-item.component'
 
+import { MemoSettingContainer } from './memo-setting.styles'
+
 type MemoSettingProps = {
-	handleClose: (e: MouseEvent<HTMLButtonElement>) => void
+	isDirectlySave: boolean
 }
 
 export default function MemoSetting(props: MemoSettingProps) {
-	const { handleClose } = props
+	const { isDirectlySave } = props
 
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
@@ -26,7 +27,7 @@ export default function MemoSetting(props: MemoSettingProps) {
 	const { memo } = useAppSelector(selectMemoisedMemoList)
 
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void =>
-		dispatch(editMemoPin)
+		dispatch(editMemoPin(isDirectlySave))
 
 	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {
 		if (window.confirm('메모를 삭제하시겠습니까?')) {
@@ -42,7 +43,7 @@ export default function MemoSetting(props: MemoSettingProps) {
 	}
 
 	return (
-		<BottomSheet title="메모 수정" handleClose={handleClose}>
+		<MemoSettingContainer>
 			<OverlayItem
 				icon="pin"
 				text="즐겨찾기 메모로 지정"
@@ -56,10 +57,10 @@ export default function MemoSetting(props: MemoSettingProps) {
 				text="메모 삭제"
 				handleClick={handleDelete}
 			/>
-		</BottomSheet>
+		</MemoSettingContainer>
 	)
 }
 
 MemoSetting.defaultProps = {
-	handleClose: () => {},
+	isDirectlySave: false,
 }

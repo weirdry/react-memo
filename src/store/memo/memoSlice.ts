@@ -19,9 +19,15 @@ export type MemoState = {
 	memoList: Memo[]
 }
 
-const initialState: MemoState = {
+export const initialState: MemoState = {
 	isModified: 'none',
-	memo: { id: '', title: '', body: '', createdAt: '', isPinned: false },
+	memo: {
+		id: '',
+		title: '',
+		body: '',
+		createdAt: '',
+		isPinned: false,
+	},
 	memoList: [],
 }
 
@@ -117,13 +123,14 @@ export const editMemo = (
 	dispatch(setMemoList(copyList))
 }
 
-export const editMemoPin = (
-	dispatch: AppDispatch,
-	getState: GetAppState,
-): void => {
-	const { memo } = selectMemoisedMemoList(getState())
-	dispatch(setMemo({ ...memo, isPinned: !memo.isPinned }))
-}
+export const editMemoPin =
+	(isDirectlySave: boolean) =>
+	(dispatch: AppDispatch, getState: GetAppState): void => {
+		const { memo } = selectMemoisedMemoList(getState())
+		dispatch(setMemo({ ...memo, isPinned: !memo.isPinned }))
+
+		isDirectlySave && dispatch(editMemo)
+	}
 
 export const deleteMemo = (
 	dispatch: AppDispatch,

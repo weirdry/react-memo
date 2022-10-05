@@ -16,6 +16,7 @@ import MemoDetails from '../../components/memo-details/memo-details.component'
 
 import { ViewMemoContainer } from './view-memo.styles'
 import MemoSetting from '../../components/memo-setting/memo-setting.component'
+import BottomSheet from '../../components/bottom-sheet/bottom-sheet.component'
 
 export default function ViewMemo() {
 	const [isDisabled, setIsDisabled] = useState<boolean>(true)
@@ -51,8 +52,9 @@ export default function ViewMemo() {
 		navigate('/')
 	}
 
-	const handleMenu = (e: MouseEvent<HTMLButtonElement>): void =>
-		setIsSettingOpened(!isSettingOpened)
+	const handleMenu = (
+		e: MouseEvent<HTMLButtonElement | HTMLDivElement>,
+	): void => setIsSettingOpened(!isSettingOpened)
 
 	useEffect(() => {
 		const { title, body } = memo
@@ -88,7 +90,11 @@ export default function ViewMemo() {
 				</div>
 			</form>
 
-			{isSettingOpened && <MemoSetting handleClose={handleMenu} />}
+			{isSettingOpened && (
+				<BottomSheet title="메모 설정" handleClose={handleMenu}>
+					<MemoSetting />
+				</BottomSheet>
+			)}
 		</ViewMemoContainer>
 	)
 }

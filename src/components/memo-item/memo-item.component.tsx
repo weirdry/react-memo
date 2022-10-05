@@ -2,9 +2,12 @@ import { useState, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useLongPress } from 'use-long-press'
 
-import { Memo } from '../../store/memo/memoSlice'
+import { useAppDispatch } from '../../store/hooks'
+import { Memo, setMemo } from '../../store/memo/memoSlice'
 
 import Card from '../card/card.component'
+import MemoSetting from '../memo-setting/memo-setting.component'
+import BottomSheet from '../bottom-sheet/bottom-sheet.component'
 
 import { ContentContainer } from './memo-item.styles'
 
@@ -16,15 +19,22 @@ export default function MemoItem({ memo }: MemoItemProps) {
 	const { id, title, body, createdAt } = memo
 
 	const [isLongPressed, setIsLongPressed] = useState<boolean>(false)
+	const [isSettingOpened, setIsSettingOpened] = useState<boolean>(false)
 
+	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
 	const handleClick = (e: MouseEvent<HTMLDivElement>): void => {
 		!isLongPressed && navigate(`/view-memo/${id}`)
 	}
 
+	const handleClose = (
+		e: MouseEvent<HTMLButtonElement | HTMLDivElement>,
+	): void => setIsSettingOpened(false)
+
 	const handleLongTap = () => {
-		console.log('long pressed')
+		dispatch(setMemo(memo))
+		setIsSettingOpened(!isSettingOpened)
 	}
 
 	const bind = useLongPress(handleLongTap, {
@@ -41,6 +51,12 @@ export default function MemoItem({ memo }: MemoItemProps) {
 					<span>{createdAt}</span>
 				</ContentContainer>
 			</Card>
+
+			{isSettingOpened && (
+				<BottomSheet title="메모 설정" handleClose={handleClose}>
+					<MemoSetting isDirectlySave />
+				</BottomSheet>
+			)}
 		</div>
 	)
 }
