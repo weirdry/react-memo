@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Oct 2022 09:51:56 GMT
+ * Generated on Thu, 06 Oct 2022 14:05:55 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -75,6 +75,30 @@ export const ColourChipInvertedOnBackgroundActive : string;
 export const ColourChipInvertedOnBackgroundInactive : string;
 export const ColourChipInvertedOnBackgroundPressed : string;
 export const ColourChipInvertedOnBackgroundHover : string;
+export const ColourButtonPrimaryBackgroundActive : string;
+export const ColourButtonPrimaryBackgroundInactive : string;
+export const ColourButtonPrimaryBackgroundPressed : string;
+export const ColourButtonPrimaryBackgroundHover : string;
+export const ColourButtonPrimaryOnBackgroundActive : string;
+export const ColourButtonPrimaryOnBackgroundInactive : string;
+export const ColourButtonPrimaryOnBackgroundPressed : string;
+export const ColourButtonPrimaryOnBackgroundHover : string;
+export const ColourButtonSecondaryBackgroundActive : string;
+export const ColourButtonSecondaryBackgroundInactive : string;
+export const ColourButtonSecondaryBackgroundPressed : string;
+export const ColourButtonSecondaryBackgroundHover : string;
+export const ColourButtonSecondaryOnBackgroundActive : string;
+export const ColourButtonSecondaryOnBackgroundInactive : string;
+export const ColourButtonSecondaryOnBackgroundPressed : string;
+export const ColourButtonSecondaryOnBackgroundHover : string;
+export const ColourButtonSystemBackgroundActive : string;
+export const ColourButtonSystemBackgroundInactive : string;
+export const ColourButtonSystemBackgroundPressed : string;
+export const ColourButtonSystemBackgroundHover : string;
+export const ColourButtonSystemOnBackgroundActive : string;
+export const ColourButtonSystemOnBackgroundInactive : string;
+export const ColourButtonSystemOnBackgroundPressed : string;
+export const ColourButtonSystemOnBackgroundHover : string;
 export const TypoRouteTitleFontFamily : string;
 export const TypoRouteTitleFontWeight : number;
 export const TypoRouteTitleLineHeight : string;

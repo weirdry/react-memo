@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react'
+
 import { ChipContainer } from './chip.styles'
 
 type ChipProps = {
@@ -5,15 +7,16 @@ type ChipProps = {
 	count: number
 	isSelected: boolean
 	chipType: 'tag' | 'all' | 'new'
+	handleClick?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function Chip(props: ChipProps) {
-	const { text, count, isSelected, chipType } = props
+	const { text, count, isSelected, chipType, handleClick } = props
 
 	switch (chipType) {
 		case 'tag':
 			return (
-				<ChipContainer isSelected={isSelected}>
+				<ChipContainer isSelected={isSelected} onClick={handleClick}>
 					<div className="texts-container">
 						<span className="symbol">#</span> {text}
 					</div>
@@ -22,14 +25,14 @@ export default function Chip(props: ChipProps) {
 			)
 		case 'all':
 			return (
-				<ChipContainer isSelected={isSelected}>
+				<ChipContainer isSelected={isSelected} onClick={handleClick}>
 					<div className="texts-container">전체</div>
 					<span className="count">{count}</span>
 				</ChipContainer>
 			)
 		case 'new':
 			return (
-				<ChipContainer isSelected={false}>
+				<ChipContainer isSelected={false} onClick={handleClick}>
 					<div className="texts-container">
 						<span className="symbol">
 							<b>+</b>

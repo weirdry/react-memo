@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Oct 2022 09:51:56 GMT
+ * Generated on Thu, 06 Oct 2022 14:05:55 GMT
  */
 
 :root {
@@ -76,6 +76,30 @@
   --colour-chip-inverted-on-background-inactive: #25252580;
   --colour-chip-inverted-on-background-pressed: #0d0d0d;
   --colour-chip-inverted-on-background-hover: #3d3d3d;
+  --colour-button-primary-background-active: #ffffff;
+  --colour-button-primary-background-inactive: #ffffff80;
+  --colour-button-primary-background-pressed: #cfcfcf;
+  --colour-button-primary-background-hover: #ffffff;
+  --colour-button-primary-on-background-active: #0d0d0d;
+  --colour-button-primary-on-background-inactive: #0d0d0d80;
+  --colour-button-primary-on-background-pressed: #252525;
+  --colour-button-primary-on-background-hover: #3d3d3d;
+  --colour-button-secondary-background-active: #252525;
+  --colour-button-secondary-background-inactive: #25252580;
+  --colour-button-secondary-background-pressed: #0d0d0d;
+  --colour-button-secondary-background-hover: #3d3d3d;
+  --colour-button-secondary-on-background-active: #ffffff;
+  --colour-button-secondary-on-background-inactive: #ffffff80;
+  --colour-button-secondary-on-background-pressed: #cfcfcf;
+  --colour-button-secondary-on-background-hover: #ffffff;
+  --colour-button-system-background-active: #FF0000;
+  --colour-button-system-background-inactive: #ff000080;
+  --colour-button-system-background-pressed: #C20202;
+  --colour-button-system-background-hover: #FF6565;
+  --colour-button-system-on-background-active: #ffffff;
+  --colour-button-system-on-background-inactive: #ffffff80;
+  --colour-button-system-on-background-pressed: #FFB7B7;
+  --colour-button-system-on-background-hover: #FFDADA;
   --typo-route-title-font-family: Pretendard Variable;
   --typo-route-title-font-weight: 900;
   --typo-route-title-line-height: 150%;

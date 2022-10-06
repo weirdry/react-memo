@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Oct 2022 09:51:56 GMT
+ * Generated on Thu, 06 Oct 2022 14:05:55 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -75,6 +75,30 @@ export const ColourChipInvertedOnBackgroundActive = "#252525";
 export const ColourChipInvertedOnBackgroundInactive = "#25252580";
 export const ColourChipInvertedOnBackgroundPressed = "#0d0d0d";
 export const ColourChipInvertedOnBackgroundHover = "#3d3d3d";
+export const ColourButtonPrimaryBackgroundActive = "#ffffff";
+export const ColourButtonPrimaryBackgroundInactive = "#ffffff80";
+export const ColourButtonPrimaryBackgroundPressed = "#cfcfcf";
+export const ColourButtonPrimaryBackgroundHover = "#ffffff";
+export const ColourButtonPrimaryOnBackgroundActive = "#0d0d0d";
+export const ColourButtonPrimaryOnBackgroundInactive = "#0d0d0d80";
+export const ColourButtonPrimaryOnBackgroundPressed = "#252525";
+export const ColourButtonPrimaryOnBackgroundHover = "#3d3d3d";
+export const ColourButtonSecondaryBackgroundActive = "#252525";
+export const ColourButtonSecondaryBackgroundInactive = "#25252580";
+export const ColourButtonSecondaryBackgroundPressed = "#0d0d0d";
+export const ColourButtonSecondaryBackgroundHover = "#3d3d3d";
+export const ColourButtonSecondaryOnBackgroundActive = "#ffffff";
+export const ColourButtonSecondaryOnBackgroundInactive = "#ffffff80";
+export const ColourButtonSecondaryOnBackgroundPressed = "#cfcfcf";
+export const ColourButtonSecondaryOnBackgroundHover = "#ffffff";
+export const ColourButtonSystemBackgroundActive = "#FF0000";
+export const ColourButtonSystemBackgroundInactive = "#ff000080";
+export const ColourButtonSystemBackgroundPressed = "#C20202";
+export const ColourButtonSystemBackgroundHover = "#FF6565";
+export const ColourButtonSystemOnBackgroundActive = "#ffffff";
+export const ColourButtonSystemOnBackgroundInactive = "#ffffff80";
+export const ColourButtonSystemOnBackgroundPressed = "#FFB7B7";
+export const ColourButtonSystemOnBackgroundHover = "#FFDADA";
 export const TypoRouteTitleFontFamily = "Pretendard Variable";
 export const TypoRouteTitleFontWeight = 900;
 export const TypoRouteTitleLineHeight = "150%";

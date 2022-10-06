@@ -317,6 +317,110 @@
           "type": "color"
         }
       }
+    },
+    "button": {
+      "primary": {
+        "background-active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#cfcfcf",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#0d0d0d",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#0d0d0d80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#252525",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#3d3d3d",
+          "type": "color"
+        }
+      },
+      "secondary": {
+        "background-active": {
+          "value": "#252525",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#25252580",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#0d0d0d",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#3d3d3d",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#cfcfcf",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#ffffff",
+          "type": "color"
+        }
+      },
+      "system": {
+        "background-active": {
+          "value": "#FF0000",
+          "type": "color"
+        },
+        "background-inactive": {
+          "value": "#ff000080",
+          "type": "color"
+        },
+        "background-pressed": {
+          "value": "#C20202",
+          "type": "color"
+        },
+        "background-hover": {
+          "value": "#FF6565",
+          "type": "color"
+        },
+        "on-background--active": {
+          "value": "#ffffff",
+          "type": "color"
+        },
+        "on-background--inactive": {
+          "value": "#ffffff80",
+          "type": "color"
+        },
+        "on-background--pressed": {
+          "value": "#FFB7B7",
+          "type": "color"
+        },
+        "on-background--hover": {
+          "value": "#FFDADA",
+          "type": "color"
+        }
+      }
     }
   },
   "typo": {
