@@ -23,6 +23,7 @@ const initialValue: Memo = {
 		day: '2-digit',
 	}),
 	isPinned: false,
+	memoTag: null,
 }
 
 type MemoDetailsProps = {

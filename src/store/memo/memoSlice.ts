@@ -9,6 +9,12 @@ export type Memo = {
 	body: string
 	createdAt: string
 	isPinned: boolean
+	memoTag: Tag | null
+}
+
+export type Tag = {
+	id: string
+	title: string
 }
 
 export type ModificationType = 'none' | 'created' | 'edited' | 'deleted'
@@ -17,6 +23,8 @@ export type MemoState = {
 	isModified: ModificationType
 	memo: Memo
 	memoList: Memo[]
+	tag: Tag | null
+	tagList: Tag[]
 }
 
 export const initialState: MemoState = {
@@ -27,8 +35,11 @@ export const initialState: MemoState = {
 		body: '',
 		createdAt: '',
 		isPinned: false,
+		memoTag: null,
 	},
 	memoList: [],
+	tag: null,
+	tagList: [],
 }
 
 export const memoSlice = createSlice({
