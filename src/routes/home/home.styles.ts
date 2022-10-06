@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 export const HomeContainer = styled.div`
+	position: fixed;
+	overflow: auto;
+
 	width: 100%;
 	min-height: 100vh;
 
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: flex-start;
-
-	position: fixed;
-	overflow: auto;
 
 	/* padding: 0 var(--grid-app-margin); */
 
