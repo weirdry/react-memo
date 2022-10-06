@@ -693,6 +693,76 @@
             "type": "color"
           }
         }
+      },
+      "\bchip": {
+        "default": {
+          "background-active": {
+            "value": "{neutral.secondary.default.active}",
+            "type": "color"
+          },
+          "background-inactive": {
+            "value": "{neutral.secondary.default.inactive}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{neutral.secondary.default.pressed}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{neutral.secondary.default.hover}",
+            "type": "color"
+          },
+          "on-background--active": {
+            "value": "{neutral.secondary.inverted.active}",
+            "type": "color"
+          },
+          "on-background--inactive": {
+            "value": "{neutral.secondary.inverted.inactive}",
+            "type": "color"
+          },
+          "on-background--pressed": {
+            "value": "{neutral.secondary.inverted.pressed}",
+            "type": "color"
+          },
+          "on-background--hover": {
+            "value": "{neutral.secondary.inverted.hover}",
+            "type": "color"
+          }
+        },
+        "inverted": {
+          "background-active": {
+            "value": "{neutral.secondary.inverted.active}",
+            "type": "color"
+          },
+          "background-inactive": {
+            "value": "{neutral.secondary.inverted.inactive}",
+            "type": "color"
+          },
+          "background-pressed": {
+            "value": "{neutral.secondary.inverted.pressed}",
+            "type": "color"
+          },
+          "background-hover": {
+            "value": "{neutral.secondary.inverted.hover}",
+            "type": "color"
+          },
+          "on-background--active": {
+            "value": "{neutral.secondary.default.active}",
+            "type": "color"
+          },
+          "on-background--inactive": {
+            "value": "{neutral.secondary.default.inactive}",
+            "type": "color"
+          },
+          "on-background--pressed": {
+            "value": "{neutral.secondary.default.pressed}",
+            "type": "color"
+          },
+          "on-background--hover": {
+            "value": "{neutral.secondary.default.hover}",
+            "type": "color"
+          }
+        }
       }
     },
     "typo": {
@@ -762,6 +832,25 @@
         },
         "caption": {
           "value": "{typo.caption}",
+          "type": "typography"
+        }
+      },
+      "chip": {
+        "active": {
+          "value": "{typo.h3}",
+          "type": "typography"
+        },
+        "inactive": {
+          "value": "{typo.body}",
+          "type": "typography"
+        },
+        "caption": {
+          "value": {
+            "fontFamily": "{font.typeface}",
+            "fontWeight": "{font.weight.lt}",
+            "lineHeight": "{font.leading.default}",
+            "fontSize": "{font.size.sm}"
+          },
           "type": "typography"
         }
       }
