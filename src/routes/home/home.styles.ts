@@ -9,6 +9,9 @@ export const HomeContainer = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
+	position: fixed;
+	overflow: auto;
+
 	/* padding: 0 var(--grid-app-margin); */
 
 	.contents-container {
