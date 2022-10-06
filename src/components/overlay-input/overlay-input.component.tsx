@@ -1,6 +1,7 @@
 import { useState, MouseEvent, ChangeEvent } from 'react'
 
 import InputTag from '../input-tag/input-tag.component'
+import Button from '../button/button.component'
 
 import { OverlayInputContainer } from './overlay-input.styles'
 
@@ -28,7 +29,10 @@ export default function OverlayInput(props: OverlayInputProps) {
 					handleChange={handeChange}
 				/>
 			</div>
-			<div className="buttons-container"></div>
+			<div className="buttons-container">
+				<Button hierarchy="system" text="취소" />
+				<Button hierarchy="primary" text="태그 등록" />
+			</div>
 		</OverlayInputContainer>
 	)
 }
