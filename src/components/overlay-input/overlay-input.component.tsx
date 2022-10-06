@@ -30,8 +30,12 @@ export default function OverlayInput(props: OverlayInputProps) {
 				/>
 			</div>
 			<div className="buttons-container">
-				<Button hierarchy="system" text="취소" />
-				<Button hierarchy="primary" text="태그 등록" />
+				<Button hierarchy="system" text="취소" handleClick={handleCancel} />
+				<Button
+					hierarchy="primary"
+					text="태그 등록"
+					handleClick={handleConfirm}
+				/>
 			</div>
 		</OverlayInputContainer>
 	)

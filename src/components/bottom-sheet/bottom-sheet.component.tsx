@@ -1,13 +1,14 @@
 import { ReactNode, MouseEvent } from 'react'
 
 import IconButton from '../icon-button/icon-button.component'
+import BackgroundPanel from '../background-panel/background-panel.component'
 
-import { BackgroundPannel, BottomSheetContainer } from './bottom-sheet.styles'
+import { BottomSheetContainer } from './bottom-sheet.styles'
 
 type BottomSheetProps = {
 	title: string
 	children?: ReactNode | null
-	handleClose?: (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => void
+	handleClose: (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => void
 }
 
 export default function BottomSheet(props: BottomSheetProps) {
@@ -22,7 +23,7 @@ export default function BottomSheet(props: BottomSheetProps) {
 				</div>
 				<div className="items-container">{children}</div>
 			</BottomSheetContainer>
-			<BackgroundPannel onClick={handleClose} />
+			<BackgroundPanel handleClick={handleClose} />
 		</>
 	)
 }
