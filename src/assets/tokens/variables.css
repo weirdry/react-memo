@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 03 Oct 2022 06:26:50 GMT
+ * Generated on Thu, 06 Oct 2022 09:51:56 GMT
  */
 
 :root {
@@ -60,6 +60,22 @@
   --colour-system-inverted-on-background-inactive: #ff000080;
   --colour-system-inverted-on-background-pressed: #C20202;
   --colour-system-inverted-on-background-hover: #FF6565;
+  --colour-chip-default-background-active: #252525;
+  --colour-chip-default-background-inactive: #25252580;
+  --colour-chip-default-background-pressed: #0d0d0d;
+  --colour-chip-default-background-hover: #3d3d3d;
+  --colour-chip-default-on-background-active: #ffffff;
+  --colour-chip-default-on-background-inactive: #ffffff80;
+  --colour-chip-default-on-background-pressed: #cfcfcf;
+  --colour-chip-default-on-background-hover: #ffffff;
+  --colour-chip-inverted-background-active: #ffffff;
+  --colour-chip-inverted-background-inactive: #ffffff80;
+  --colour-chip-inverted-background-pressed: #cfcfcf;
+  --colour-chip-inverted-background-hover: #ffffff;
+  --colour-chip-inverted-on-background-active: #252525;
+  --colour-chip-inverted-on-background-inactive: #25252580;
+  --colour-chip-inverted-on-background-pressed: #0d0d0d;
+  --colour-chip-inverted-on-background-hover: #3d3d3d;
   --typo-route-title-font-family: Pretendard Variable;
   --typo-route-title-font-weight: 900;
   --typo-route-title-line-height: 150%;
@@ -104,6 +120,18 @@
   --typo-overlay-caption-font-weight: 200;
   --typo-overlay-caption-line-height: 150%;
   --typo-overlay-caption-font-size: 0.75rem;
+  --typo-chip-active-font-family: Pretendard Variable;
+  --typo-chip-active-font-weight: 700;
+  --typo-chip-active-line-height: 150%;
+  --typo-chip-active-font-size: 1rem;
+  --typo-chip-inactive-font-family: Pretendard Variable;
+  --typo-chip-inactive-font-weight: 400;
+  --typo-chip-inactive-line-height: 150%;
+  --typo-chip-inactive-font-size: 1rem;
+  --typo-chip-caption-font-family: Pretendard Variable;
+  --typo-chip-caption-font-weight: 200;
+  --typo-chip-caption-line-height: 150%;
+  --typo-chip-caption-font-size: 0.75rem;
   --typo-h1-font-family: Pretendard Variable;
   --typo-h1-font-weight: 900;
   --typo-h1-line-height: 150%;

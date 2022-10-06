@@ -13,6 +13,7 @@ type IconButtonProps = {
 	size: 'md' | 'sm'
 	icon: IconType
 	handleClick: (e: MouseEvent<HTMLButtonElement>) => void
+	isInverted: boolean
 	disabled: boolean
 }
 
@@ -30,13 +31,18 @@ const selectIconButtonSize = (
 }
 
 export default function IconButton(props: IconButtonProps) {
-	const { type, size, icon, handleClick, disabled } = props
+	const { type, size, icon, handleClick, isInverted, disabled } = props
 
 	const ButtonIcon = selectIcon(icon)
 	const SelectedIconButton = selectIconButtonSize(size)
 
 	return (
-		<SelectedIconButton onClick={handleClick} type={type} disabled={disabled}>
+		<SelectedIconButton
+			onClick={handleClick}
+			type={type}
+			isInverted={isInverted}
+			disabled={disabled}
+		>
 			<ButtonIcon />
 		</SelectedIconButton>
 	)
@@ -47,5 +53,6 @@ IconButton.defaultProps = {
 	size: 'md',
 	icon: 'default',
 	handleClick: () => console.log('Icon Button Clicked'),
+	isInverted: false,
 	disabled: false,
 }

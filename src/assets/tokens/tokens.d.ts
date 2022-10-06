@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 03 Oct 2022 06:26:50 GMT
+ * Generated on Thu, 06 Oct 2022 09:51:56 GMT
  */
 
 export const TokenSetOrder0 : string;
@@ -59,6 +59,22 @@ export const ColourSystemInvertedOnBackgroundActive : string;
 export const ColourSystemInvertedOnBackgroundInactive : string;
 export const ColourSystemInvertedOnBackgroundPressed : string;
 export const ColourSystemInvertedOnBackgroundHover : string;
+export const ColourChipDefaultBackgroundActive : string;
+export const ColourChipDefaultBackgroundInactive : string;
+export const ColourChipDefaultBackgroundPressed : string;
+export const ColourChipDefaultBackgroundHover : string;
+export const ColourChipDefaultOnBackgroundActive : string;
+export const ColourChipDefaultOnBackgroundInactive : string;
+export const ColourChipDefaultOnBackgroundPressed : string;
+export const ColourChipDefaultOnBackgroundHover : string;
+export const ColourChipInvertedBackgroundActive : string;
+export const ColourChipInvertedBackgroundInactive : string;
+export const ColourChipInvertedBackgroundPressed : string;
+export const ColourChipInvertedBackgroundHover : string;
+export const ColourChipInvertedOnBackgroundActive : string;
+export const ColourChipInvertedOnBackgroundInactive : string;
+export const ColourChipInvertedOnBackgroundPressed : string;
+export const ColourChipInvertedOnBackgroundHover : string;
 export const TypoRouteTitleFontFamily : string;
 export const TypoRouteTitleFontWeight : number;
 export const TypoRouteTitleLineHeight : string;
@@ -103,6 +119,18 @@ export const TypoOverlayCaptionFontFamily : string;
 export const TypoOverlayCaptionFontWeight : number;
 export const TypoOverlayCaptionLineHeight : string;
 export const TypoOverlayCaptionFontSize : string;
+export const TypoChipActiveFontFamily : string;
+export const TypoChipActiveFontWeight : number;
+export const TypoChipActiveLineHeight : string;
+export const TypoChipActiveFontSize : string;
+export const TypoChipInactiveFontFamily : string;
+export const TypoChipInactiveFontWeight : number;
+export const TypoChipInactiveLineHeight : string;
+export const TypoChipInactiveFontSize : string;
+export const TypoChipCaptionFontFamily : string;
+export const TypoChipCaptionFontWeight : number;
+export const TypoChipCaptionLineHeight : string;
+export const TypoChipCaptionFontSize : string;
 export const TypoH1FontFamily : string;
 export const TypoH1FontWeight : number;
 export const TypoH1LineHeight : string;

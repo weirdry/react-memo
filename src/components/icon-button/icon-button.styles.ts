@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 type IconButtonContainerProps = {
+	isInverted: boolean
 	disabled: boolean
 }
 
@@ -16,38 +17,85 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
 	justify-content: center;
 
 	border-radius: var(--radii-iconbutton-container);
-	background-color: var(--colour-container-default-background-active);
 
-	* {
-		fill: var(--colour-container-default-on-background-active);
-	}
+	${(props) =>
+		props.isInverted
+			? css`
+					background-color: var(--colour-container-inverted-background-active);
+					* {
+						fill: var(--colour-container-inverted-on-background-active);
+					}
+			  `
+			: css`
+					background-color: var(--colour-container-default-background-active);
+					* {
+						fill: var(--colour-container-default-on-background-active);
+					}
+			  `}
 
 	${(props) =>
 		props.disabled
 			? css`
 					&:disabled {
 						cursor: default;
-
-						* {
-							fill: var(--colour-container-default-on-background-inactive);
-						}
+						${props.isInverted
+							? css`
+									* {
+										fill: var(
+											--colour-container-inverted-on-background-inactive
+										);
+									}
+							  `
+							: css`
+									* {
+										fill: var(
+											--colour-container-default-on-background-inactive
+										);
+									}
+							  `}
 					}
 			  `
 			: css`
 					&:hover {
-						background-color: var(--colour-container-default-background-hover);
-						* {
-							fill: var(--colour-container-default-on-background-hover);
-						}
+						${props.isInverted
+							? css`
+									background-color: var(
+										--colour-container-inverted-background-hover
+									);
+									* {
+										fill: var(--colour-container-inverted-on-background-hover);
+									}
+							  `
+							: css`
+									background-color: var(
+										--colour-container-default-background-hover
+									);
+									* {
+										fill: var(--colour-container-default-on-background-hover);
+									}
+							  `}
 					}
 
 					&:active {
-						background-color: var(
-							--colour-container-default-background-pressed
-						);
-						* {
-							fill: var(--colour-container-default-on-background-pressed);
-						}
+						${props.isInverted
+							? css`
+									background-color: var(
+										--colour-container-inverted-background-pressed
+									);
+									* {
+										fill: var(
+											--colour-container-inverted-on-background-pressed
+										);
+									}
+							  `
+							: css`
+									background-color: var(
+										--colour-container-default-background-pressed
+									);
+									* {
+										fill: var(--colour-container-default-on-background-pressed);
+									}
+							  `}
 					}
 			  `}
 `

@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 03 Oct 2022 06:26:50 GMT
+ * Generated on Thu, 06 Oct 2022 09:51:56 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -59,6 +59,22 @@ export const ColourSystemInvertedOnBackgroundActive = "#FF0000";
 export const ColourSystemInvertedOnBackgroundInactive = "#ff000080";
 export const ColourSystemInvertedOnBackgroundPressed = "#C20202";
 export const ColourSystemInvertedOnBackgroundHover = "#FF6565";
+export const ColourChipDefaultBackgroundActive = "#252525";
+export const ColourChipDefaultBackgroundInactive = "#25252580";
+export const ColourChipDefaultBackgroundPressed = "#0d0d0d";
+export const ColourChipDefaultBackgroundHover = "#3d3d3d";
+export const ColourChipDefaultOnBackgroundActive = "#ffffff";
+export const ColourChipDefaultOnBackgroundInactive = "#ffffff80";
+export const ColourChipDefaultOnBackgroundPressed = "#cfcfcf";
+export const ColourChipDefaultOnBackgroundHover = "#ffffff";
+export const ColourChipInvertedBackgroundActive = "#ffffff";
+export const ColourChipInvertedBackgroundInactive = "#ffffff80";
+export const ColourChipInvertedBackgroundPressed = "#cfcfcf";
+export const ColourChipInvertedBackgroundHover = "#ffffff";
+export const ColourChipInvertedOnBackgroundActive = "#252525";
+export const ColourChipInvertedOnBackgroundInactive = "#25252580";
+export const ColourChipInvertedOnBackgroundPressed = "#0d0d0d";
+export const ColourChipInvertedOnBackgroundHover = "#3d3d3d";
 export const TypoRouteTitleFontFamily = "Pretendard Variable";
 export const TypoRouteTitleFontWeight = 900;
 export const TypoRouteTitleLineHeight = "150%";
@@ -103,6 +119,18 @@ export const TypoOverlayCaptionFontFamily = "Pretendard Variable";
 export const TypoOverlayCaptionFontWeight = 200;
 export const TypoOverlayCaptionLineHeight = "150%";
 export const TypoOverlayCaptionFontSize = "0.75rem";
+export const TypoChipActiveFontFamily = "Pretendard Variable";
+export const TypoChipActiveFontWeight = 700;
+export const TypoChipActiveLineHeight = "150%";
+export const TypoChipActiveFontSize = "1rem";
+export const TypoChipInactiveFontFamily = "Pretendard Variable";
+export const TypoChipInactiveFontWeight = 400;
+export const TypoChipInactiveLineHeight = "150%";
+export const TypoChipInactiveFontSize = "1rem";
+export const TypoChipCaptionFontFamily = "Pretendard Variable";
+export const TypoChipCaptionFontWeight = 200;
+export const TypoChipCaptionLineHeight = "150%";
+export const TypoChipCaptionFontSize = "0.75rem";
 export const TypoH1FontFamily = "Pretendard Variable";
 export const TypoH1FontWeight = 900;
 export const TypoH1LineHeight = "150%";
