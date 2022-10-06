@@ -15,6 +15,9 @@ export const ChipContainer = styled.button<ChipContainerProps>`
 	padding: 0.5rem 0.75rem;
 	border-radius: 0.5rem;
 
+	word-wrap: normal;
+	word-break: normal;
+
 	${(props) =>
 		props.isSelected
 			? css`

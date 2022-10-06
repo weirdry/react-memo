@@ -7,6 +7,7 @@ export default function TagBar() {
 	return (
 		<TagBarContainer>
 			<IconButton isInverted icon="menu" size="sm" />
+
 			<Chip chipType="all" isSelected />
 
 			<Chip chipType="tag" />

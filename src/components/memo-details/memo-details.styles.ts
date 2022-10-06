@@ -12,11 +12,6 @@ export const MemoDetailsContainer = styled.div`
 
 	color: var(--colour-card-default-on-background-active);
 
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
 	h1 {
 		margin: 0.5rem 0;
 

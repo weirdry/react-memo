@@ -14,6 +14,11 @@ export const BaseTextarea = styled.textarea`
 	&::placeholder {
 		color: var(--colour-card-default-on-background-inactive);
 	}
+
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
 `
 
 export const TitleInput = styled(BaseTextarea)`
