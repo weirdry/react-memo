@@ -13,6 +13,8 @@ export const OverlayInputContainer = styled.div`
 	background-color: var(--colour-overlay-default-background-active);
 	box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.5);
 
+	z-index: 11;
+
 	.input-container {
 		width: 100%;
 		display: flex;
