@@ -11,7 +11,7 @@ export const OverlayInputContainer = styled.div`
 	border-radius: 1.5rem;
 
 	background-color: var(--colour-overlay-default-background-active);
-	box-shadow: 0.25rem 1.5rem rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.5);
 
 	.input-container {
 		width: 100%;

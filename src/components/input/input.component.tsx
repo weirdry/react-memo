@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect, ChangeEvent } from 'react'
+import { useRef, useState, useEffect, ChangeEvent, ElementType } from 'react'
 
-import { BaseTextarea, TitleInput, BodyTextarea } from './input.styles'
+import { TitleInput, BodyTextarea } from './input.styles'
 
 type InputSelect = 'title' | 'body'
 
@@ -11,7 +11,7 @@ type InputProps = {
 	handleChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const selectInput = (inputType: InputSelect): typeof BaseTextarea => {
+const selectInput = (inputType: InputSelect): ElementType => {
 	switch (inputType) {
 		case 'title':
 			return TitleInput

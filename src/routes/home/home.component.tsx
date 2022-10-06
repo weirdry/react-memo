@@ -16,6 +16,7 @@ import FloatingButton from '../../components/floating-button/floating-button.com
 import Placeholder from '../../components/placeholder/placeholder.components'
 import Toast from '../../components/toast/toast.component'
 import TagBar from '../../components/tag-bar/tag-bar.component'
+import OverlayInput from '../../components/overlay-input/overlay-input.component'
 
 import { HomeContainer } from './home.styles'
 
@@ -85,6 +86,8 @@ export default function Home() {
 					)}
 				</div>
 			)}
+
+			<OverlayInput />
 
 			<div className="floating-container">
 				{selectedToast(isModified)}
