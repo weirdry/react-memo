@@ -1,7 +1,11 @@
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, FormEvent } from 'react'
 
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import { selectMemoisedMemoList, addTag } from '../../store/memo/memoSlice'
+import {
+	selectMemoisedMemoList,
+	addTag,
+	resetTag,
+} from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
 import Chip from '../chip/chip.component'
@@ -16,13 +20,19 @@ export default function TagBar() {
 
 	const dispatch = useAppDispatch()
 
-	const handleCreate = (e: MouseEvent<HTMLButtonElement>): void => {
-		dispatch(addTag('추가된 태그'))
-		setIsCreateTagOpen(false)
-	}
 	const handleCreateTagOpen = (
 		e: MouseEvent<HTMLButtonElement | HTMLDivElement>,
-	): void => setIsCreateTagOpen(!isCreateTagOpen)
+	): void => {
+		dispatch(resetTag())
+		setIsCreateTagOpen(!isCreateTagOpen)
+	}
+
+	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+		e.preventDefault()
+
+		dispatch(addTag)
+		setIsCreateTagOpen(false)
+	}
 
 	return (
 		<>
@@ -37,11 +47,11 @@ export default function TagBar() {
 
 				<Chip chipType="new" handleClick={handleCreateTagOpen} />
 			</TagBarContainer>
+
 			{isCreateTagOpen && (
-				<CreateTag
-					handleConfirm={handleCreate}
-					handleClose={handleCreateTagOpen}
-				/>
+				<form onSubmit={handleSubmit}>
+					<CreateTag handleClose={handleCreateTagOpen} />
+				</form>
 			)}
 		</>
 	)

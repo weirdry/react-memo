@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const OverlayInputContainer = styled.div`
-	width: 90vw;
+	width: 85vw;
+	max-width: 25rem;
 
 	display: flex;
 	flex-direction: column;

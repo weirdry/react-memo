@@ -22,7 +22,7 @@ export type MemoState = {
 	isModified: ModificationType
 	memo: Memo
 	memoList: Memo[]
-	tag: Tag | null
+	tag: Tag
 	tagList: Tag[]
 }
 
@@ -37,7 +37,7 @@ export const initialState: MemoState = {
 		memoTag: null,
 	},
 	memoList: [],
-	tag: null,
+	tag: { name: '' },
 	tagList: [],
 }
 
@@ -63,6 +63,12 @@ export const memoSlice = createSlice({
 		resetMemoList: (state) => {
 			state.memoList = initialState.memoList
 		},
+		setTag: (state, action: PayloadAction<Tag>) => {
+			state.tag = action.payload
+		},
+		resetTag: (state) => {
+			state.tag = initialState.tag
+		},
 		setTagList: (state, action: PayloadAction<Tag[]>) => {
 			state.tagList = action.payload
 		},
@@ -81,6 +87,7 @@ export const selectUnpinnedMemoList = (state: RootState) =>
 	state.memo.memoList.filter((memo) => !memo.isPinned)
 export const selectPinnedMemoList = (state: RootState) =>
 	state.memo.memoList.filter((memo) => memo.isPinned)
+export const selectTag = (state: RootState) => state.memo.tag
 export const selectTagList = (state: RootState) => state.memo.tagList
 
 // State memoisation
@@ -90,13 +97,23 @@ export const selectMemoisedMemoList = createSelector(
 	selectMemoList,
 	selectUnpinnedMemoList,
 	selectPinnedMemoList,
+	selectTag,
 	selectTagList,
-	(isModified, memo, memoList, unpinnedMemoList, pinnedMemoList, tagList) => ({
+	(
 		isModified,
 		memo,
 		memoList,
 		unpinnedMemoList,
 		pinnedMemoList,
+		tag,
+		tagList,
+	) => ({
+		isModified,
+		memo,
+		memoList,
+		unpinnedMemoList,
+		pinnedMemoList,
+		tag,
 		tagList,
 	}),
 )
@@ -109,6 +126,8 @@ export const {
 	resetIsModified,
 	setMemoList,
 	resetMemoList,
+	setTag,
+	resetTag,
 	setTagList,
 	resetTagList,
 } = memoSlice.actions
@@ -163,12 +182,11 @@ export const deleteMemo = (
 	dispatch(setMemoList(newMemoList))
 }
 
-export const addTag =
-	(tagNameToAdd: string) => (dispatch: AppDispatch, getState: GetAppState) => {
-		const { tagList } = selectMemoisedMemoList(getState())
-		const newTagList = [...tagList, { name: tagNameToAdd }]
+export const addTag = (dispatch: AppDispatch, getState: GetAppState) => {
+	const { tag, tagList } = selectMemoisedMemoList(getState())
+	const newTagList = [...tagList, tag]
 
-		dispatch(setTagList(newTagList))
-	}
+	dispatch(setTagList(newTagList))
+}
 
 export default memoSlice.reducer

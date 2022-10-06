@@ -14,6 +14,7 @@ type ButtonProps = {
 	text: string
 	handleClick: (e: MouseEvent<HTMLButtonElement>) => void
 	disabled: boolean
+	type: 'button' | 'submit' | 'reset'
 }
 
 const selectButton = (hierarchy: Hierarchy): typeof ButtonContainer => {
@@ -30,12 +31,12 @@ const selectButton = (hierarchy: Hierarchy): typeof ButtonContainer => {
 }
 
 export default function Button(props: ButtonProps) {
-	const { hierarchy, text, handleClick, disabled } = props
+	const { hierarchy, text, handleClick, disabled, type } = props
 
 	const SelectedButton = selectButton(hierarchy)
 
 	return (
-		<SelectedButton onClick={handleClick} disabled={disabled}>
+		<SelectedButton onClick={handleClick} disabled={disabled} type={type}>
 			{text}
 		</SelectedButton>
 	)
@@ -46,4 +47,5 @@ Button.defaultProps = {
 	text: '버튼 텍스트',
 	disabled: false,
 	handleClick: () => console.log('Button Clicked'),
+	type: 'button',
 }

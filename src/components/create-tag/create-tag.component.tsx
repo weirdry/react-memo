@@ -7,15 +7,14 @@ import { CreateTagContainer } from './create-tag.styles'
 
 type CreateTagProps = {
 	handleClose?: (e: MouseEvent<HTMLButtonElement | HTMLDivElement>) => void
-	handleConfirm?: (e: MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function CreateTag(props: CreateTagProps) {
-	const { handleClose, handleConfirm } = props
+	const { handleClose } = props
 
 	return (
 		<CreateTagContainer>
-			<OverlayInput handleCancel={handleClose} handleConfirm={handleConfirm} />
+			<OverlayInput handleCancel={handleClose} />
 			<BackgroundPanel handleClick={handleClose} />
 		</CreateTagContainer>
 	)
