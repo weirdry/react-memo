@@ -15,6 +15,7 @@ import MemoList from '../../components/memo-list/memo-list.component'
 import FloatingButton from '../../components/floating-button/floating-button.component'
 import Placeholder from '../../components/placeholder/placeholder.components'
 import Toast from '../../components/toast/toast.component'
+import TagBar from '../../components/tag-bar/tag-bar.component'
 
 import { HomeContainer } from './home.styles'
 
@@ -61,6 +62,8 @@ export default function Home() {
 					<IconButton icon="setting" handleClick={handleEdit} />
 				}
 			></ToolBar>
+
+			<TagBar />
 
 			{memoList.length === 0 ? (
 				<Placeholder
