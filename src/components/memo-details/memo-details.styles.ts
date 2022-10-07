@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const MemoDetailsContainer = styled.div`
 	width: 100%;
-	/* height: 100%; */
+	min-height: 16rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
