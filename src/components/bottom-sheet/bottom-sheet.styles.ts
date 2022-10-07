@@ -4,9 +4,10 @@ import { IconButtonContainer } from '../icon-button/icon-button.styles'
 
 export const BottomSheetContainer = styled.div`
 	width: 100%;
+	max-width: 25rem;
 
 	position: fixed;
-	left: 0;
+	/* left: 0; */
 	bottom: 0;
 
 	display: flex;

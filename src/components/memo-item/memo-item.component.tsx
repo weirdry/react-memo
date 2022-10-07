@@ -43,7 +43,10 @@ export default function MemoItem({ memo }: MemoItemProps) {
 	})
 
 	return (
-		<div {...bind()}>
+		<div
+			{...bind()}
+			style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+		>
 			<Card isClickable handleClick={handleClick}>
 				<ContentContainer>
 					{title && <h3>{title}</h3>}
