@@ -32,6 +32,7 @@ export default function InputTag(props: InputTagProps) {
 
 	return (
 		<InputTagContainer
+			name="text"
 			placeholder={placeholder}
 			value={inputValue}
 			onChange={handleInputChange}
