@@ -1,33 +1,53 @@
-import { useState, useEffect, MouseEvent, ChangeEvent } from 'react'
+import { useState, useEffect, MouseEvent, ChangeEvent, FormEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import { setTag, selectMemoisedMemoList } from '../../store/memo/memoSlice'
+import {
+	selectMemoisedMemoList,
+	setTag,
+	addTag,
+	setIsModified,
+	resetIsModified,
+} from '../../store/memo/memoSlice'
 
-import InputTag from '../input-tag/input-tag.component'
-import Button from '../button/button.component'
+import ToolBar from '../../components/tool-bar/tool-bar.component'
+import IconButton from '../../components/icon-button/icon-button.component'
+import InputTag from '../../components/input-tag/input-tag.component'
 
-import { OverlayInputContainer } from './overlay-input.styles'
-
-type OverlayInputProps = {
-	handleCancel: (e: MouseEvent<HTMLButtonElement>) => void
-}
+import { CreateTagContainer } from './create-tag.styles'
 
 enum WarningType {
 	none = '',
 	duplication = '중복된 태그가 있습니다.',
 }
 
-export default function OverlayInput(props: OverlayInputProps) {
-	const { handleCancel } = props
-
+export default function CreateTag() {
 	const [isValidated, setIsValidated] = useState<boolean>(false)
 	const [warningType, setWarningType] = useState<WarningType>(WarningType.none)
 
 	const { tag, tagList } = useAppSelector(selectMemoisedMemoList)
 	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
+
+	const handleBackwards = (e: MouseEvent<HTMLButtonElement>) => navigate(-1)
 
 	const handeChange = (e: ChangeEvent<HTMLInputElement>): void => {
 		dispatch(setTag({ name: e.target.value.replace(/ /g, '_') }))
+	}
+
+	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+		e.preventDefault()
+
+		dispatch(addTag)
+		navigate(-1)
+
+		dispatch(
+			setIsModified({
+				modifiactionType: 'tag',
+				modificationState: 'created',
+			}),
+		)
+		setTimeout(() => dispatch(resetIsModified()), 2000)
 	}
 
 	useEffect(() => {
@@ -39,8 +59,18 @@ export default function OverlayInput(props: OverlayInputProps) {
 	}, [tag, tagList])
 
 	return (
-		<OverlayInputContainer>
-			<div className="input-tag-container">
+		<CreateTagContainer onSubmit={handleSubmit}>
+			<ToolBar
+				isLeftSideOn
+				leftSideChildren={
+					<IconButton icon="backwards" handleClick={handleBackwards} />
+				}
+				rightSideChildren={
+					<IconButton icon="confirm" type="submit" disabled={!isValidated} />
+				}
+			/>
+
+			<div className="body-container">
 				<span className="symbol">#</span>
 				<div className="input-container">
 					<InputTag
@@ -56,19 +86,6 @@ export default function OverlayInput(props: OverlayInputProps) {
 					</div>
 				</div>
 			</div>
-			<div className="buttons-container">
-				<Button hierarchy="system" text="취소" handleClick={handleCancel} />
-				<Button
-					hierarchy="primary"
-					text="태그 등록"
-					type="submit"
-					disabled={!isValidated}
-				/>
-			</div>
-		</OverlayInputContainer>
+		</CreateTagContainer>
 	)
-}
-
-OverlayInput.defaultProps = {
-	handleCancel: () => {},
 }

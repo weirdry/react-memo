@@ -1,65 +1,44 @@
-import { useState, MouseEvent, FormEvent } from 'react'
+import { MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import {
-	selectMemoisedMemoList,
-	addTag,
-	resetTag,
-	setIsModified,
-	resetIsModified,
-} from '../../store/memo/memoSlice'
+import { selectMemoisedMemoList, resetTag } from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
 import Chip from '../chip/chip.component'
-import CreateTag from '../create-tag/create-tag.component'
 
 import { TagBarContainer } from './tag-bar.styles'
 
 export default function TagBar() {
-	const [isCreateTagOpen, setIsCreateTagOpen] = useState<boolean>(false)
-
 	const { memoList, tagList } = useAppSelector(selectMemoisedMemoList)
 
 	const dispatch = useAppDispatch()
+	const navigate = useNavigate()
 
-	const handleCreateTagOpen = (
-		e: MouseEvent<HTMLButtonElement | HTMLDivElement>,
-	): void => {
+	const handleViewTag = (e: MouseEvent<HTMLButtonElement>): void =>
+		navigate('/view-tag')
+
+	const handleCreateTag = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(resetTag())
-		setIsCreateTagOpen(!isCreateTagOpen)
-	}
-
-	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-		e.preventDefault()
-
-		dispatch(addTag)
-		setIsCreateTagOpen(false)
-
-		dispatch(
-			setIsModified({ modifiactionType: 'tag', modificationState: 'created' }),
-		)
-		setTimeout(() => dispatch(resetIsModified()), 2000)
+		navigate('/create-tag')
 	}
 
 	return (
-		<>
-			<TagBarContainer>
-				<IconButton isInverted icon="menu" size="sm" />
-				<Chip chipType="all" isSelected count={memoList.length} />
+		<TagBarContainer>
+			<IconButton
+				isInverted
+				icon="menu"
+				size="sm"
+				handleClick={handleViewTag}
+			/>
+			<Chip chipType="all" isSelected count={memoList.length} />
 
-				{tagList.length !== 0 &&
-					tagList.map((storedTag, index) => (
-						<Chip key={index} chipType="tag" text={storedTag.name} />
-					))}
+			{tagList.length !== 0 &&
+				tagList.map((storedTag, index) => (
+					<Chip key={index} chipType="tag" text={storedTag.name} />
+				))}
 
-				<Chip chipType="new" text="새 태그" handleClick={handleCreateTagOpen} />
-			</TagBarContainer>
-
-			{isCreateTagOpen && (
-				<form onSubmit={handleSubmit}>
-					<CreateTag handleClose={handleCreateTagOpen} />
-				</form>
-			)}
-		</>
+			<Chip chipType="new" text="새 태그" handleClick={handleCreateTag} />
+		</TagBarContainer>
 	)
 }

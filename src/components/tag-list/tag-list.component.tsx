@@ -1,3 +1,6 @@
+import { MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import { Memo } from '../../store/memo/memoSlice'
 
 import Chip from '../chip/chip.component'
@@ -11,6 +14,11 @@ type TagListProps = {
 export default function TagList(props: TagListProps) {
 	const { memo } = props
 
+	const navigate = useNavigate()
+
+	const handleViewTag = (e: MouseEvent<HTMLButtonElement>): void =>
+		navigate('/view-tag')
+
 	return (
 		<TagListContainer>
 			{memo?.memoTag.length !== 0 &&
@@ -18,7 +26,12 @@ export default function TagList(props: TagListProps) {
 					<Chip key={index} size="sm" text={storedTag.name} isSelected />
 				))}
 
-			<Chip size="sm" chipType="new" text="태그 등록" isSelected />
+			<Chip
+				size="sm"
+				chipType="new"
+				text="태그 등록"
+				handleClick={handleViewTag}
+			/>
 		</TagListContainer>
 	)
 }

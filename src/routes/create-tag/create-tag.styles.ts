@@ -1,26 +1,21 @@
 import styled from 'styled-components'
 
-export const OverlayInputContainer = styled.div`
-	width: 85vw;
-	max-width: 25rem;
+export const CreateTagContainer = styled.form`
+	width: 100%;
+	min-height: 100vh;
 
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	align-items: center;
+	justify-content: flex-start;
 
-	padding: 1.5rem;
-	border-radius: 1.5rem;
-
-	background-color: var(--colour-overlay-default-background-active);
-	box-shadow: 0 0.25rem 1.5rem rgba(0, 0, 0, 0.5);
-
-	z-index: 11;
-
-	.input-tag-container {
+	.body-container {
 		width: 100%;
 		display: flex;
 		align-items: flex-start;
 		gap: 0.5rem;
+
+		padding: 2rem 1rem 1rem 1rem;
 
 		span.symbol {
 			height: 2rem;
@@ -60,13 +55,5 @@ export const OverlayInputContainer = styled.div`
 				}
 			}
 		}
-	}
-
-	.buttons-container {
-		width: 100%;
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		gap: 1rem;
 	}
 `
