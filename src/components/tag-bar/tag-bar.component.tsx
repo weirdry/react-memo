@@ -52,7 +52,7 @@ export default function TagBar() {
 						<Chip key={index} chipType="tag" text={storedTag.name} />
 					))}
 
-				<Chip chipType="new" handleClick={handleCreateTagOpen} />
+				<Chip chipType="new" text="새 태그" handleClick={handleCreateTagOpen} />
 			</TagBarContainer>
 
 			{isCreateTagOpen && (

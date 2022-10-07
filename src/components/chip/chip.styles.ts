@@ -72,7 +72,7 @@ export const ChipSm = styled(ChipContainer)`
 		props.isSelected
 			? css`
 					background-color: var(--colour-chip-inverted-background-inactive);
-					border: none;
+					box-shadow: none;
 
 					color: var(--colour-chip-inverted-on-background-active);
 
@@ -82,8 +82,8 @@ export const ChipSm = styled(ChipContainer)`
 			  `
 			: css`
 					background-color: none;
-					border: 0.0625rem solid
-						var(--colour-chip-default-on-background-inactive);
+					box-shadow: 0 0 0 0.0625rem
+						var(--colour-chip-default-on-background-inactive) inset;
 
 					color: var(--colour-chip-default-on-background-inactive);
 			  `}
@@ -93,7 +93,7 @@ export const ChipSm = styled(ChipContainer)`
 			props.isSelected
 				? css`
 						background-color: var(--colour-chip-inverted-background-hover);
-						border: none;
+						box-shadow: none;
 
 						color: var(--colour-chip-inverted-on-background-hover);
 				  `
@@ -108,7 +108,7 @@ export const ChipSm = styled(ChipContainer)`
 			props.isSelected
 				? css`
 						background-color: var(--colour-chip-inverted-background-pressed);
-						border: none;
+						box-shadow: none;
 
 						color: var(--colour-chip-inverted-on-background-pressed);
 				  `

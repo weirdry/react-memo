@@ -9,7 +9,7 @@ export type Memo = {
 	body: string
 	createdAt: string
 	isPinned: boolean
-	memoTag: Tag | null
+	memoTag: Tag[]
 }
 
 export type Tag = {
@@ -39,7 +39,7 @@ export const initialState: MemoState = {
 		body: '',
 		createdAt: '',
 		isPinned: false,
-		memoTag: null,
+		memoTag: [],
 	},
 	memoList: [],
 	tag: { name: '' },

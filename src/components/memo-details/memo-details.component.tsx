@@ -10,6 +10,7 @@ import {
 
 import Card from '../../components/card/card.component'
 import Input from '../input/input.component'
+import TagList from '../tag-list/tag-list.component'
 
 import { MemoDetailsContainer } from './memo-details.styles'
 
@@ -23,7 +24,7 @@ const initialValue: Memo = {
 		day: '2-digit',
 	}),
 	isPinned: false,
-	memoTag: null,
+	memoTag: [],
 }
 
 type MemoDetailsProps = {
@@ -68,6 +69,7 @@ export default function MemoDetails(props: MemoDetailsProps) {
 					/>
 					<span>{memo?.createdAt}</span>
 				</div>
+				<TagList />
 				<Input
 					inputType="body"
 					placeholder="내용을 입력해 주세요."

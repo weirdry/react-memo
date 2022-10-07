@@ -35,7 +35,11 @@ export default function Chip(props: ChipProps) {
 	switch (chipType) {
 		case 'tag':
 			return (
-				<SelectedChip isSelected={isSelected} onClick={handleClick}>
+				<SelectedChip
+					isSelected={isSelected}
+					onClick={handleClick}
+					type="button"
+				>
 					<div className="texts-container">
 						<span className="symbol">#</span> {text}
 					</div>
@@ -49,7 +53,11 @@ export default function Chip(props: ChipProps) {
 			)
 		case 'all':
 			return (
-				<SelectedChip isSelected={isSelected} onClick={handleClick}>
+				<SelectedChip
+					isSelected={isSelected}
+					onClick={handleClick}
+					type="button"
+				>
 					<div className="texts-container">전체</div>
 					{size === 'md' && <span className="count">{count}</span>}
 					{deletable && (
@@ -61,12 +69,12 @@ export default function Chip(props: ChipProps) {
 			)
 		case 'new':
 			return (
-				<SelectedChip isSelected={false} onClick={handleClick}>
+				<SelectedChip isSelected={false} onClick={handleClick} type="button">
 					<div className="texts-container">
 						<span className="symbol">
 							<b>+</b>
 						</span>{' '}
-						새 태그
+						{text}
 					</div>
 				</SelectedChip>
 			)
