@@ -10,6 +10,7 @@ export const CreateTagContainer = styled.form`
 
 	.body-container {
 		width: 100%;
+		max-width: 25rem;
 		display: flex;
 		align-items: flex-start;
 		gap: 0.5rem;

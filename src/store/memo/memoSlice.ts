@@ -37,7 +37,11 @@ export const initialState: MemoState = {
 		id: '',
 		title: '',
 		body: '',
-		createdAt: '',
+		createdAt: new Date().toLocaleDateString('ko-KR', {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+		}),
 		isPinned: false,
 		memoTag: [],
 	},

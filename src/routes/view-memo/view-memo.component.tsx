@@ -1,13 +1,15 @@
 import { useState, useEffect, MouseEvent, ChangeEvent, FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
+	Memo,
 	setMemo,
 	selectMemoisedMemoList,
 	editMemo,
 	setIsModified,
 	resetIsModified,
+	initialState,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -25,7 +27,20 @@ export default function ViewMemo() {
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()
 
-	const { memo } = useAppSelector(selectMemoisedMemoList)
+	const { memo_id } = useParams()
+	const { memo, memoList } = useAppSelector(selectMemoisedMemoList)
+
+	const getMemo = (): Memo => {
+		const selectedMemo = memoList.find(
+			(storedMemo) => storedMemo.id === memo_id,
+		)
+
+		if (selectedMemo) {
+			return selectedMemo
+		} else {
+			return initialState.memo
+		}
+	}
 
 	const handleBackwards = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/')
@@ -67,6 +82,11 @@ export default function ViewMemo() {
 			setIsDisabled(() => false)
 		}
 	}, [memo])
+
+	useEffect(() => {
+		dispatch(setMemo(getMemo()))
+		// eslint-disable-next-line
+	}, [])
 
 	return (
 		<ViewMemoContainer>

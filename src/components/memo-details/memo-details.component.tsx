@@ -1,31 +1,13 @@
-import { useEffect, ChangeEvent } from 'react'
-import { useParams } from 'react-router-dom'
+import { ChangeEvent } from 'react'
 
-import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import {
-	Memo,
-	selectMemoisedMemoList,
-	setMemo,
-} from '../../store/memo/memoSlice'
+import { useAppSelector } from '../../store/hooks'
+import { selectMemoisedMemoList } from '../../store/memo/memoSlice'
 
 import Card from '../../components/card/card.component'
 import Input from '../input/input.component'
 import TagList from '../tag-list/tag-list.component'
 
 import { MemoDetailsContainer } from './memo-details.styles'
-
-const initialValue: Memo = {
-	id: '',
-	title: '',
-	body: '',
-	createdAt: new Date().toLocaleDateString('ko-KR', {
-		year: 'numeric',
-		month: '2-digit',
-		day: '2-digit',
-	}),
-	isPinned: false,
-	memoTag: [],
-}
 
 type MemoDetailsProps = {
 	handleTitleChange: (e: ChangeEvent<HTMLTextAreaElement>) => void
@@ -35,27 +17,7 @@ type MemoDetailsProps = {
 export default function MemoDetails(props: MemoDetailsProps) {
 	const { handleTitleChange, handleBodyChange } = props
 
-	const { memo, memoList } = useAppSelector(selectMemoisedMemoList)
-
-	const { memo_id } = useParams()
-	const dispatch = useAppDispatch()
-
-	const getMemo = (): Memo => {
-		const selectedMemo = memoList.find(
-			(storedMemo) => storedMemo.id === memo_id,
-		)
-
-		if (selectedMemo) {
-			return selectedMemo
-		} else {
-			return initialValue
-		}
-	}
-
-	useEffect(() => {
-		dispatch(setMemo(getMemo()))
-		// eslint-disable-next-line
-	}, [])
+	const { memo } = useAppSelector(selectMemoisedMemoList)
 
 	return (
 		<Card cardType="detailed">
