@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Oct 2022 14:05:55 GMT
+ * Generated on Fri, 07 Oct 2022 05:50:00 GMT
  */
 
 export const TokenSetOrder0 = "base";
@@ -123,10 +123,14 @@ export const TypoCardCaptionFontFamily = "Pretendard Variable";
 export const TypoCardCaptionFontWeight = 200;
 export const TypoCardCaptionLineHeight = "150%";
 export const TypoCardCaptionFontSize = "0.75rem";
-export const TypoButtonTitleFontFamily = "Pretendard Variable";
-export const TypoButtonTitleFontWeight = 700;
-export const TypoButtonTitleLineHeight = "150%";
-export const TypoButtonTitleFontSize = "1.25rem";
+export const TypoButtonLgTextFontFamily = "Pretendard Variable";
+export const TypoButtonLgTextFontWeight = 700;
+export const TypoButtonLgTextLineHeight = "150%";
+export const TypoButtonLgTextFontSize = "1.25rem";
+export const TypoButtonMdTextFontFamily = "Pretendard Variable";
+export const TypoButtonMdTextFontWeight = 700;
+export const TypoButtonMdTextLineHeight = "150%";
+export const TypoButtonMdTextFontSize = "1rem";
 export const TypoToastBodyFontFamily = "Pretendard Variable";
 export const TypoToastBodyFontWeight = 700;
 export const TypoToastBodyLineHeight = "150%";

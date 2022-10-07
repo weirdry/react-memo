@@ -8,7 +8,7 @@ export const FloatingButtonContainer = styled.button`
 	align-items: center;
 	gap: 0.5rem;
 
-	padding: 0.5rem 1rem;
+	padding: 0.75rem 1.5rem;
 
 	border-radius: 10rem;
 
@@ -23,9 +23,9 @@ export const FloatingButtonContainer = styled.button`
 	span {
 		color: var(--colour-container-inverted-on-background-active);
 
-		font-family: var(--typo-button-title-font-family);
-		font-weight: var(--typo-button-title-font-weight);
-		font-size: var(--typo-button-title-font-size);
-		line-height: var(--typo-button-title-line-height);
+		font-family: var(--typo-button-lg-text-font-family);
+		font-weight: var(--typo-button-lg-text-font-weight);
+		font-size: var(--typo-button-lg-text-font-size);
+		line-height: var(--typo-button-lg-text-line-height);
 	}
 `

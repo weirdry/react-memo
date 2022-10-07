@@ -537,22 +537,44 @@
       }
     },
     "button": {
-      "title": {
-        "fontFamily": {
-          "value": "Pretendard Variable",
-          "type": "fontFamily"
-        },
-        "fontWeight": {
-          "value": 700,
-          "type": "fontWeight"
-        },
-        "lineHeight": {
-          "value": "150%",
-          "type": "lineHeight"
-        },
-        "fontSize": {
-          "value": "1.25rem",
-          "type": "fontSize"
+      "lg": {
+        "text": {
+          "fontFamily": {
+            "value": "Pretendard Variable",
+            "type": "fontFamily"
+          },
+          "fontWeight": {
+            "value": 700,
+            "type": "fontWeight"
+          },
+          "lineHeight": {
+            "value": "150%",
+            "type": "lineHeight"
+          },
+          "fontSize": {
+            "value": "1.25rem",
+            "type": "fontSize"
+          }
+        }
+      },
+      "md": {
+        "text": {
+          "fontFamily": {
+            "value": "Pretendard Variable",
+            "type": "fontFamily"
+          },
+          "fontWeight": {
+            "value": 700,
+            "type": "fontWeight"
+          },
+          "lineHeight": {
+            "value": "150%",
+            "type": "lineHeight"
+          },
+          "fontSize": {
+            "value": "1rem",
+            "type": "fontSize"
+          }
         }
       }
     },

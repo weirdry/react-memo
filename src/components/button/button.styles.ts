@@ -8,14 +8,14 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 	all: unset;
 	cursor: pointer;
 
-	padding: 0.75rem 1.5rem;
+	padding: 0.5rem 1rem;
 
 	border-radius: 3rem;
 
-	font-family: var(--typo-button-title-font-family);
-	font-weight: var(--typo-button-title-font-weight);
-	font-size: var(--typo-button-title-font-size);
-	line-height: var(--typo-button-title-line-height);
+	font-family: var(--typo-button-md-text-font-family);
+	font-weight: var(--typo-button-md-text-font-weight);
+	font-size: var(--typo-button-md-text-font-size);
+	line-height: var(--typo-button-md-text-line-height);
 `
 
 export const PrimaryButton = styled(ButtonContainer)`

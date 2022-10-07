@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 06 Oct 2022 14:05:55 GMT
+ * Generated on Fri, 07 Oct 2022 05:50:00 GMT
  */
 
 :root {
@@ -124,10 +124,14 @@
   --typo-card-caption-font-weight: 200;
   --typo-card-caption-line-height: 150%;
   --typo-card-caption-font-size: 0.75rem;
-  --typo-button-title-font-family: Pretendard Variable;
-  --typo-button-title-font-weight: 700;
-  --typo-button-title-line-height: 150%;
-  --typo-button-title-font-size: 1.25rem;
+  --typo-button-lg-text-font-family: Pretendard Variable;
+  --typo-button-lg-text-font-weight: 700;
+  --typo-button-lg-text-line-height: 150%;
+  --typo-button-lg-text-font-size: 1.25rem;
+  --typo-button-md-text-font-family: Pretendard Variable;
+  --typo-button-md-text-font-weight: 700;
+  --typo-button-md-text-line-height: 150%;
+  --typo-button-md-text-font-size: 1rem;
   --typo-toast-body-font-family: Pretendard Variable;
   --typo-toast-body-font-weight: 700;
   --typo-toast-body-line-height: 150%;
