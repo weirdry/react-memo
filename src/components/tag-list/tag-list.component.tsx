@@ -16,19 +16,25 @@ export default function TagList(props: TagListProps) {
 
 	const navigate = useNavigate()
 
-	const handleViewTag = (e: MouseEvent<HTMLButtonElement>): void =>
+	const handleViewTag = (e: MouseEvent<HTMLDivElement>): void =>
 		navigate('/select-tag')
 
 	return (
 		<TagListContainer>
 			{memo?.memoTag.length !== 0 &&
 				memo?.memoTag.map((storedTag, index) => (
-					<Chip key={index} size="sm" text={storedTag.name} isSelected />
+					<Chip
+						key={index}
+						chipSize="sm"
+						chipType="checkbox"
+						text={storedTag.name}
+					/>
 				))}
 
 			<Chip
-				size="sm"
-				chipType="new"
+				chipSize="sm"
+				chipType="button"
+				symbol="+"
 				text="태그 등록"
 				handleClick={handleViewTag}
 			/>

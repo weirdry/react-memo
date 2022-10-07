@@ -26,5 +26,17 @@ export const SelectTagContainer = styled.form`
 			font-size: var(--typo-route-sectiontitle-font-size);
 			line-height: var(--typo-route-sectiontitle-line-height);
 		}
+
+		.tags-container {
+			width: 100%;
+
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+
+			* {
+				flex-grow: 0;
+			}
+		}
 	}
 `

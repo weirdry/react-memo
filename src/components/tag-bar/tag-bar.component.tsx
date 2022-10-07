@@ -18,7 +18,7 @@ export default function TagBar() {
 	const handleViewTag = (e: MouseEvent<HTMLButtonElement>): void =>
 		navigate('/view-tag')
 
-	const handleCreateTag = (e: MouseEvent<HTMLButtonElement>): void => {
+	const handleCreateTag = (e: MouseEvent<HTMLDivElement>): void => {
 		dispatch(resetTag())
 		navigate('/create-tag')
 	}
@@ -31,14 +31,25 @@ export default function TagBar() {
 				size="sm"
 				handleClick={handleViewTag}
 			/>
-			<Chip chipType="all" isSelected count={memoList.length} />
+			<Chip
+				chipType="radio"
+				text="전체"
+				count={memoList.length}
+				checked
+				isDefault
+			/>
 
 			{tagList.length !== 0 &&
 				tagList.map((storedTag, index) => (
-					<Chip key={index} chipType="tag" text={storedTag.name} />
+					<Chip key={index} chipType="radio" text={storedTag.name} count={0} />
 				))}
 
-			<Chip chipType="new" text="새 태그" handleClick={handleCreateTag} />
+			<Chip
+				chipType="button"
+				symbol="+"
+				text="새 태그"
+				handleClick={handleCreateTag}
+			/>
 		</TagBarContainer>
 	)
 }

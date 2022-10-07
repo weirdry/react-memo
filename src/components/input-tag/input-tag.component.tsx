@@ -32,13 +32,13 @@ export default function InputTag(props: InputTagProps) {
 
 	return (
 		<InputTagContainer
-			type="search"
+			// type="text"
 			name="tagInput"
 			placeholder={placeholder}
 			value={inputValue}
 			onChange={handleInputChange}
 			autoFocus={autoFocus}
-			autoComplete="new-password"
+			autoComplete="off"
 		/>
 	)
 }

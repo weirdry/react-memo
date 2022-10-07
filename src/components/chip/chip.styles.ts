@@ -1,14 +1,12 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 type ChipContainerProps = {
 	isSelected: boolean
 }
 
-export const ChipContainer = styled.button<ChipContainerProps>`
-	all: unset;
-	cursor: pointer;
-
+export const ContentsContainer = styled.div`
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	gap: 0.5rem;
 
@@ -16,6 +14,42 @@ export const ChipContainer = styled.button<ChipContainerProps>`
 
 	word-wrap: normal;
 	word-break: normal;
+`
+
+export const ChipContainer = styled.label<ChipContainerProps>`
+	display: flex;
+	flex-direction: row;
+
+	cursor: pointer;
+
+	input {
+		all: unset;
+		width: 0;
+		height: 0;
+	}
+
+	${ContentsContainer} {
+		.texts-container {
+			display: flex;
+			align-items: center;
+			gap: 0.25rem;
+
+			span.text,
+			span.symbol {
+				font-family: var(--typo-chip-inactive-font-family);
+				font-weight: var(--typo-chip-inactive-font-weight);
+				font-size: var(--typo-chip-inactive-font-size);
+				line-height: var(--typo-chip-inactive-line-height);
+			}
+		}
+	}
+
+	span.count {
+		font-family: var(--typo-chip-caption-font-family);
+		font-weight: var(--typo-chip-caption-font-weight);
+		font-size: var(--typo-chip-caption-font-size);
+		line-height: var(--typo-chip-caption-line-height);
+	}
 
 	.icon-container {
 		width: 1rem;
@@ -27,140 +61,99 @@ export const ChipContainer = styled.button<ChipContainerProps>`
 		}
 	}
 
-	span.count {
-		font-family: var(--typo-chip-caption-font-family);
-		font-weight: var(--typo-chip-caption-font-weight);
-		font-size: var(--typo-chip-caption-font-size);
-		line-height: var(--typo-chip-caption-line-height);
+	input:checked + ${ContentsContainer} {
+		.texts-container span.text {
+			font-family: var(--typo-chip-active-font-family);
+			font-weight: var(--typo-chip-active-font-weight);
+			font-size: var(--typo-chip-active-font-size);
+			line-height: var(--typo-chip-active-line-height);
+		}
+
+		.icon-container * {
+			fill: var(--colour-chip-inverted-on-background-active);
+		}
 	}
-
-	${(props) =>
-		props.isSelected
-			? css`
-					.texts-container {
-						font-family: var(--typo-chip-active-font-family);
-						font-weight: var(--typo-chip-active-font-weight);
-						font-size: var(--typo-chip-active-font-size);
-						line-height: var(--typo-chip-active-line-height);
-					}
-
-					.icon-container * {
-						fill: var(--colour-chip-inverted-on-background-active);
-					}
-			  `
-			: css`
-					.texts-container {
-						font-family: var(--typo-chip-inactive-font-family);
-						font-weight: var(--typo-chip-inactive-font-weight);
-						font-size: var(--typo-chip-inactive-font-size);
-						line-height: var(--typo-chip-inactive-line-height);
-					}
-			  `}
 `
 
 export const ChipSm = styled(ChipContainer)`
-	padding: 0.25rem 0.5rem;
+	${ContentsContainer} {
+		background-color: none;
+		box-shadow: 0 0 0 0.0625rem
+			var(--colour-chip-default-on-background-inactive) inset;
+		color: var(--colour-chip-default-on-background-inactive);
+		padding: 0.25rem 0.5rem;
 
-	.texts-container {
-		font-family: var(--typo-chip-inactive-font-family);
-		font-weight: var(--typo-chip-inactive-font-weight);
-		font-size: var(--typo-chip-inactive-font-size);
-		line-height: var(--typo-chip-inactive-line-height);
+		.texts-container {
+			span.text {
+				font-family: var(--typo-chip-inactive-font-family);
+				font-weight: var(--typo-chip-inactive-font-weight);
+				font-size: var(--typo-chip-inactive-font-size);
+				line-height: var(--typo-chip-inactive-line-height);
+			}
+		}
 	}
 
-	${(props) =>
-		props.isSelected
-			? css`
-					background-color: var(--colour-chip-inverted-background-inactive);
-					box-shadow: none;
-
-					color: var(--colour-chip-inverted-on-background-active);
-
-					.texts-container span.symbol {
-						color: var(--colour-chip-inverted-on-background-inactive);
-					}
-			  `
-			: css`
-					background-color: none;
-					box-shadow: 0 0 0 0.0625rem
-						var(--colour-chip-default-on-background-inactive) inset;
-
-					color: var(--colour-chip-default-on-background-inactive);
-			  `}
-
-	&:hover {
-		${(props) =>
-			props.isSelected
-				? css`
-						background-color: var(--colour-chip-inverted-background-hover);
-						box-shadow: none;
-
-						color: var(--colour-chip-inverted-on-background-hover);
-				  `
-				: css`
-						background-color: var(--colour-chip-default-background-hover);
-						color: var(--colour-chip-default-on-background-hover);
-				  `}
+	${ContentsContainer}:hover {
+		background-color: var(--colour-chip-default-background-hover);
+		color: var(--colour-chip-default-on-background-hover);
+	}
+	${ContentsContainer}:active {
+		background-color: var(--colour-chip-default-background-pressed);
+		color: var(--colour-chip-default-on-background-pressed);
 	}
 
-	&:active {
-		${(props) =>
-			props.isSelected
-				? css`
-						background-color: var(--colour-chip-inverted-background-pressed);
-						box-shadow: none;
+	input:checked + ${ContentsContainer} {
+		background-color: var(--colour-chip-inverted-background-inactive);
+		box-shadow: none;
+		color: var(--colour-chip-inverted-on-background-active);
+		.texts-container span.symbol {
+			color: var(--colour-chip-inverted-on-background-inactive);
+		}
+	}
 
-						color: var(--colour-chip-inverted-on-background-pressed);
-				  `
-				: css`
-						background-color: var(--colour-chip-default-background-pressed);
-						color: var(--colour-chip-default-on-background-pressed);
-				  `}
+	input:checked + ${ContentsContainer}:hover {
+		background-color: var(--colour-chip-inverted-background-hover);
+		box-shadow: none;
+		color: var(--colour-chip-inverted-on-background-hover);
+	}
+	input:checked + ${ContentsContainer}:active {
+		background-color: var(--colour-chip-inverted-background-pressed);
+		box-shadow: none;
+		color: var(--colour-chip-inverted-on-background-pressed);
 	}
 `
 
 export const ChipMd = styled(ChipContainer)`
-	padding: 0.5rem 0.75rem;
-	border: none;
-
-	${(props) =>
-		props.isSelected
-			? css`
-					background-color: var(--colour-chip-inverted-background-active);
-					color: var(--colour-chip-inverted-on-background-active);
-
-					.texts-container span.symbol {
-						color: var(--colour-chip-inverted-on-background-inactive);
-					}
-			  `
-			: css`
-					background-color: var(--colour-chip-default-background-inactive);
-					color: var(--colour-chip-default-on-background-inactive);
-			  `}
-
-	&:hover {
-		${(props) =>
-			props.isSelected
-				? css`
-						background-color: var(--colour-chip-inverted-background-hover);
-						color: var(--colour-chip-inverted-on-background-hover);
-				  `
-				: css`
-						background-color: var(--colour-chip-default-background-hover);
-						color: var(--colour-chip-default-on-background-hover);
-				  `}
+	${ContentsContainer} {
+		background-color: var(--colour-chip-default-background-inactive);
+		box-shadow: none;
+		color: var(--colour-chip-default-on-background-inactive);
+		padding: 0.5rem 0.75rem;
 	}
 
-	&:active {
-		${(props) =>
-			props.isSelected
-				? css`
-						background-color: var(--colour-chip-inverted-background-pressed);
-						color: var(--colour-chip-inverted-on-background-pressed);
-				  `
-				: css`
-						background-color: var(--colour-chip-default-background-pressed);
-						color: var(--colour-chip-default-on-background-pressed);
-				  `}
+	${ContentsContainer}:hover {
+		background-color: var(--colour-chip-default-background-hover);
+		color: var(--colour-chip-default-on-background-hover);
+	}
+	${ContentsContainer}:active {
+		background-color: var(--colour-chip-default-background-pressed);
+		color: var(--colour-chip-default-on-background-pressed);
+	}
+
+	input:checked + ${ContentsContainer} {
+		background-color: var(--colour-chip-inverted-background-active);
+		color: var(--colour-chip-inverted-on-background-active);
+		.texts-container span.symbol {
+			color: var(--colour-chip-inverted-on-background-inactive);
+		}
+	}
+
+	input:checked + ${ContentsContainer}:hover {
+		background-color: var(--colour-chip-inverted-background-hover);
+		color: var(--colour-chip-inverted-on-background-hover);
+	}
+	input:checked + ${ContentsContainer}:active {
+		background-color: var(--colour-chip-inverted-background-pressed);
+		color: var(--colour-chip-inverted-on-background-pressed);
 	}
 `

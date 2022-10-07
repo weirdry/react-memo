@@ -1,23 +1,26 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, ElementType } from 'react'
 
 import selectIcon from '../../assets/icons/iconSelector'
 
-import { ChipContainer, ChipMd, ChipSm } from './chip.styles'
+import { ChipMd, ChipSm, ContentsContainer } from './chip.styles'
 
 type ChipSize = 'md' | 'sm'
+type ChipType = 'checkbox' | 'radio' | 'button'
 
 type ChipProps = {
+	isDefault: boolean
+	chipSize: ChipSize
+	chipType: ChipType
+	symbol: string
 	text: string
 	count?: number
-	isSelected: boolean
-	chipType: 'tag' | 'all' | 'new'
-	size: ChipSize
-	handleClick?: (e: MouseEvent<HTMLButtonElement>) => void
+	checked?: boolean
 	deletable: boolean
+	handleClick?: (e: MouseEvent<HTMLDivElement>) => void
 }
 
-const selectChip = (size: ChipSize): typeof ChipContainer => {
-	switch (size) {
+const selectChipSize = (chipSize: ChipSize): ElementType => {
+	switch (chipSize) {
 		case 'md':
 			return ChipMd
 		case 'sm':
@@ -26,66 +29,59 @@ const selectChip = (size: ChipSize): typeof ChipContainer => {
 }
 
 export default function Chip(props: ChipProps) {
-	const { text, count, isSelected, chipType, size, handleClick, deletable } =
-		props
+	const {
+		isDefault,
+		chipSize,
+		chipType,
+		symbol,
+		text,
+		count,
+		checked,
+		deletable,
+		handleClick,
+	} = props
 
-	const SelectedChip = selectChip(size)
+	const SelectedChip = selectChipSize(chipSize)
 	const CloseIcon = selectIcon('close')
 
-	switch (chipType) {
-		case 'tag':
-			return (
-				<SelectedChip
-					isSelected={isSelected}
-					onClick={handleClick}
-					type="button"
-				>
-					<div className="texts-container">
-						<span className="symbol">#</span> {text}
+	return (
+		<SelectedChip>
+			{chipType !== 'button' && (
+				<input
+					type={chipType}
+					defaultChecked={checked}
+					name="tag"
+					value={isDefault ? '' : text}
+				/>
+			)}
+			<ContentsContainer
+				onClick={
+					chipType === 'button' && handleClick !== undefined
+						? handleClick
+						: undefined
+				}
+			>
+				<div className="texts-container">
+					{!isDefault && <span className="symbol">{symbol}</span>}
+					<span className="text">{text}</span>
+				</div>
+
+				{count !== undefined && <span className="count">{count}</span>}
+				{deletable && (
+					<div className="icon-container">
+						<CloseIcon />
 					</div>
-					{size === 'md' && <span className="count">{count}</span>}
-					{deletable && (
-						<div className="icon-container">
-							<CloseIcon />
-						</div>
-					)}
-				</SelectedChip>
-			)
-		case 'all':
-			return (
-				<SelectedChip
-					isSelected={isSelected}
-					onClick={handleClick}
-					type="button"
-				>
-					<div className="texts-container">전체</div>
-					{size === 'md' && <span className="count">{count}</span>}
-					{deletable && (
-						<div className="icon-container">
-							<CloseIcon />
-						</div>
-					)}
-				</SelectedChip>
-			)
-		case 'new':
-			return (
-				<SelectedChip isSelected={false} onClick={handleClick} type="button">
-					<div className="texts-container">
-						<span className="symbol">
-							<b>+</b>
-						</span>{' '}
-						{text}
-					</div>
-				</SelectedChip>
-			)
-	}
+				)}
+			</ContentsContainer>
+		</SelectedChip>
+	)
 }
 
 Chip.defaultProps = {
+	isDefault: false,
+	chipSize: 'md',
+	chipType: 'checkbox',
+	symbol: '#',
 	text: '태그 이름',
-	count: 0,
-	isSelected: false,
-	chipType: 'tag',
-	size: 'md',
 	deletable: false,
 }
