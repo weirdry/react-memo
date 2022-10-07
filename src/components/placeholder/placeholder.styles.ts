@@ -16,7 +16,7 @@ export const PlaceholderContainer = styled.div`
 		align-items: center;
 		gap: 0.5rem;
 
-		margin-bottom: 40%;
+		margin-bottom: 30%;
 
 		color: var(--colour-app-on-background-inactive);
 

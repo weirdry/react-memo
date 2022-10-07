@@ -15,7 +15,7 @@ export default function InputTag(props: InputTagProps) {
 	const [inputValue, setInputValue] = useState<string>('')
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		if (wordLimit && e.target.value.length < wordLimit) {
+		if (wordLimit && e.target.value.length <= wordLimit) {
 			handleChange && handleChange(e)
 			setInputValue(() => e.target.value)
 		} else if (!wordLimit) {
