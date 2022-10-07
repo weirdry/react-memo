@@ -21,6 +21,7 @@ export default function OverlayInput(props: OverlayInputProps) {
 	const { handleCancel } = props
 
 	const [isValidated, setIsValidated] = useState<boolean>(false)
+	const [warningType, setWarningType] = useState<WarningType>(WarningType.none)
 
 	const { tag, tagList } = useAppSelector(selectMemoisedMemoList)
 	const dispatch = useAppDispatch()
@@ -30,11 +31,11 @@ export default function OverlayInput(props: OverlayInputProps) {
 	}
 
 	useEffect(() => {
-		tag.name !== ''
+		return tag.name !== ''
 			? tagList.every((storedTag) => storedTag.name !== tag.name)
-				? setIsValidated(true)
-				: setIsValidated(false)
-			: setIsValidated(false)
+				? (setIsValidated(true), setWarningType(WarningType.none))
+				: (setIsValidated(false), setWarningType(WarningType.duplication))
+			: (setIsValidated(false), setWarningType(WarningType.none))
 	}, [tag, tagList])
 
 	return (
@@ -50,7 +51,7 @@ export default function OverlayInput(props: OverlayInputProps) {
 						autoFocus
 					/>
 					<div className="guide-container">
-						<span className="guide">{WarningType.duplication}</span>
+						<span className="guide">{warningType}</span>
 						<span className="count">{tag.name.length}/16</span>
 					</div>
 				</div>

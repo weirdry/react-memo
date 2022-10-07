@@ -23,24 +23,46 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { isModified, memoList, pinnedMemoList, unpinnedMemoList } =
-		useAppSelector(selectMemoisedMemoList)
+	const {
+		isModified,
+		isTagModified,
+		memoList,
+		pinnedMemoList,
+		unpinnedMemoList,
+	} = useAppSelector(selectMemoisedMemoList)
 
-	const selectedToast = (toastType: typeof isModified): JSX.Element | null => {
+	const selectedToast = (
+		toastType: typeof isModified | typeof isTagModified,
+	): JSX.Element | null => {
 		switch (toastType) {
 			case 'none':
 				return null
 			case 'created':
 				return (
-					<Toast toastType="success" text="메모를 성공적으로 추가했습니다." />
+					<Toast
+						toastType="success"
+						text={`${
+							toastType === isModified ? '메모를' : '태그를'
+						} 성공적으로 추가했습니다.`}
+					/>
 				)
 			case 'edited':
 				return (
-					<Toast toastType="success" text="메모를 성공적으로 수정했습니다." />
+					<Toast
+						toastType="success"
+						text={`${
+							toastType === isModified ? '메모를' : '태그를'
+						} 성공적으로 변경했습니다.`}
+					/>
 				)
 			case 'deleted':
 				return (
-					<Toast toastType="delete" text="메모를 성공적으로 삭제했습니다." />
+					<Toast
+						toastType="delete"
+						text={`${
+							toastType === isModified ? '메모를' : '태그를'
+						} 성공적으로 삭제했습니다.`}
+					/>
 				)
 			default:
 				return null
@@ -88,6 +110,7 @@ export default function Home() {
 
 			<div className="floating-container">
 				{selectedToast(isModified)}
+				{selectedToast(isTagModified)}
 
 				<FloatingButton
 					text="새 메모"

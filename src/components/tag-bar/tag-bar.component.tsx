@@ -5,6 +5,8 @@ import {
 	selectMemoisedMemoList,
 	addTag,
 	resetTag,
+	setIsTagModified,
+	resetIsTagModified,
 } from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
@@ -16,7 +18,7 @@ import { TagBarContainer } from './tag-bar.styles'
 export default function TagBar() {
 	const [isCreateTagOpen, setIsCreateTagOpen] = useState<boolean>(false)
 
-	const { tagList } = useAppSelector(selectMemoisedMemoList)
+	const { memoList, tagList } = useAppSelector(selectMemoisedMemoList)
 
 	const dispatch = useAppDispatch()
 
@@ -32,13 +34,16 @@ export default function TagBar() {
 
 		dispatch(addTag)
 		setIsCreateTagOpen(false)
+
+		dispatch(setIsTagModified('created'))
+		setTimeout(() => dispatch(resetIsTagModified()), 2000)
 	}
 
 	return (
 		<>
 			<TagBarContainer>
 				<IconButton isInverted icon="menu" size="sm" />
-				<Chip chipType="all" isSelected />
+				<Chip chipType="all" isSelected count={memoList.length} />
 
 				{tagList.length !== 0 &&
 					tagList.map((storedTag, index) => (
