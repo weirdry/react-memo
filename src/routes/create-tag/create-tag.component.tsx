@@ -59,7 +59,7 @@ export default function CreateTag() {
 	}, [tag, tagList])
 
 	return (
-		<CreateTagContainer onSubmit={handleSubmit}>
+		<CreateTagContainer onSubmit={handleSubmit} autoComplete="off">
 			<ToolBar
 				isLeftSideOn
 				leftSideChildren={
