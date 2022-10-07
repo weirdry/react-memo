@@ -30,11 +30,18 @@ export default function OverlayInput(props: OverlayInputProps) {
 					placeholder="태그 이름을 입력해 주세요."
 					value={tag.name}
 					handleChange={handeChange}
+					wordLimit={16}
+					autoFocus
 				/>
 			</div>
 			<div className="buttons-container">
 				<Button hierarchy="system" text="취소" handleClick={handleCancel} />
-				<Button hierarchy="primary" text="태그 등록" type="submit" />
+				<Button
+					hierarchy="primary"
+					text="태그 등록"
+					type="submit"
+					disabled={tag.name === ''}
+				/>
 			</div>
 		</OverlayInputContainer>
 	)
