@@ -36,7 +36,7 @@ export default function InputTag(props: InputTagProps) {
 			value={inputValue}
 			onChange={handleInputChange}
 			autoFocus={autoFocus}
-			autoComplete="off"
+			autoComplete="nope"
 		/>
 	)
 }
