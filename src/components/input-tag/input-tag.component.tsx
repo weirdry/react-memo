@@ -32,7 +32,8 @@ export default function InputTag(props: InputTagProps) {
 
 	return (
 		<InputTagContainer
-			name="text"
+			type="search"
+			name="tagInput"
 			placeholder={placeholder}
 			value={inputValue}
 			onChange={handleInputChange}

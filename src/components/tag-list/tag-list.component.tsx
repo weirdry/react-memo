@@ -17,7 +17,7 @@ export default function TagList(props: TagListProps) {
 	const navigate = useNavigate()
 
 	const handleViewTag = (e: MouseEvent<HTMLButtonElement>): void =>
-		navigate('/view-tag')
+		navigate('/select-tag')
 
 	return (
 		<TagListContainer>

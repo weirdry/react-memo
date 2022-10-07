@@ -11,6 +11,7 @@ import CreateMemo from './routes/create-memo/create-memo.component'
 import ViewMemo from './routes/view-memo/view-memo.component'
 import CreateTag from './routes/create-tag/create-tag.component'
 import ViewTag from './routes/view-tag/view-tag.component'
+import SelectTag from './routes/select-tag/select-tag.component'
 
 import './App.css'
 import './assets/tokens/variables.css'
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/view-memo/:memo_id" element={<ViewMemo />} />
 				<Route path="/create-tag" element={<CreateTag />} />
 				<Route path="/view-tag" element={<ViewTag />} />
+				<Route path="/select-tag" element={<SelectTag />} />
 
 				<Route path="/*" element={<Navigate to="/"></Navigate>} />
 			</Routes>
