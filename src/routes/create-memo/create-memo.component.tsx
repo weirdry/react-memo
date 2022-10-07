@@ -43,7 +43,9 @@ export default function CreateMemo() {
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
 		dispatch(addMemo)
 
-		dispatch(setIsModified('created'))
+		dispatch(
+			setIsModified({ modifiactionType: 'memo', modificationState: 'created' }),
+		)
 		setTimeout(() => dispatch(resetIsModified()), 2000)
 
 		navigate('/')

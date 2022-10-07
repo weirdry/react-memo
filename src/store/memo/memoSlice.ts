@@ -18,9 +18,13 @@ export type Tag = {
 
 export type ModificationType = 'none' | 'created' | 'edited' | 'deleted'
 
+export type ModificationList = {
+	modifiactionType: 'memo' | 'tag' | null
+	modificationState: ModificationType
+}
+
 export type MemoState = {
-	isModified: ModificationType
-	isTagModified: ModificationType
+	isModified: ModificationList
 	memo: Memo
 	memoList: Memo[]
 	tag: Tag
@@ -28,8 +32,7 @@ export type MemoState = {
 }
 
 export const initialState: MemoState = {
-	isModified: 'none',
-	isTagModified: 'none',
+	isModified: { modifiactionType: null, modificationState: 'none' },
 	memo: {
 		id: '',
 		title: '',
@@ -47,17 +50,11 @@ export const memoSlice = createSlice({
 	name: 'memo',
 	initialState,
 	reducers: {
-		setIsModified: (state, action: PayloadAction<ModificationType>) => {
+		setIsModified: (state, action: PayloadAction<ModificationList>) => {
 			state.isModified = action.payload
 		},
 		resetIsModified: (state) => {
 			state.isModified = initialState.isModified
-		},
-		setIsTagModified: (state, action: PayloadAction<ModificationType>) => {
-			state.isTagModified = action.payload
-		},
-		resetIsTagModified: (state) => {
-			state.isTagModified = initialState.isTagModified
 		},
 		setMemo: (state, action: PayloadAction<Memo>) => {
 			state.memo = action.payload
@@ -89,8 +86,6 @@ export const memoSlice = createSlice({
 
 // Select MemoList directly from state
 export const selectIsModified = (state: RootState) => state.memo.isModified
-export const selectIsTagModified = (state: RootState) =>
-	state.memo.isTagModified
 export const selectMemo = (state: RootState) => state.memo.memo
 export const selectMemoList = (state: RootState) => state.memo.memoList
 export const selectUnpinnedMemoList = (state: RootState) =>
@@ -103,7 +98,6 @@ export const selectTagList = (state: RootState) => state.memo.tagList
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
 	selectIsModified,
-	selectIsTagModified,
 	selectMemo,
 	selectMemoList,
 	selectUnpinnedMemoList,
@@ -112,7 +106,6 @@ export const selectMemoisedMemoList = createSelector(
 	selectTagList,
 	(
 		isModified,
-		isTagModified,
 		memo,
 		memoList,
 		unpinnedMemoList,
@@ -121,7 +114,6 @@ export const selectMemoisedMemoList = createSelector(
 		tagList,
 	) => ({
 		isModified,
-		isTagModified,
 		memo,
 		memoList,
 		unpinnedMemoList,
@@ -137,8 +129,7 @@ export const {
 	resetMemo,
 	setIsModified,
 	resetIsModified,
-	setIsTagModified,
-	resetIsTagModified,
+
 	setMemoList,
 	resetMemoList,
 	setTag,

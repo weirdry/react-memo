@@ -46,7 +46,9 @@ export default function ViewMemo() {
 		dispatch(setMemo({ ...memo, createdAt: dateCreatedAt }))
 		dispatch(editMemo)
 
-		dispatch(setIsModified('edited'))
+		dispatch(
+			setIsModified({ modifiactionType: 'memo', modificationState: 'edited' }),
+		)
 		setTimeout(() => dispatch(resetIsModified()), 2000)
 
 		navigate('/')

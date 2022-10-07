@@ -23,18 +23,11 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const {
-		isModified,
-		isTagModified,
-		memoList,
-		pinnedMemoList,
-		unpinnedMemoList,
-	} = useAppSelector(selectMemoisedMemoList)
+	const { isModified, memoList, pinnedMemoList, unpinnedMemoList } =
+		useAppSelector(selectMemoisedMemoList)
 
-	const selectedToast = (
-		toastType: typeof isModified | typeof isTagModified,
-	): JSX.Element | null => {
-		switch (toastType) {
+	const selectedToast = (toastType: typeof isModified): JSX.Element | null => {
+		switch (toastType.modificationState) {
 			case 'none':
 				return null
 			case 'created':
@@ -42,7 +35,7 @@ export default function Home() {
 					<Toast
 						toastType="success"
 						text={`${
-							toastType === isModified ? '메모를' : '태그를'
+							toastType.modifiactionType === 'memo' ? '메모를' : '태그를'
 						} 성공적으로 추가했습니다.`}
 					/>
 				)
@@ -51,7 +44,7 @@ export default function Home() {
 					<Toast
 						toastType="success"
 						text={`${
-							toastType === isModified ? '메모를' : '태그를'
+							toastType.modifiactionType === 'memo' ? '메모를' : '태그를'
 						} 성공적으로 변경했습니다.`}
 					/>
 				)
@@ -60,7 +53,7 @@ export default function Home() {
 					<Toast
 						toastType="delete"
 						text={`${
-							toastType === isModified ? '메모를' : '태그를'
+							toastType.modifiactionType === 'memo' ? '메모를' : '태그를'
 						} 성공적으로 삭제했습니다.`}
 					/>
 				)
@@ -110,7 +103,6 @@ export default function Home() {
 
 			<div className="floating-container">
 				{selectedToast(isModified)}
-				{selectedToast(isTagModified)}
 
 				<FloatingButton
 					text="새 메모"

@@ -29,7 +29,9 @@ export default function MemoSetting(props: MemoSettingProps) {
 	const handlePin = (e: MouseEvent<HTMLButtonElement>): void => {
 		dispatch(editMemoPin(isDirectlySave))
 
-		dispatch(setIsModified('edited'))
+		dispatch(
+			setIsModified({ modifiactionType: 'memo', modificationState: 'edited' }),
+		)
 		setTimeout(() => dispatch(resetIsModified()), 2000)
 	}
 
@@ -37,7 +39,12 @@ export default function MemoSetting(props: MemoSettingProps) {
 		if (window.confirm('메모를 삭제하시겠습니까?')) {
 			dispatch(deleteMemo)
 
-			dispatch(setIsModified('deleted'))
+			dispatch(
+				setIsModified({
+					modifiactionType: 'memo',
+					modificationState: 'deleted',
+				}),
+			)
 			setTimeout(() => dispatch(resetIsModified()), 2000)
 
 			navigate('/')

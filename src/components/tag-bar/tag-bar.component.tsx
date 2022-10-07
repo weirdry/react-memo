@@ -5,8 +5,8 @@ import {
 	selectMemoisedMemoList,
 	addTag,
 	resetTag,
-	setIsTagModified,
-	resetIsTagModified,
+	setIsModified,
+	resetIsModified,
 } from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
@@ -35,8 +35,10 @@ export default function TagBar() {
 		dispatch(addTag)
 		setIsCreateTagOpen(false)
 
-		dispatch(setIsTagModified('created'))
-		setTimeout(() => dispatch(resetIsTagModified()), 2000)
+		dispatch(
+			setIsModified({ modifiactionType: 'tag', modificationState: 'created' }),
+		)
+		setTimeout(() => dispatch(resetIsModified()), 2000)
 	}
 
 	return (
