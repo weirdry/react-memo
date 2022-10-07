@@ -904,9 +904,22 @@
         }
       },
       "button": {
-        "title": {
-          "value": "{typo.h2}",
-          "type": "typography"
+        "lg": {
+          "text": {
+            "value": "{typo.h2}",
+            "type": "typography"
+          }
+        },
+        "md": {
+          "text": {
+            "value": {
+              "fontFamily": "{font.typeface}",
+              "fontWeight": "{font.weight.hv}",
+              "lineHeight": "{font.leading.default}",
+              "fontSize": "{font.size.md}"
+            },
+            "type": "typography"
+          }
         }
       },
       "toast": {
