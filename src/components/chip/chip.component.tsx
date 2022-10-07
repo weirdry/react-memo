@@ -1,45 +1,74 @@
 import { MouseEvent } from 'react'
 
-import { ChipContainer } from './chip.styles'
+import selectIcon from '../../assets/icons/iconSelector'
+
+import { ChipContainer, ChipMd, ChipSm } from './chip.styles'
+
+type ChipSize = 'md' | 'sm'
 
 type ChipProps = {
 	text: string
-	count: number
+	count?: number
 	isSelected: boolean
 	chipType: 'tag' | 'all' | 'new'
+	size: ChipSize
 	handleClick?: (e: MouseEvent<HTMLButtonElement>) => void
+	deletable: boolean
+}
+
+const selectChip = (size: ChipSize): typeof ChipContainer => {
+	switch (size) {
+		case 'md':
+			return ChipMd
+		case 'sm':
+			return ChipSm
+	}
 }
 
 export default function Chip(props: ChipProps) {
-	const { text, count, isSelected, chipType, handleClick } = props
+	const { text, count, isSelected, chipType, size, handleClick, deletable } =
+		props
+
+	const SelectedChip = selectChip(size)
+	const CloseIcon = selectIcon('close')
 
 	switch (chipType) {
 		case 'tag':
 			return (
-				<ChipContainer isSelected={isSelected} onClick={handleClick}>
+				<SelectedChip isSelected={isSelected} onClick={handleClick}>
 					<div className="texts-container">
 						<span className="symbol">#</span> {text}
 					</div>
-					<span className="count">{count}</span>
-				</ChipContainer>
+					{size === 'md' && <span className="count">{count}</span>}
+					{deletable && (
+						<div className="icon-container">
+							<CloseIcon />
+						</div>
+					)}
+				</SelectedChip>
 			)
 		case 'all':
 			return (
-				<ChipContainer isSelected={isSelected} onClick={handleClick}>
+				<SelectedChip isSelected={isSelected} onClick={handleClick}>
 					<div className="texts-container">전체</div>
-					<span className="count">{count}</span>
-				</ChipContainer>
+					{size === 'md' && <span className="count">{count}</span>}
+					{deletable && (
+						<div className="icon-container">
+							<CloseIcon />
+						</div>
+					)}
+				</SelectedChip>
 			)
 		case 'new':
 			return (
-				<ChipContainer isSelected={false} onClick={handleClick}>
+				<SelectedChip isSelected={false} onClick={handleClick}>
 					<div className="texts-container">
 						<span className="symbol">
 							<b>+</b>
 						</span>{' '}
 						새 태그
 					</div>
-				</ChipContainer>
+				</SelectedChip>
 			)
 	}
 }
@@ -49,4 +78,6 @@ Chip.defaultProps = {
 	count: 0,
 	isSelected: false,
 	chipType: 'tag',
+	size: 'md',
+	deletable: false,
 }
