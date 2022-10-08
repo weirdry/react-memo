@@ -5,7 +5,7 @@ export const MemoDetailsContainer = styled.div`
 	min-height: 16rem;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 1rem;
 
 	word-wrap: break-word;
 	word-break: keep-all;
