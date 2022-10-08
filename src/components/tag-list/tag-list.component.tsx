@@ -28,6 +28,8 @@ export default function TagList(props: TagListProps) {
 						chipSize="sm"
 						chipType="checkbox"
 						text={storedTag.name}
+						checked
+						disabled
 					/>
 				))}
 
@@ -35,7 +37,7 @@ export default function TagList(props: TagListProps) {
 				chipSize="sm"
 				chipType="button"
 				symbol="+"
-				text="태그 등록"
+				text="태그 편집"
 				handleClick={handleViewTag}
 			/>
 		</TagListContainer>

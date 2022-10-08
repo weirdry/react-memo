@@ -105,7 +105,9 @@ export const ChipSm = styled(ChipContainer)`
 	input:checked + ${ContentsContainer} {
 		background-color: var(--colour-chip-inverted-background-inactive);
 		box-shadow: none;
-		color: var(--colour-chip-inverted-on-background-active);
+		.texts-container span.text {
+			color: var(--colour-chip-inverted-on-background-active);
+		}
 		.texts-container span.symbol {
 			color: var(--colour-chip-inverted-on-background-inactive);
 		}

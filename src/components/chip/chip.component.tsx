@@ -1,4 +1,4 @@
-import { MouseEvent, ElementType } from 'react'
+import { MouseEvent, ElementType, ChangeEvent } from 'react'
 
 import selectIcon from '../../assets/icons/iconSelector'
 
@@ -15,8 +15,10 @@ type ChipProps = {
 	text: string
 	count?: number
 	checked?: boolean
+	disabled?: boolean
 	deletable: boolean
 	handleClick?: (e: MouseEvent<HTMLDivElement>) => void
+	handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const selectChipSize = (chipSize: ChipSize): ElementType => {
@@ -37,8 +39,10 @@ export default function Chip(props: ChipProps) {
 		text,
 		count,
 		checked,
+		disabled,
 		deletable,
 		handleClick,
+		handleChange,
 	} = props
 
 	const SelectedChip = selectChipSize(chipSize)
@@ -52,6 +56,8 @@ export default function Chip(props: ChipProps) {
 					defaultChecked={checked}
 					name="tag"
 					value={isDefault ? '' : text}
+					onChange={handleChange}
+					disabled={disabled}
 				/>
 			)}
 			<ContentsContainer

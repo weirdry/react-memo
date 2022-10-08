@@ -168,6 +168,7 @@ export const editMemo = (
 			body: memo.body,
 			createdAt: memo.createdAt,
 			isPinned: memo.isPinned,
+			memoTag: memo.memoTag,
 		}
 	}
 	dispatch(setMemoList(copyList))
@@ -198,5 +199,28 @@ export const addTag = (dispatch: AppDispatch, getState: GetAppState) => {
 
 	dispatch(setTagList(newTagList))
 }
+
+export const addTagToMemo =
+	(tagNameToAdd: string) => (dispatch: AppDispatch, getState: GetAppState) => {
+		const { memo } = selectMemoisedMemoList(getState())
+
+		if (memo.memoTag.find((storedTag) => storedTag.name === tagNameToAdd))
+			return
+
+		const newMemoTag = [...memo.memoTag, { name: tagNameToAdd }]
+
+		dispatch(setMemo({ ...memo, memoTag: newMemoTag }))
+	}
+
+export const removeTagFromMemo =
+	(tagNameToRemove: string) =>
+	(dispatch: AppDispatch, getState: GetAppState) => {
+		const { memo } = selectMemoisedMemoList(getState())
+		const newMemoTag = memo.memoTag.filter(
+			(storedTag) => storedTag.name !== tagNameToRemove,
+		)
+
+		dispatch(setMemo({ ...memo, memoTag: newMemoTag }))
+	}
 
 export default memoSlice.reducer

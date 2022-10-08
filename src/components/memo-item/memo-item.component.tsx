@@ -40,6 +40,7 @@ export default function MemoItem({ memo }: MemoItemProps) {
 	const bind = useLongPress(handleLongTap, {
 		onStart: () => setIsLongPressed(true),
 		onCancel: () => setIsLongPressed(false),
+		cancelOnMovement: 10,
 	})
 
 	return (
