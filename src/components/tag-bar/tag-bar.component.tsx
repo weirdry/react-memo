@@ -6,6 +6,7 @@ import {
 	selectMemoisedMemoList,
 	resetTag,
 	setSelectedTag,
+	resetSelectedTag,
 } from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
@@ -29,6 +30,10 @@ export default function TagBar() {
 		navigate('/create-tag')
 	}
 
+	const handleSelectAll = (e: ChangeEvent<HTMLInputElement>): void => {
+		dispatch(resetSelectedTag())
+	}
+
 	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>): void => {
 		dispatch(setSelectedTag(e.target.value))
 	}
@@ -45,9 +50,9 @@ export default function TagBar() {
 				chipType="radio"
 				text="전체"
 				count={memoList.length}
-				checked
 				isDefault
-				handleChange={handleSelectTag}
+				handleChange={handleSelectAll}
+				checked={selectedTag === ''}
 			/>
 
 			{tagList.length !== 0 &&
