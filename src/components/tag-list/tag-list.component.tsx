@@ -23,12 +23,12 @@ export default function TagList(props: TagListProps) {
 	return (
 		<TagListContainer isEditable={isEditable}>
 			{memo?.memoTag.length !== 0 &&
-				memo?.memoTag.map((storedTag, index) => (
+				memo?.memoTag.map((storedTagName, index) => (
 					<Chip
 						key={index}
 						chipSize="sm"
 						chipType="checkbox"
-						text={storedTag.name}
+						text={storedTagName}
 						checked
 						disabled
 					/>

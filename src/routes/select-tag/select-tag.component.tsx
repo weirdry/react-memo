@@ -38,7 +38,7 @@ export default function SelectTag() {
 	}
 
 	const isSelectedTag = (tagName: string): boolean => {
-		return memo.memoTag.find((storedTag) => storedTag.name === tagName)
+		return memo.memoTag.find((storedTagName) => storedTagName === tagName)
 			? true
 			: false
 	}

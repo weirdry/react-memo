@@ -23,8 +23,9 @@ export default function Home() {
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
 
-	const { isModified, memoList, pinnedMemoList, unpinnedMemoList } =
-		useAppSelector(selectMemoisedMemoList)
+	const { isModified, pinnedMemoList, unpinnedMemoList } = useAppSelector(
+		selectMemoisedMemoList,
+	)
 
 	const selectedToast = (toastType: typeof isModified): JSX.Element | null => {
 		switch (toastType.modificationState) {
@@ -80,7 +81,7 @@ export default function Home() {
 
 			<TagBar />
 
-			{memoList.length === 0 ? (
+			{pinnedMemoList.length === 0 && unpinnedMemoList.length === 0 ? (
 				<Placeholder
 					placeholderType="home"
 					title="메모가 없습니다."

@@ -32,7 +32,7 @@ export default function CreateTag() {
 	const handleBackwards = (e: MouseEvent<HTMLButtonElement>) => navigate(-1)
 
 	const handeChange = (e: ChangeEvent<HTMLInputElement>): void => {
-		dispatch(setTag({ name: e.target.value.replace(/ /g, '_') }))
+		dispatch(setTag({ ...tag, name: e.target.value.replace(/ /g, '_') }))
 	}
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {

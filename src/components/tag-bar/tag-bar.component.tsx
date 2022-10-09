@@ -1,8 +1,12 @@
-import { MouseEvent } from 'react'
+import { ChangeEvent, MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import { selectMemoisedMemoList, resetTag } from '../../store/memo/memoSlice'
+import {
+	selectMemoisedMemoList,
+	resetTag,
+	setSelectedTag,
+} from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
 import Chip from '../chip/chip.component'
@@ -10,7 +14,9 @@ import Chip from '../chip/chip.component'
 import { TagBarContainer } from './tag-bar.styles'
 
 export default function TagBar() {
-	const { memoList, tagList } = useAppSelector(selectMemoisedMemoList)
+	const { memoList, tagList, selectedTag } = useAppSelector(
+		selectMemoisedMemoList,
+	)
 
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
@@ -21,6 +27,10 @@ export default function TagBar() {
 	const handleCreateTag = (e: MouseEvent<HTMLDivElement>): void => {
 		dispatch(resetTag())
 		navigate('/create-tag')
+	}
+
+	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>): void => {
+		dispatch(setSelectedTag(e.target.value))
 	}
 
 	return (
@@ -37,11 +47,19 @@ export default function TagBar() {
 				count={memoList.length}
 				checked
 				isDefault
+				handleChange={handleSelectTag}
 			/>
 
 			{tagList.length !== 0 &&
 				tagList.map((storedTag, index) => (
-					<Chip key={index} chipType="radio" text={storedTag.name} count={0} />
+					<Chip
+						key={index}
+						chipType="radio"
+						text={storedTag.name}
+						count={storedTag.count}
+						handleChange={handleSelectTag}
+						checked={storedTag.name === selectedTag}
+					/>
 				))}
 
 			<Chip
