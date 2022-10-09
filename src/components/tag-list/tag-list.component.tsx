@@ -9,10 +9,11 @@ import { TagListContainer } from './tag-list.styles'
 
 type TagListProps = {
 	memo?: Memo
+	isEditable: boolean
 }
 
 export default function TagList(props: TagListProps) {
-	const { memo } = props
+	const { memo, isEditable } = props
 
 	const navigate = useNavigate()
 
@@ -20,7 +21,7 @@ export default function TagList(props: TagListProps) {
 		navigate('/select-tag')
 
 	return (
-		<TagListContainer>
+		<TagListContainer isEditable={isEditable}>
 			{memo?.memoTag.length !== 0 &&
 				memo?.memoTag.map((storedTag, index) => (
 					<Chip
@@ -33,13 +34,19 @@ export default function TagList(props: TagListProps) {
 					/>
 				))}
 
-			<Chip
-				chipSize="sm"
-				chipType="button"
-				symbol="+"
-				text="태그 편집"
-				handleClick={handleViewTag}
-			/>
+			{isEditable && (
+				<Chip
+					chipSize="sm"
+					chipType="button"
+					symbol="+"
+					text="태그 편집"
+					handleClick={handleViewTag}
+				/>
+			)}
 		</TagListContainer>
 	)
+}
+
+TagList.defaultProps = {
+	isEditable: false,
 }

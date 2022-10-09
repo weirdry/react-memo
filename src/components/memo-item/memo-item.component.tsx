@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../store/hooks'
 import { Memo, setMemo } from '../../store/memo/memoSlice'
 
 import Card from '../card/card.component'
+import TagList from '../tag-list/tag-list.component'
 import MemoSetting from '../memo-setting/memo-setting.component'
 import BottomSheet from '../bottom-sheet/bottom-sheet.component'
 
@@ -53,6 +54,7 @@ export default function MemoItem({ memo }: MemoItemProps) {
 					{title && <h3>{title}</h3>}
 					{body && <p>{body}</p>}
 					<span>{createdAt}</span>
+					<TagList memo={memo} />
 				</ContentContainer>
 			</Card>
 

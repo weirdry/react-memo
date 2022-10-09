@@ -31,7 +31,7 @@ export default function MemoDetails(props: MemoDetailsProps) {
 					/>
 					<span>{memo?.createdAt}</span>
 				</div>
-				<TagList memo={memo} />
+				<TagList memo={memo} isEditable />
 				<Input
 					inputType="body"
 					placeholder="내용을 입력해 주세요."
