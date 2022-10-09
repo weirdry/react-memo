@@ -83,13 +83,11 @@ export const ChipSm = styled(ChipContainer)`
 		color: var(--colour-chip-default-on-background-inactive);
 		padding: 0.25rem 0.5rem;
 
-		.texts-container {
-			span.text {
-				font-family: var(--typo-chip-inactive-font-family);
-				font-weight: var(--typo-chip-inactive-font-weight);
-				font-size: var(--typo-chip-inactive-font-size);
-				line-height: var(--typo-chip-inactive-line-height);
-			}
+		.texts-container span.text {
+			font-family: var(--typo-chip-inactive-font-family);
+			font-weight: var(--typo-chip-inactive-font-weight);
+			font-size: var(--typo-chip-inactive-font-size);
+			line-height: var(--typo-chip-inactive-line-height);
 		}
 	}
 
@@ -98,6 +96,7 @@ export const ChipSm = styled(ChipContainer)`
 		box-shadow: none;
 		.texts-container span.text {
 			color: var(--colour-chip-inverted-on-background-active);
+			font-weight: var(--typo-chip-inactive-font-weight);
 		}
 		.texts-container span.symbol {
 			color: var(--colour-chip-inverted-on-background-inactive);
@@ -105,30 +104,27 @@ export const ChipSm = styled(ChipContainer)`
 	}
 
 	${(props) =>
-		!props.disabled
-			? css`
-					${ContentsContainer}:hover {
-						background-color: var(--colour-chip-default-background-hover);
-						color: var(--colour-chip-default-on-background-hover);
-					}
-					${ContentsContainer}:active {
-						background-color: var(--colour-chip-default-background-pressed);
-						color: var(--colour-chip-default-on-background-pressed);
-					}
-					input:checked + ${ContentsContainer}:hover {
-						background-color: var(--colour-chip-inverted-background-hover);
-						box-shadow: none;
-						color: var(--colour-chip-inverted-on-background-hover);
-					}
-					input:checked + ${ContentsContainer}:active {
-						background-color: var(--colour-chip-inverted-background-pressed);
-						box-shadow: none;
-						color: var(--colour-chip-inverted-on-background-pressed);
-					}
-			  `
-			: css`
-					cursor: default;
-			  `}
+		!props.disabled &&
+		css`
+			${ContentsContainer}:hover {
+				background-color: var(--colour-chip-default-background-hover);
+				color: var(--colour-chip-default-on-background-hover);
+			}
+			${ContentsContainer}:active {
+				background-color: var(--colour-chip-default-background-pressed);
+				color: var(--colour-chip-default-on-background-pressed);
+			}
+			input:checked + ${ContentsContainer}:hover {
+				background-color: var(--colour-chip-inverted-background-hover);
+				box-shadow: none;
+				color: var(--colour-chip-inverted-on-background-hover);
+			}
+			input:checked + ${ContentsContainer}:active {
+				background-color: var(--colour-chip-inverted-background-pressed);
+				box-shadow: none;
+				color: var(--colour-chip-inverted-on-background-pressed);
+			}
+		`}
 `
 
 export const ChipMd = styled(ChipContainer)`
@@ -148,26 +144,23 @@ export const ChipMd = styled(ChipContainer)`
 	}
 
 	${(props) =>
-		!props.disabled
-			? css`
-					${ContentsContainer}:hover {
-						background-color: var(--colour-chip-default-background-hover);
-						color: var(--colour-chip-default-on-background-hover);
-					}
-					${ContentsContainer}:active {
-						background-color: var(--colour-chip-default-background-pressed);
-						color: var(--colour-chip-default-on-background-pressed);
-					}
-					input:checked + ${ContentsContainer}:hover {
-						background-color: var(--colour-chip-inverted-background-hover);
-						color: var(--colour-chip-inverted-on-background-hover);
-					}
-					input:checked + ${ContentsContainer}:active {
-						background-color: var(--colour-chip-inverted-background-pressed);
-						color: var(--colour-chip-inverted-on-background-pressed);
-					}
-			  `
-			: css`
-					cursor: default;
-			  `}
+		!props.disabled &&
+		css`
+			${ContentsContainer}:hover {
+				background-color: var(--colour-chip-default-background-hover);
+				color: var(--colour-chip-default-on-background-hover);
+			}
+			${ContentsContainer}:active {
+				background-color: var(--colour-chip-default-background-pressed);
+				color: var(--colour-chip-default-on-background-pressed);
+			}
+			input:checked + ${ContentsContainer}:hover {
+				background-color: var(--colour-chip-inverted-background-hover);
+				color: var(--colour-chip-inverted-on-background-hover);
+			}
+			input:checked + ${ContentsContainer}:active {
+				background-color: var(--colour-chip-inverted-background-pressed);
+				color: var(--colour-chip-inverted-on-background-pressed);
+			}
+		`}
 `
