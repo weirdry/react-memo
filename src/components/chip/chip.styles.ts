@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type ChipContainerProps = {
-	isSelected: boolean
+	disabled: boolean
 }
 
 export const ContentsContainer = styled.div`
@@ -93,15 +93,6 @@ export const ChipSm = styled(ChipContainer)`
 		}
 	}
 
-	${ContentsContainer}:hover {
-		background-color: var(--colour-chip-default-background-hover);
-		color: var(--colour-chip-default-on-background-hover);
-	}
-	${ContentsContainer}:active {
-		background-color: var(--colour-chip-default-background-pressed);
-		color: var(--colour-chip-default-on-background-pressed);
-	}
-
 	input:checked + ${ContentsContainer} {
 		background-color: var(--colour-chip-inverted-background-inactive);
 		box-shadow: none;
@@ -113,16 +104,31 @@ export const ChipSm = styled(ChipContainer)`
 		}
 	}
 
-	input:checked + ${ContentsContainer}:hover {
-		background-color: var(--colour-chip-inverted-background-hover);
-		box-shadow: none;
-		color: var(--colour-chip-inverted-on-background-hover);
-	}
-	input:checked + ${ContentsContainer}:active {
-		background-color: var(--colour-chip-inverted-background-pressed);
-		box-shadow: none;
-		color: var(--colour-chip-inverted-on-background-pressed);
-	}
+	${(props) =>
+		!props.disabled
+			? css`
+					${ContentsContainer}:hover {
+						background-color: var(--colour-chip-default-background-hover);
+						color: var(--colour-chip-default-on-background-hover);
+					}
+					${ContentsContainer}:active {
+						background-color: var(--colour-chip-default-background-pressed);
+						color: var(--colour-chip-default-on-background-pressed);
+					}
+					input:checked + ${ContentsContainer}:hover {
+						background-color: var(--colour-chip-inverted-background-hover);
+						box-shadow: none;
+						color: var(--colour-chip-inverted-on-background-hover);
+					}
+					input:checked + ${ContentsContainer}:active {
+						background-color: var(--colour-chip-inverted-background-pressed);
+						box-shadow: none;
+						color: var(--colour-chip-inverted-on-background-pressed);
+					}
+			  `
+			: css`
+					cursor: default;
+			  `}
 `
 
 export const ChipMd = styled(ChipContainer)`
@@ -133,15 +139,6 @@ export const ChipMd = styled(ChipContainer)`
 		padding: 0.5rem 0.75rem;
 	}
 
-	${ContentsContainer}:hover {
-		background-color: var(--colour-chip-default-background-hover);
-		color: var(--colour-chip-default-on-background-hover);
-	}
-	${ContentsContainer}:active {
-		background-color: var(--colour-chip-default-background-pressed);
-		color: var(--colour-chip-default-on-background-pressed);
-	}
-
 	input:checked + ${ContentsContainer} {
 		background-color: var(--colour-chip-inverted-background-active);
 		color: var(--colour-chip-inverted-on-background-active);
@@ -150,12 +147,27 @@ export const ChipMd = styled(ChipContainer)`
 		}
 	}
 
-	input:checked + ${ContentsContainer}:hover {
-		background-color: var(--colour-chip-inverted-background-hover);
-		color: var(--colour-chip-inverted-on-background-hover);
-	}
-	input:checked + ${ContentsContainer}:active {
-		background-color: var(--colour-chip-inverted-background-pressed);
-		color: var(--colour-chip-inverted-on-background-pressed);
-	}
+	${(props) =>
+		!props.disabled
+			? css`
+					${ContentsContainer}:hover {
+						background-color: var(--colour-chip-default-background-hover);
+						color: var(--colour-chip-default-on-background-hover);
+					}
+					${ContentsContainer}:active {
+						background-color: var(--colour-chip-default-background-pressed);
+						color: var(--colour-chip-default-on-background-pressed);
+					}
+					input:checked + ${ContentsContainer}:hover {
+						background-color: var(--colour-chip-inverted-background-hover);
+						color: var(--colour-chip-inverted-on-background-hover);
+					}
+					input:checked + ${ContentsContainer}:active {
+						background-color: var(--colour-chip-inverted-background-pressed);
+						color: var(--colour-chip-inverted-on-background-pressed);
+					}
+			  `
+			: css`
+					cursor: default;
+			  `}
 `

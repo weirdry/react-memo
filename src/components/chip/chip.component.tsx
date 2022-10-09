@@ -15,7 +15,7 @@ type ChipProps = {
 	text: string
 	count?: number
 	checked?: boolean
-	disabled?: boolean
+	disabled: boolean
 	deletable: boolean
 	handleClick?: (e: MouseEvent<HTMLDivElement>) => void
 	handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
@@ -49,7 +49,7 @@ export default function Chip(props: ChipProps) {
 	const CloseIcon = selectIcon('close')
 
 	return (
-		<SelectedChip>
+		<SelectedChip disabled={disabled}>
 			{chipType !== 'button' && (
 				<input
 					type={chipType}
@@ -89,5 +89,6 @@ Chip.defaultProps = {
 	chipType: 'checkbox',
 	symbol: '#',
 	text: '태그 이름',
+	disabled: false,
 	deletable: false,
 }
