@@ -270,4 +270,35 @@ export const removeTagFromMemo =
 		dispatch(calcTagCount(tagIdToRemove, -1))
 	}
 
+export const editTag = (dispatch: AppDispatch, getState: GetAppState): void => {
+	const { tag, tagList } = selectMemoisedMemoList(getState())
+
+	const findIndex = tagList.findIndex((storedTag) => storedTag.id === tag.id)
+	let copyList = [...tagList]
+
+	if (findIndex !== -1) {
+		copyList[findIndex] = {
+			...copyList[findIndex],
+			name: tag.name,
+		}
+	}
+	dispatch(setTagList(copyList))
+}
+
+export const deleteTag = (dispatch: AppDispatch, getState: GetAppState) => {
+	const { tag, memoList, tagList } = selectMemoisedMemoList(getState())
+
+	const newMemoList = memoList.map((storedMemo) => {
+		const newMemoTag = storedMemo.memoTag.filter(
+			(storedTag) => storedTag !== tag.id,
+		)
+		return { ...storedMemo, memoTag: newMemoTag as Tag['id'][] }
+	})
+	const newTagList = tagList.filter((storedTag) => storedTag.id !== tag.id)
+
+	dispatch(setTagList(newTagList))
+	dispatch(resetTag())
+	dispatch(setMemoList(newMemoList))
+}
+
 export default memoSlice.reducer

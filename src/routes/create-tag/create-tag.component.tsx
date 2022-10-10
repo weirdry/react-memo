@@ -6,8 +6,11 @@ import {
 	selectMemoisedMemoList,
 	setTag,
 	addTag,
+	editTag,
+	deleteTag,
 	setIsModified,
 	resetIsModified,
+	resetSelectedTag,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -15,6 +18,7 @@ import IconButton from '../../components/icon-button/icon-button.component'
 import InputTag from '../../components/input-tag/input-tag.component'
 
 import { CreateTagContainer } from './create-tag.styles'
+import Button from '../../components/button/button.component'
 
 enum WarningType {
 	none = '',
@@ -22,13 +26,14 @@ enum WarningType {
 }
 
 export default function CreateTag() {
-	// const [isEditingExist, setIsEditingExist] = useState<boolean>(false)
+	const [isEditingExist, setIsEditingExist] = useState<boolean>(false)
 	const [isValidated, setIsValidated] = useState<boolean>(false)
 	const [warningType, setWarningType] = useState<WarningType>(WarningType.none)
 
-	const { tag, tagList } = useAppSelector(selectMemoisedMemoList)
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
+
+	const { tag, tagList, selectedTag } = useAppSelector(selectMemoisedMemoList)
 
 	const handleBackwards = (e: MouseEvent<HTMLButtonElement>) => navigate(-1)
 
@@ -39,24 +44,58 @@ export default function CreateTag() {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
 		e.preventDefault()
 
-		dispatch(addTag)
+		dispatch(isEditingExist ? editTag : addTag)
 		navigate(-1)
 
 		dispatch(
 			setIsModified({
 				modifiactionType: 'tag',
-				modificationState: 'created',
+				modificationState: `${isEditingExist ? 'edited' : 'created'}`,
 			}),
 		)
 		setTimeout(() => dispatch(resetIsModified()), 2000)
 	}
 
+	const handleDelete = (e: MouseEvent<HTMLButtonElement>): void => {
+		if (window.confirm('태그를 삭제하시겠습니까?')) {
+			if (selectedTag.name === tag.name) {
+				dispatch(resetSelectedTag())
+			}
+			dispatch(deleteTag)
+			navigate(-1)
+
+			dispatch(
+				setIsModified({
+					modifiactionType: 'tag',
+					modificationState: 'deleted',
+				}),
+			)
+			setTimeout(() => dispatch(resetIsModified()), 2000)
+		} else return
+	}
+
 	useEffect(() => {
-		return tag.name !== ''
-			? tagList.every((storedTag) => storedTag.name !== tag.name)
-				? (setIsValidated(true), setWarningType(WarningType.none))
-				: (setIsValidated(false), setWarningType(WarningType.duplication))
-			: (setIsValidated(false), setWarningType(WarningType.none))
+		tag.id ? setIsEditingExist(true) : setIsEditingExist(false)
+		// eslint-disable-next-line
+	}, [])
+
+	useEffect(() => {
+		if (tag.name !== '') {
+			const tagToCheck = tagList.find(
+				(storedTag) => storedTag.name === tag.name,
+			)
+			if (tagToCheck) {
+				return tagToCheck.id === tag.id
+					? (setIsValidated(true), setWarningType(WarningType.none))
+					: (setIsValidated(false), setWarningType(WarningType.duplication))
+			} else {
+				setIsValidated(true)
+				setWarningType(WarningType.none)
+			}
+		} else {
+			setIsValidated(true)
+			setWarningType(WarningType.none)
+		}
 	}, [tag, tagList])
 
 	return (
@@ -87,6 +126,16 @@ export default function CreateTag() {
 					</div>
 				</div>
 			</div>
+
+			{isEditingExist && (
+				<div className="button-container">
+					<Button
+						hierarchy="system"
+						text="태그 삭제"
+						handleClick={handleDelete}
+					/>
+				</div>
+			)}
 		</CreateTagContainer>
 	)
 }

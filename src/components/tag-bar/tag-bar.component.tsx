@@ -67,7 +67,7 @@ export default function TagBar() {
 						text={storedTag.name}
 						count={storedTag.count}
 						handleChange={handleSelectTag}
-						checked={storedTag.name === selectedTag.name}
+						checked={storedTag.id === selectedTag.id}
 					/>
 				))}
 

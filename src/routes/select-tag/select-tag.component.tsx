@@ -17,7 +17,7 @@ import Chip from '../../components/chip/chip.component'
 import { SelectTagContainer } from './select-tag.styles'
 
 export default function SelectTag() {
-	const { memo, tagList } = useAppSelector(selectMemoisedMemoList)
+	const { memo, tagList, selectedTag } = useAppSelector(selectMemoisedMemoList)
 
 	const navigate = useNavigate()
 	const dispatch = useAppDispatch()

@@ -7,6 +7,7 @@ import {
 	resetTag,
 	setSelectedTag,
 	setTag,
+	initialState,
 } from '../../store/memo/memoSlice'
 
 import ToolBar from '../../components/tool-bar/tool-bar.component'
@@ -18,7 +19,7 @@ import { ViewTagContainer } from './view-tag.styles'
 export default function ViewTag() {
 	const [isEditable, setIsEditable] = useState<boolean>(false)
 
-	const { memoList, tag, tagList, selectedTag } = useAppSelector(
+	const { memoList, tagList, selectedTag } = useAppSelector(
 		selectMemoisedMemoList,
 	)
 
@@ -36,12 +37,21 @@ export default function ViewTag() {
 			(storedTag) => storedTag.name === e.target.value,
 		)
 
-		dispatch(setSelectedTag(newSelectedTag!))
+		if (newSelectedTag) {
+			dispatch(setSelectedTag(newSelectedTag))
+		} else {
+			dispatch(setSelectedTag(initialState.selectedTag))
+		}
+
 		navigate('/')
 	}
 
 	const handleEditTag = (e: ChangeEvent<HTMLInputElement>): void => {
-		dispatch(setTag({ ...tag, name: e.target.value }))
+		const tagToEdit = tagList.find(
+			(storedTag) => storedTag.name === e.target.value,
+		)
+
+		dispatch(setTag(tagToEdit!))
 
 		navigate('/create-tag')
 		setIsEditable(false)
@@ -74,7 +84,6 @@ export default function ViewTag() {
 				<div className="tags-container">
 					{!isEditable && (
 						<Chip
-							chipType="radio"
 							text="전체"
 							count={memoList.length}
 							isDefault
@@ -88,7 +97,7 @@ export default function ViewTag() {
 							text={storedTag.name}
 							count={storedTag.count}
 							handleChange={isEditable ? handleEditTag : handleSelectTag}
-							checked={storedTag.name === selectedTag.name}
+							checked={storedTag.id === selectedTag.id}
 							isEditable={isEditable}
 						/>
 					))}

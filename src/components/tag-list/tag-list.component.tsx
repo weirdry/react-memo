@@ -26,20 +26,22 @@ export default function TagList(props: TagListProps) {
 	return (
 		<TagListContainer isEditable={isEditable}>
 			{memo?.memoTag.length !== 0 &&
-				memo?.memoTag.map((storedTagId, index) => {
+				memo?.memoTag.map((storedTagId) => {
 					const tagToShow = tagList.find(
 						(storedTag) => storedTag.id === storedTagId,
 					)
-					return (
-						<Chip
-							key={tagToShow!.id}
-							chipSize="sm"
-							chipType="checkbox"
-							text={tagToShow!.name}
-							checked
-							disabled
-						/>
-					)
+					if (tagToShow) {
+						return (
+							<Chip
+								key={tagToShow.id}
+								chipSize="sm"
+								chipType="checkbox"
+								text={tagToShow.name}
+								checked
+								disabled
+							/>
+						)
+					} else return null
 				})}
 
 			{isEditable && (

@@ -48,9 +48,7 @@ export default function MemoSetting(props: MemoSettingProps) {
 			setTimeout(() => dispatch(resetIsModified()), 2000)
 
 			navigate('/')
-		} else {
-			return
-		}
+		} else return
 	}
 
 	return (

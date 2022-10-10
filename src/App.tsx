@@ -23,7 +23,7 @@ function App() {
 				<Route index element={<Home />} />
 				<Route path="/create-memo" element={<CreateMemo />} />
 				<Route path="/view-memo/:memo_id" element={<ViewMemo />} />
-				<Route path="/create-tag" element={<CreateTag />} />
+				<Route path="/create-tag/" element={<CreateTag />} />
 				<Route path="/view-tag" element={<ViewTag />} />
 				<Route path="/select-tag" element={<SelectTag />} />
 

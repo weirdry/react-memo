@@ -56,4 +56,8 @@ export const CreateTagContainer = styled.form`
 			}
 		}
 	}
+
+	.button-container {
+		margin-top: 1rem;
+	}
 `
