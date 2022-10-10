@@ -71,7 +71,9 @@ const Chip = (props: ChipProps) => {
 					<span className="text">{text}</span>
 				</div>
 
-				{!isEditable && <span className="count">{count}</span>}
+				{!isEditable && chipType !== 'button' && (
+					<span className="count">{count}</span>
+				)}
 				{isEditable && (
 					<div className="icon-container">
 						<CloseIcon />
