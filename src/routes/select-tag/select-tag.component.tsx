@@ -30,15 +30,19 @@ export default function SelectTag() {
 	}
 
 	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>): void => {
+		const tagToAdjust = tagList.find(
+			(storedTag) => storedTag.name === e.target.value,
+		)
+
 		if (e.target.checked) {
-			dispatch(addTagToMemo(e.target.value))
+			dispatch(addTagToMemo(tagToAdjust!.id))
 		} else if (!e.target.checked) {
-			dispatch(removeTagFromMemo(e.target.value))
+			dispatch(removeTagFromMemo(tagToAdjust!.id))
 		}
 	}
 
-	const isSelectedTag = (tagName: string): boolean => {
-		return memo.memoTag.find((storedTagName) => storedTagName === tagName)
+	const isSelectedTag = (tagId: string): boolean => {
+		return memo.memoTag.find((storedTagId) => storedTagId === tagId)
 			? true
 			: false
 	}
@@ -64,12 +68,12 @@ export default function SelectTag() {
 				<h2>등록할 태그를 선택해 주세요.</h2>
 
 				<div className="tags-container">
-					{tagList.map((storedTag, index) => (
+					{tagList.map((storedTag) => (
 						<Chip
-							key={index}
+							key={storedTag.id}
 							text={storedTag.name}
 							handleChange={handleSelectTag}
-							checked={isSelectedTag(storedTag.name)}
+							checked={isSelectedTag(storedTag.id)}
 						/>
 					))}
 					<Chip

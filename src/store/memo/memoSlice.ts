@@ -31,7 +31,7 @@ export type MemoState = {
 	memoList: Memo[]
 	tag: Tag
 	tagList: Tag[]
-	selectedTag: Tag['name']
+	selectedTag: Tag
 }
 
 export const initialState: MemoState = {
@@ -51,7 +51,7 @@ export const initialState: MemoState = {
 	memoList: [],
 	tag: { id: '', name: '', count: 0 },
 	tagList: [],
-	selectedTag: '',
+	selectedTag: { id: '', name: '', count: 0 },
 }
 
 export const memoSlice = createSlice({
@@ -88,7 +88,7 @@ export const memoSlice = createSlice({
 		resetTagList: (state) => {
 			state.tagList = initialState.tagList
 		},
-		setSelectedTag: (state, action: PayloadAction<Tag['name']>) => {
+		setSelectedTag: (state, action: PayloadAction<Tag>) => {
 			state.selectedTag = action.payload
 		},
 		resetSelectedTag: (state) => {
@@ -104,18 +104,18 @@ export const selectMemo = (state: RootState) => state.memo.memo
 export const selectMemoList = (state: RootState) => state.memo.memoList
 export const selectUnpinnedMemoList = (state: RootState) => {
 	const unpinnedMemoList = state.memo.memoList.filter((memo) => !memo.isPinned)
-	return state.memo.selectedTag === ''
+	return state.memo.selectedTag.id === ''
 		? unpinnedMemoList
 		: unpinnedMemoList.filter((memo) =>
-				memo.memoTag.includes(state.memo.selectedTag),
+				memo.memoTag.includes(state.memo.selectedTag.id),
 		  )
 }
 export const selectPinnedMemoList = (state: RootState) => {
 	const pinnedMemoList = state.memo.memoList.filter((memo) => memo.isPinned)
-	return state.memo.selectedTag === ''
+	return state.memo.selectedTag.id === ''
 		? pinnedMemoList
 		: pinnedMemoList.filter((memo) =>
-				memo.memoTag.includes(state.memo.selectedTag),
+				memo.memoTag.includes(state.memo.selectedTag.id),
 		  )
 }
 export const selectTag = (state: RootState) => state.memo.tag
@@ -229,12 +229,12 @@ export const addTag = (dispatch: AppDispatch, getState: GetAppState) => {
 }
 
 export const calcTagCount =
-	(tagNameToCalc: Tag['name'], amount: number) =>
+	(tagIdToCalc: Tag['id'], amount: number) =>
 	(dispatch: AppDispatch, getState: GetAppState) => {
 		const { tagList } = selectMemoisedMemoList(getState())
 
 		const findIndex = tagList.findIndex(
-			(storedTag) => storedTag.name === tagNameToCalc,
+			(storedTag) => storedTag.id === tagIdToCalc,
 		)
 		let copyList = [...tagList]
 
@@ -248,28 +248,26 @@ export const calcTagCount =
 	}
 
 export const addTagToMemo =
-	(tagNameToAdd: string) => (dispatch: AppDispatch, getState: GetAppState) => {
+	(tagIdToAdd: string) => (dispatch: AppDispatch, getState: GetAppState) => {
 		const { memo } = selectMemoisedMemoList(getState())
 
-		if (memo.memoTag.find((storedTagName) => storedTagName === tagNameToAdd))
-			return
+		if (memo.memoTag.find((storedTagId) => storedTagId === tagIdToAdd)) return
 
-		const newMemoTag = [...memo.memoTag, tagNameToAdd]
+		const newMemoTag = [...memo.memoTag, tagIdToAdd]
 
 		dispatch(setMemo({ ...memo, memoTag: newMemoTag }))
-		dispatch(calcTagCount(tagNameToAdd, +1))
+		dispatch(calcTagCount(tagIdToAdd, +1))
 	}
 
 export const removeTagFromMemo =
-	(tagNameToRemove: string) =>
-	(dispatch: AppDispatch, getState: GetAppState) => {
+	(tagIdToRemove: string) => (dispatch: AppDispatch, getState: GetAppState) => {
 		const { memo } = selectMemoisedMemoList(getState())
 		const newMemoTag = memo.memoTag.filter(
-			(storedTagName) => storedTagName !== tagNameToRemove,
+			(storedTagId) => storedTagId !== tagIdToRemove,
 		)
 
 		dispatch(setMemo({ ...memo, memoTag: newMemoTag }))
-		dispatch(calcTagCount(tagNameToRemove, -1))
+		dispatch(calcTagCount(tagIdToRemove, -1))
 	}
 
 export default memoSlice.reducer

@@ -35,7 +35,11 @@ export default function TagBar() {
 	}
 
 	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>): void => {
-		dispatch(setSelectedTag(e.target.value))
+		const newSelectedTag = tagList.find(
+			(storedTag) => storedTag.name === e.target.value,
+		)
+
+		dispatch(setSelectedTag(newSelectedTag!))
 	}
 
 	return (
@@ -52,7 +56,7 @@ export default function TagBar() {
 				count={memoList.length}
 				isDefault
 				handleChange={handleSelectAll}
-				checked={selectedTag === ''}
+				checked={selectedTag.name === ''}
 			/>
 
 			{tagList.length !== 0 &&
@@ -63,7 +67,7 @@ export default function TagBar() {
 						text={storedTag.name}
 						count={storedTag.count}
 						handleChange={handleSelectTag}
-						checked={storedTag.name === selectedTag}
+						checked={storedTag.name === selectedTag.name}
 					/>
 				))}
 

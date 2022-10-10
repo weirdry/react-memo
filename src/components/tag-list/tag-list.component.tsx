@@ -1,7 +1,8 @@
 import { MouseEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Memo } from '../../store/memo/memoSlice'
+import { useAppSelector } from '../../store/hooks'
+import { Memo, selectMemoisedMemoList } from '../../store/memo/memoSlice'
 
 import Chip from '../chip/chip.component'
 
@@ -15,6 +16,8 @@ type TagListProps = {
 export default function TagList(props: TagListProps) {
 	const { memo, isEditable } = props
 
+	const { tagList } = useAppSelector(selectMemoisedMemoList)
+
 	const navigate = useNavigate()
 
 	const handleViewTag = (e: MouseEvent<HTMLDivElement>): void =>
@@ -23,16 +26,21 @@ export default function TagList(props: TagListProps) {
 	return (
 		<TagListContainer isEditable={isEditable}>
 			{memo?.memoTag.length !== 0 &&
-				memo?.memoTag.map((storedTagName, index) => (
-					<Chip
-						key={index}
-						chipSize="sm"
-						chipType="checkbox"
-						text={storedTagName}
-						checked
-						disabled
-					/>
-				))}
+				memo?.memoTag.map((storedTagId, index) => {
+					const tagToShow = tagList.find(
+						(storedTag) => storedTag.id === storedTagId,
+					)
+					return (
+						<Chip
+							key={tagToShow!.id}
+							chipSize="sm"
+							chipType="checkbox"
+							text={tagToShow!.name}
+							checked
+							disabled
+						/>
+					)
+				})}
 
 			{isEditable && (
 				<Chip

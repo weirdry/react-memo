@@ -22,6 +22,7 @@ enum WarningType {
 }
 
 export default function CreateTag() {
+	// const [isEditingExist, setIsEditingExist] = useState<boolean>(false)
 	const [isValidated, setIsValidated] = useState<boolean>(false)
 	const [warningType, setWarningType] = useState<WarningType>(WarningType.none)
 

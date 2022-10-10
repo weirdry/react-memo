@@ -32,7 +32,11 @@ export default function ViewTag() {
 		setIsEditable(!isEditable)
 
 	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>) => {
-		dispatch(setSelectedTag(e.target.value))
+		const newSelectedTag = tagList.find(
+			(storedTag) => storedTag.name === e.target.value,
+		)
+
+		dispatch(setSelectedTag(newSelectedTag!))
 		navigate('/')
 	}
 
@@ -75,7 +79,7 @@ export default function ViewTag() {
 							count={memoList.length}
 							isDefault
 							handleChange={handleSelectTag}
-							checked={selectedTag === ''}
+							checked={selectedTag.name === ''}
 						/>
 					)}
 					{tagList.map((storedTag, index) => (
@@ -84,7 +88,7 @@ export default function ViewTag() {
 							text={storedTag.name}
 							count={storedTag.count}
 							handleChange={isEditable ? handleEditTag : handleSelectTag}
-							checked={storedTag.name === selectedTag}
+							checked={storedTag.name === selectedTag.name}
 							isEditable={isEditable}
 						/>
 					))}
