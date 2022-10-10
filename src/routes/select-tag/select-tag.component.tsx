@@ -59,6 +59,7 @@ export default function SelectTag() {
 				}
 				rightSideChildren={<IconButton icon="confirm" type="submit" />}
 			/>
+
 			<div className="body-container">
 				<h2>등록할 태그를 선택해 주세요.</h2>
 

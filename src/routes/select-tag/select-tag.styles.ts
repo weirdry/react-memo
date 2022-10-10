@@ -14,12 +14,12 @@ export const SelectTagContainer = styled.form`
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		gap: 2.5rem;
+		gap: 1rem;
 
 		padding: 2rem 1rem 1rem 1rem;
 
 		h2 {
-			color: var(--colour-container-default-on-background-inactive);
+			color: var(--colour-container-default-on-background-active);
 
 			font-family: var(--typo-route-sectiontitle-font-family);
 			font-weight: var(--typo-route-sectiontitle-font-weight);
