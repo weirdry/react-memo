@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const ViewTagContainer = styled.div`
+type ViewTagContainerProps = {
+	isEditable: boolean
+}
+
+export const ViewTagContainer = styled.div<ViewTagContainerProps>`
 	width: 100%;
 
 	display: flex;
@@ -19,7 +23,10 @@ export const ViewTagContainer = styled.div`
 		padding: 2rem 1rem 1rem 1rem;
 
 		h2 {
-			color: var(--colour-container-default-on-background-active);
+			color: ${(props) =>
+				props.isEditable
+					? `var(--colour-container-default-on-background-inactive)`
+					: `var(--colour-container-default-on-background-active)`};
 
 			font-family: var(--typo-route-sectiontitle-font-family);
 			font-weight: var(--typo-route-sectiontitle-font-weight);

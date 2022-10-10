@@ -9,10 +9,11 @@ export type Memo = {
 	body: string
 	createdAt: string
 	isPinned: boolean
-	memoTag: Tag['name'][]
+	memoTag: Tag['id'][]
 }
 
 export type Tag = {
+	id: string
 	name: string
 	count: number
 }
@@ -48,7 +49,7 @@ export const initialState: MemoState = {
 		memoTag: [],
 	},
 	memoList: [],
-	tag: { name: '', count: 0 },
+	tag: { id: '', name: '', count: 0 },
 	tagList: [],
 	selectedTag: '',
 }
@@ -221,7 +222,8 @@ export const deleteMemo = (
 
 export const addTag = (dispatch: AppDispatch, getState: GetAppState) => {
 	const { tag, tagList } = selectMemoisedMemoList(getState())
-	const newTagList = [...tagList, tag]
+	const tagId = uuidv4()
+	const newTagList = [...tagList, { ...tag, id: tagId }]
 
 	dispatch(setTagList(newTagList))
 }

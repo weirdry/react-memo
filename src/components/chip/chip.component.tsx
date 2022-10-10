@@ -16,7 +16,7 @@ type ChipProps = {
 	count?: number
 	checked?: boolean
 	disabled: boolean
-	deletable: boolean
+	isEditable: boolean
 	handleClick?: (e: MouseEvent<HTMLDivElement>) => void
 	handleChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
@@ -30,7 +30,7 @@ const selectChipSize = (chipSize: ChipSize): ElementType => {
 	}
 }
 
-export default function Chip(props: ChipProps) {
+const Chip = (props: ChipProps) => {
 	const {
 		isDefault,
 		chipSize,
@@ -40,29 +40,28 @@ export default function Chip(props: ChipProps) {
 		count,
 		checked,
 		disabled,
-		deletable,
+		isEditable,
 		handleClick,
 		handleChange,
 	} = props
 
 	const SelectedChip = selectChipSize(chipSize)
-	const CloseIcon = selectIcon('close')
+	const CloseIcon = selectIcon('edit')
 
 	return (
 		<SelectedChip disabled={disabled}>
-			{chipType !== 'button' && (
-				<input
-					type={chipType}
-					defaultChecked={checked}
-					name="tag"
-					value={isDefault ? '' : text}
-					onChange={handleChange}
-					disabled={disabled}
-				/>
-			)}
+			<input
+				type={chipType === 'button' ? '' : chipType}
+				defaultChecked={checked}
+				name="tag"
+				defaultValue={isDefault ? '' : text}
+				onChange={handleChange}
+				disabled={disabled}
+			/>
+
 			<ContentsContainer
 				onClick={
-					chipType === 'button' && handleClick !== undefined
+					(chipType === 'button' || isEditable) && handleClick !== undefined
 						? handleClick
 						: undefined
 				}
@@ -73,7 +72,7 @@ export default function Chip(props: ChipProps) {
 				</div>
 
 				{count !== undefined && <span className="count">{count}</span>}
-				{deletable && (
+				{isEditable && (
 					<div className="icon-container">
 						<CloseIcon />
 					</div>
@@ -90,5 +89,7 @@ Chip.defaultProps = {
 	symbol: '#',
 	text: '태그 이름',
 	disabled: false,
-	deletable: false,
+	isEditable: false,
 }
+
+export default Chip
