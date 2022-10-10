@@ -215,7 +215,11 @@ export const deleteMemo = (
 	getState: GetAppState,
 ): void => {
 	const { memo, memoList } = selectMemoisedMemoList(getState())
+
 	const newMemoList = memoList.filter((storedMemo) => storedMemo.id !== memo.id)
+	memo.memoTag.forEach((storedMemoTag) =>
+		dispatch(calcTagCount(storedMemoTag, -1)),
+	)
 
 	dispatch(setMemoList(newMemoList))
 }
