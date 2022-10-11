@@ -93,7 +93,7 @@ export default function CreateTag() {
 				setWarningType(WarningType.none)
 			}
 		} else {
-			setIsValidated(true)
+			setIsValidated(false)
 			setWarningType(WarningType.none)
 		}
 	}, [tag, tagList])
