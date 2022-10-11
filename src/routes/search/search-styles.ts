@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { InputContainer } from '../../components/input-tag/input-tag.styles'
+import { InputWrapper } from '../../components/input-search/input-search.styles'
 
 export const SearchContainer = styled.form`
 	width: 100%;
@@ -25,7 +25,7 @@ export const SearchContainer = styled.form`
 		display: flex;
 		justify-content: center;
 
-		${InputContainer} {
+		${InputWrapper} {
 			max-width: 25rem;
 		}
 	}
