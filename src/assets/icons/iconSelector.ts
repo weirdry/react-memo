@@ -16,6 +16,8 @@ import { ReactComponent as IconDelete } from './Icon-delete.svg'
 import { ReactComponent as IconPin } from './Icon-pin.svg'
 import { ReactComponent as IconMenu } from './Icon-menu.svg'
 import { ReactComponent as IconEdit } from './Icon-edit.svg'
+import { ReactComponent as IconSearch } from './Icon-search.svg'
+import { ReactComponent as IconClear } from './Icon-clear.svg'
 
 export type IconType =
 	| 'default'
@@ -34,6 +36,8 @@ export type IconType =
 	| 'pin'
 	| 'menu'
 	| 'edit'
+	| 'search'
+	| 'clear'
 
 const selectIcon = (iconType: IconType): FC => {
 	switch (iconType) {
@@ -69,6 +73,10 @@ const selectIcon = (iconType: IconType): FC => {
 			return IconMenu
 		case 'edit':
 			return IconEdit
+		case 'search':
+			return IconSearch
+		case 'clear':
+			return IconClear
 		default:
 			return IconDefault
 	}

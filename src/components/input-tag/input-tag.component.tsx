@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent } from 'react'
-import { InputTagContainer } from './input-tag.styles'
+import { InputContainer } from './input-tag.styles'
 
 type InputTagProps = {
 	placeholder: string
@@ -31,7 +31,7 @@ export default function InputTag(props: InputTagProps) {
 	}, [value])
 
 	return (
-		<InputTagContainer
+		<InputContainer
 			// type="text"
 			name="tagInput"
 			placeholder={placeholder}

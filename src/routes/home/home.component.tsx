@@ -1,4 +1,5 @@
 import { MouseEvent } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import { useAppSelector } from '../../store/hooks'
 
@@ -17,16 +18,20 @@ export default function Home() {
 		selectMemoisedMemoList,
 	)
 
-	const handleEdit = (e: MouseEvent<HTMLButtonElement>) => {}
+	const navigate = useNavigate()
+
+	const handleSearch = (e: MouseEvent<HTMLButtonElement>) => {
+		navigate('/search')
+	}
 
 	return (
 		<HomeContainer>
 			<ToolBar
 				title="MEMOWISE"
 				rightSideChildren={
-					<IconButton icon="setting" handleClick={handleEdit} />
+					<IconButton icon="search" handleClick={handleSearch} />
 				}
-			></ToolBar>
+			/>
 
 			<TagBar />
 
