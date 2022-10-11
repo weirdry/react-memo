@@ -22,17 +22,4 @@ export const HomeContainer = styled.div`
 
 		padding-bottom: 6rem;
 	}
-
-	.floating-container {
-		width: 100%;
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		gap: 2rem;
-
-		position: fixed;
-		bottom: 1.5rem;
-	}
 `
