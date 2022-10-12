@@ -25,14 +25,11 @@ export default function InputTag(props: InputTagProps) {
 	}
 
 	useEffect(() => {
-		if (value) {
-			setInputValue(value)
-		}
+		value && setInputValue(value)
 	}, [value])
 
 	return (
 		<InputContainer
-			// type="text"
 			name="tagInput"
 			placeholder={placeholder}
 			value={inputValue}

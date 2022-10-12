@@ -43,7 +43,7 @@ export default function ViewMemo() {
 	}
 
 	const handleBackwards = (e: MouseEvent<HTMLButtonElement>): void =>
-		navigate('/')
+		navigate(-1)
 
 	const handleChange = (e: ChangeEvent<HTMLTextAreaElement>): void => {
 		dispatch(setMemo({ ...memo, [e.target.name]: e.target.value }))

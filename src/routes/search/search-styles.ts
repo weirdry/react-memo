@@ -13,17 +13,17 @@ export const SearchContainer = styled.form`
 	.body-container {
 		width: 100%;
 		display: flex;
+		flex-direction: column;
 		align-items: flex-start;
-		/* flex-direction: column; */
 		gap: 0.5rem;
-
-		padding: 2rem 1rem 1rem 1rem;
 	}
 
 	.input-container {
 		width: 100%;
 		display: flex;
 		justify-content: center;
+
+		padding: 2rem 1rem 1rem 1rem;
 
 		${InputWrapper} {
 			max-width: 25rem;

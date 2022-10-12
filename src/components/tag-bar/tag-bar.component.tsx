@@ -7,6 +7,7 @@ import {
 	resetTag,
 	setSelectedTag,
 	resetSelectedTag,
+	Tag,
 } from '../../store/memo/memoSlice'
 
 import IconButton from '../icon-button/icon-button.component'
@@ -34,13 +35,12 @@ export default function TagBar() {
 		dispatch(resetSelectedTag())
 	}
 
-	const handleSelectTag = (e: ChangeEvent<HTMLInputElement>): void => {
-		const newSelectedTag = tagList.find(
-			(storedTag) => storedTag.name === e.target.value,
-		)
-
-		dispatch(setSelectedTag(newSelectedTag!))
-	}
+	const handleSelectTag =
+		(storedTag: Tag) =>
+		(e: ChangeEvent<HTMLInputElement>): void => {
+			dispatch(setSelectedTag(storedTag))
+			navigate('/')
+		}
 
 	return (
 		<TagBarContainer>
@@ -66,7 +66,7 @@ export default function TagBar() {
 						chipType="radio"
 						text={storedTag.name}
 						count={storedTag.count}
-						handleChange={handleSelectTag}
+						handleChange={handleSelectTag(storedTag)}
 						checked={storedTag.id === selectedTag.id}
 					/>
 				))}

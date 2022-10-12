@@ -32,6 +32,7 @@ export type MemoState = {
 	tag: Tag
 	tagList: Tag[]
 	selectedTag: Tag
+	searchKeyword: string
 }
 
 export const initialState: MemoState = {
@@ -52,6 +53,7 @@ export const initialState: MemoState = {
 	tag: { id: '', name: '', count: 0 },
 	tagList: [],
 	selectedTag: { id: '', name: '', count: 0 },
+	searchKeyword: '',
 }
 
 export const memoSlice = createSlice({
@@ -94,6 +96,12 @@ export const memoSlice = createSlice({
 		resetSelectedTag: (state) => {
 			state.selectedTag = initialState.selectedTag
 		},
+		setSearchKeyword: (state, action: PayloadAction<string>) => {
+			state.searchKeyword = action.payload
+		},
+		resetSearchKeyword: (state) => {
+			state.searchKeyword = initialState.searchKeyword
+		},
 	},
 	extraReducers: (builder) => {},
 })
@@ -121,6 +129,8 @@ export const selectPinnedMemoList = (state: RootState) => {
 export const selectTag = (state: RootState) => state.memo.tag
 export const selectTagList = (state: RootState) => state.memo.tagList
 export const selectSelectedTag = (state: RootState) => state.memo.selectedTag
+export const selectSearchKeyword = (state: RootState) =>
+	state.memo.searchKeyword
 
 // State memoisation
 export const selectMemoisedMemoList = createSelector(
@@ -132,6 +142,7 @@ export const selectMemoisedMemoList = createSelector(
 	selectTag,
 	selectTagList,
 	selectSelectedTag,
+	selectSearchKeyword,
 	(
 		isModified,
 		memo,
@@ -141,6 +152,7 @@ export const selectMemoisedMemoList = createSelector(
 		tag,
 		tagList,
 		selectedTag,
+		searchKeyword,
 	) => ({
 		isModified,
 		memo,
@@ -150,6 +162,7 @@ export const selectMemoisedMemoList = createSelector(
 		tag,
 		tagList,
 		selectedTag,
+		searchKeyword,
 	}),
 )
 
@@ -167,6 +180,8 @@ export const {
 	resetTagList,
 	setSelectedTag,
 	resetSelectedTag,
+	setSearchKeyword,
+	resetSearchKeyword,
 } = memoSlice.actions
 
 export const addMemo = (dispatch: AppDispatch, getState: GetAppState): void => {
