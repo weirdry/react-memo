@@ -46,12 +46,20 @@ export default function SearchResults() {
 			const newTagSearchResult = tagList.filter(
 				(storedTag) => storedTag.name.includes(searchKeyword) && storedTag,
 			)
-			const newMemoSearchResult = memoList.filter(
-				(storedMemo) =>
+			const newMemoSearchResult = memoList.filter((storedMemo) => {
+				const tagToSearch = tagList.find(
+					(storedTag) => storedTag.name.includes(searchKeyword) && storedTag,
+				)
+
+				return (
 					(storedMemo.title.includes(searchKeyword) ||
-						storedMemo.body.includes(searchKeyword)) &&
-					storedMemo,
-			)
+						storedMemo.body.includes(searchKeyword) ||
+						storedMemo.memoTag.find(
+							(storedTag) => storedTag === tagToSearch?.id,
+						)) &&
+					storedMemo
+				)
+			})
 			setSearchResult({ tag: newTagSearchResult, memo: newMemoSearchResult })
 		}
 	}, [searchKeyword, tagList, memoList])
